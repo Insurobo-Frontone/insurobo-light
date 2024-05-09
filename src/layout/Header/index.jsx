@@ -1,56 +1,69 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../../assets/img/common/mainLogo.jpg";
 import ContentInner from "../ContentInner";
 
 const Header = () => {
   const navigate = useNavigate();
-  const menuData = [
-    {
-      id: 1,
-      link: '/',
-      title: '금융'
-    },
-    {
-      id: 2,
-      link: '/',
-      title: '혜택'
-    },
-    {
-      id: 3,
-      link: '/',
-      title: '고객지원'
-    },
-    {
-      id: 4,
-      link: '/',
-      title: '회사소개'
-    },
-  ];
 
   function goHome() {
     navigate('/');
   }
-
+  function goPage(link) {
+    navigate(link);
+  }
   return (
     <Wrap>
       <ContentInner>
         <Logo onClick={() => goHome()} />
         <Gnb>
           <Menu>
-            {menuData.map((dt) => (
-              <li key={dt.id}>
-                <Link to={dt.link}>{dt.title}</Link>
-              </li>
-            ))}
+            <li onClick={() => goPage('/')}>
+                금융
+                <ul>
+                  <li>
+                    인슈로보 보험 전체보기
+                  </li>
+                  <li>소상공인 전용대출</li>
+                  <li>소상공인 전용카드</li>
+                  <li>광주은행 WA뱅크 스텔스통장</li>
+                </ul>
+            </li>
+            <li onClick={() => goPage('/')}>
+                혜택
+                <ul>
+                  <li>소상공인 지원사업</li>
+                  <li>소상공인 세금환급</li>
+                  <li>시민안전보험</li>
+                  <li>이벤트</li>
+                </ul>
+            </li>
+            <li onClick={() => goPage('/')}>
+                고객지원
+                <ul>
+                  <li>공지사항</li>
+                  <li>자주묻는질문</li>
+                  <li>상담신청</li>
+                  <li>모바일 서비스안내</li>
+                </ul>
+            </li>
+            <li onClick={() => goPage('/')}>
+                회사소개
+                <ul>
+                  <li>소개</li>
+                  <li>인재상</li>
+                  <li>인사제도</li>
+                  <li>채용공고</li>
+                </ul>
+            </li>
           </Menu>
           <User>
-            <li>
-              <Link to=''>로그인</Link>
+            <li onClick={() => goPage('/')}>
+              로그인
             </li>
-            <li>
-              <Link to=''>회원가입</Link>
+            <li onClick={() => goPage('/')}>
+              회원가입
             </li>
           </User>
         </Gnb>
@@ -62,7 +75,7 @@ const Header = () => {
 export default Header;
 
 const Wrap = styled.div`
-  padding: 25px 0 23px;
+
   border-bottom: 1px solid #F0F0F0;
   div, ul {
     display: flex;
@@ -73,12 +86,12 @@ const Gnb = styled.div`
   justify-content: space-between;
   > ul {
     > li {
-      > a {
-        display: block;
-        padding: 10px 30px;
-        color: #2D2D2D;
-        font-size: 18px;
-      }
+      display: flex;
+      align-items: center;
+      color: #2D2D2D;
+      height: 94px;
+      padding: 0 33px;
+      box-sizing: border-box;
     }
     
   }
@@ -91,26 +104,45 @@ const Logo = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
+  align-self: center;
 `;
 
 const Menu = styled.ul`
   > li {
-    position: relative;
+    > ul {
+      position: absolute;
+      top: 98px;
+      transform: translateX(-33px);
+      background-color: #FFFFFF;
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.07);
+      display: none;
+      flex-direction: column;
+      z-index: 999;
+      overflow: hidden;
+      > li {
+        width: 100%;
+        font-weight: 400;
+        color: #545454;
+        padding: 8px 20px;
+        font-size: 16px;
+      }
+    }
+  }
+  > li:last-child > ul {
+    width: 127px;
+    box-sizing: border-box;
   }
   > li:hover {
-    ::after {
-      content: '';
+    font-weight: 700;
+    color: #58A7E3;
+    border-bottom: 1px solid #58A7E3;
+    > ul {
       display: block;
-      position: absolute;
-      bottom: -22px;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background-color: #58A7E3;
-    }
-    > a {
-      font-weight: 700;
-      color: #58A7E3;
+      > li:hover {
+        background-color: #58A7E3;
+        color: #FFFFFF;
+      }
     }
   }
 `;

@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from "react";
+import React, { useCallback, useRef } from "react";
 import styled from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -12,11 +12,12 @@ const SlickSlider = ({
   settings, 
   player,
   totalSlides,
+  currentSlide,
   width, 
   height 
 }) => {
-  const [currentSlide] = useState(0);
   const sliderRef = useRef(null);
+
   const pause = () => {
     sliderRef.current.slickPause();
   };
@@ -35,10 +36,10 @@ const SlickSlider = ({
       </StyledSlider>
       {player && (
         <SliderPlayerGroup> 
-          <PrevArrow onClick={previous}/>
+          <button className='prev' onClick={previous} />
           <Paging currentSlide={currentSlide} totalSlides={totalSlides} />
-          <NextArrow onClick={next} />
-          <PauseButton onClick={pause} />
+          <button className='next' onClick={next} />
+          <button className='pause' onClick={pause} />
         </SliderPlayerGroup>
       )}
     </Wrap>
@@ -60,63 +61,44 @@ const StyledSlider = styled(Slider)`
 
 //재생버튼은 px로 고정해야함
 const SliderPlayerGroup = styled.div`
-  width: 156px;
-  height: 44px;
   position: absolute;
   bottom: 20px;
   left: 20px;
-  padding: 11px 19px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  > button {
+    display: block;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(0, 0, 0, 0.30);
+    border-radius: 6px;
+    margin-right: 12px;
+    background-image: url(${play});
+    background-repeat: no-repeat;
+    background-position: calc(50% - 3px);
+    &.next {
+      transform: rotate(-180deg);
+    }
+    &.pause {
+      background-image: url(${pause});
+      background-position: center;
+    }
+  }
 `;
 
-const PauseButton = styled.button`
-  width: 12px;
-  height: 22px;
-  background-image: url(${pause});
-  background-repeat: no-repeat;
-  background-size: contain;
-  ${(props) => props.theme.window.mobile} {
-    width: 10px;
-    height: 15px;
-  } 
-`;
-const NextArrow = styled.div`
-  width: 36px;
-  height: 36px;
-  background-image: url(${play});
-  background-repeat: no-repeat;
-  background-size: 16px;
-  background-position: center;
-  transform: rotate(-180deg);
-  cursor: pointer;
-  border-radius: 6px;
-  background-color: rgba(0, 0, 0, 0.30);
-
-
-`;
-
-const PrevArrow = styled.div`
-  width: 36px;
-  height: 36px;
-  background-image: url(${play});
-  background-repeat: no-repeat;
-  background-size: 16px;
-  background-position: center;
-  cursor: pointer;
-`;
 
 const Paging = ({ currentSlide, totalSlides }) => {
   return (
-    <Page>{`${currentSlide + 1} / ${totalSlides}`}</Page>
+    <Page>{currentSlide + 1} / {totalSlides}</Page>
   )
 }
 
 const Page = styled.h2`
-  font-size: 15px;
-  line-height: 22px;
-  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
   color: #FFFFFF;
-  letter-spacing: -1.1px;
+  font-family: 'SCoreDream';
+  margin-right: 12px;
 `;

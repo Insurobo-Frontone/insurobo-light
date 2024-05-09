@@ -1,15 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
-
-const ContentInnerWrap = styled.div`
-
-  width: 1160px;
-  margin: 0 auto;
-  ${(props) => props.theme.window.mobile} {
-
-  } 
-`;
-
+import styled from "styled-components";
 
 const ContentInner = ({ children }) => {
   return (
@@ -20,3 +10,11 @@ const ContentInner = ({ children }) => {
 }
 
 export default ContentInner;
+
+const ContentInnerWrap = styled.div`
+  width: 1160px;
+  margin: 0 auto;
+  ${(props) => props.theme.window.mobile} {
+
+  } 
+`;

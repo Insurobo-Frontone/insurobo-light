@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
@@ -7,7 +7,7 @@ import oneday from "../../assets/img/main/mainSlideBanner_oneDay.png";
 import travel from "../../assets/img/main/mainSlideBanner_travel.jpg";
 
 const MainSlider = () => {
-  
+  const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate();
   const settings = {
     speed: 1000,
@@ -18,6 +18,7 @@ const MainSlider = () => {
     infinite: true,
     autoplaySpeed: 3000,
     pauseOnHover: false,
+    beforeChange: (slide, newSlide) => setCurrentSlide(newSlide)
   }
   
   const data = [
@@ -37,6 +38,7 @@ const MainSlider = () => {
       width='655px'
       height='365px'
       settings={settings}
+      currentSlide={currentSlide}
       totalSlides={data.length}
       player
     >

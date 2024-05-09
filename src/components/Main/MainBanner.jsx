@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import ContentInner from "../layout/ContentInner";
-import MainSlider from "./Slider/MainSlider";
+import ContentInner from "../../layout/ContentInner";
+import MainSlider from "../Slider/MainSlider";
 
-import loan from "../assets/img/main/mainProduct_loan.jpg";
-import info from "../assets/img/main/mainProduct_info.jpg";
-import calc from "../assets/img/main/mainProduct_calc.jpg";
+import loan from "../../assets/img/main/mainProduct_loan.jpg";
+import info from "../../assets/img/main/mainProduct_info.jpg";
+import calc from "../../assets/img/main/mainProduct_calc.jpg";
 
 const MainBanner = () => {
   return (
