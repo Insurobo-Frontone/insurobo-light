@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -14,7 +14,8 @@ const SlickSlider = ({
   totalSlides,
   currentSlide,
   width, 
-  height 
+  height,
+  noneStyle
 }) => {
   const sliderRef = useRef(null);
 
@@ -30,6 +31,7 @@ const SlickSlider = ({
         width={width}
         height={height}
         ref={sliderRef}
+        noneStyle={noneStyle}
         {...settings}
       >
         {children}
@@ -57,6 +59,10 @@ const StyledSlider = styled(Slider)`
   overflow: hidden;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.07);
   border-radius: 15px;
+  ${props => props.noneStyle && css`
+    box-shadow: none;
+    border-radius: none;
+  `}
 `;
 
 //재생버튼은 px로 고정해야함

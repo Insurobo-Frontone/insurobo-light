@@ -78,27 +78,33 @@ const ProductMiniSlider = () => {
   }
   
   return (
-    <Slider
-      width='100%'
-      height='54px'
-      settings={settings}
-    >
-      {product.map((dt) => (
-        <Product
-          key={dt.id}
-          onClick={() => navigate(dt.link)}
-        >
-          <div>
-            <img src={dt.icon} alt={dt.title} />
-            <p>{dt.title}</p>
-          </div>
-        </Product>
-      ))}
-    </Slider>
+    <Wrap>
+      <Slider
+        width='100%'
+        height='54px'
+        settings={settings}
+      >
+        {product.map((dt) => (
+          <Product
+            key={dt.id}
+            onClick={() => navigate(dt.link)}
+          >
+            <div>
+              <img src={dt.icon} alt={dt.title} />
+              <p>{dt.title}</p>
+            </div>
+          </Product>
+        ))}
+      </Slider>
+    </Wrap>
   )
 }
 
 export default ProductMiniSlider;
+
+const Wrap = styled.div`
+  padding-bottom: 50px;
+`;
 
 const Product = styled.div`
   margin-right: 20px;

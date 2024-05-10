@@ -7,27 +7,24 @@ import ContentInner from "../ContentInner";
 const Header = () => {
   const navigate = useNavigate();
 
-  function goHome() {
-    navigate('/');
-  }
   function goPage(link) {
     navigate(link);
   }
   return (
     <Wrap>
       <ContentInner>
-        <Logo onClick={() => goHome()} />
+        <Logo onClick={() => goPage('/')} />
         <Gnb>
           <Menu>
-            <li onClick={() => goPage('/')}>
+            <li onClick={() => goPage('/finance/smallbizLoan')}>
                 금융
                 <ul>
                   <li>
                     인슈로보 보험 전체보기
                   </li>
-                  <li>소상공인 전용대출</li>
-                  <li>소상공인 전용카드</li>
-                  <li>광주은행 WA뱅크 스텔스통장</li>
+                  <li onClick={() => goPage('/finance/smallbizLoan')}>소상공인 전용대출</li>
+                  <li onClick={() => goPage('/finance/smallbizCard')}>소상공인 전용카드</li>
+                  <li onClick={() => goPage('/finance/stealthBankbook')}>광주은행 WA뱅크 스텔스통장</li>
                 </ul>
             </li>
             <li onClick={() => goPage('/')}>

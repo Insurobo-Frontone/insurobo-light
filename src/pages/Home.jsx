@@ -8,6 +8,7 @@ import ButtonBanner from "../components/Main/ButtonBanner";
 import speaker from "../assets/icon/main/icon-mainButton_speaker.png";
 import ProductBanner from "../components/Main/ProductBanner";
 import InfoPlace from "../components/Main/InfoPlace";
+import MainInfo from "../components/Main/MainInfo";
 
 const Home = () => {
  
@@ -25,7 +26,9 @@ const Home = () => {
        <ProductBanner />
       </ContentInner>
       <InfoPlace />
-      
+      <ContentInner>
+        <MainInfo />
+      </ContentInner>
     </Layout>
   )
 }

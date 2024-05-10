@@ -8,7 +8,8 @@ const ButtonBanner = ({
   img, 
   LargeText,
   label,
-  bgImg
+  bgImg,
+  bgColor
 }) => {
   const navigate = useNavigate();
 
@@ -17,14 +18,14 @@ const ButtonBanner = ({
   }
 
   return (
-    <Wrap bgImg={bgImg} onClick={() => goPage('/')}>
+    <Wrap bgImg={bgImg} bgColor={bgColor} onClick={() => goPage('/')}>
       <div>
         <h2>{title}{label && <Label>{label}</Label>}</h2>
         <p>{text}</p>
       </div>
       <div>
-        {img && (<img src={img} alt="icon" />)}
-        {LargeText && (<p>{LargeText}</p>)}
+        {img && (<div className="img-box"><img src={img} alt="icon" /></div>)}
+        {LargeText && (<p className="large-txt">{LargeText}</p>)}
       </div>
       
     </Wrap>
@@ -33,15 +34,17 @@ const ButtonBanner = ({
 export default ButtonBanner;
 
 const Wrap = styled.div`
-  margin: 50px 0 80px;
+  margin: 0 0 80px;
   width: 100%;
   height: 147px;
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.07);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  background-color: ${props => props.bgColor};
+  
   ${props => props.bgImg && css`
     background-image: url(${props.bgImg});
     background-repeat: no-repeat;
@@ -53,9 +56,21 @@ const Wrap = styled.div`
       display: flex;
       align-items: center;
       padding-bottom: 6px;
+      color: ${props => props.bgColor === '#176FFF' ? '#FFFFFF' : ''};
     }
     > p {
       font-size: 18px;
+      color: ${props => props.bgColor === '#176FFF' ? '#FFFFFF' : ''};
+    }
+    .img-box {
+      width: 103px;
+      height: 103px;
+      padding: 16px 14px;
+    }
+    .large-txt {
+      font-size: 35px;
+      font-weight: 700;
+      color: ${props => props.bgColor === '#176FFF' ? '#FFFFFF' : ''};
     }
   }
 `;

@@ -22,6 +22,7 @@ const Wrap = styled.div`
     color: #393939;
     display: flex;
     align-items: center;
+    padding-bottom: 6px;
   }
   > p {
     font-size: 18px;

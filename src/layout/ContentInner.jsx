@@ -12,7 +12,7 @@ const ContentInner = ({ children }) => {
 export default ContentInner;
 
 const ContentInnerWrap = styled.div`
-  width: 1160px;
+  width: 1154px;
   margin: 0 auto;
   ${(props) => props.theme.window.mobile} {
 
