@@ -54,22 +54,31 @@ const Wrap = styled.div`
   ul {
     display: flex;
     align-items: center;
-    height: 44px;
+    
     > li {
       position: relative;
       padding-right: 30px;
       margin-right: 10px;
+      font-size: 14px;
+      color: #FFFFFF;
+      font-weight: 400;
+      height: 44px;
+      display: flex;
+      align-items: center;
       > img {
         width: 26px;
-        
+      }
+      > select {
+        background: none;
+        width: 213px;
+        font-weight: 300;
       }
     }
     > li::after {
       content: '';
-      display: block;
       position: absolute;
       right: 0;
-      top: 0;
+      top: 12px;
       width: 20px;
       height: 20px;
       background-image: url(${arrow});
@@ -77,8 +86,13 @@ const Wrap = styled.div`
       background-size: contain;
       background-position: center;
     }
+    > li:last-child {
+      padding-right: 0;
+      margin-right: 0;
+    }
     > li:last-child::after {
       content: none;
+
     }
   }
 `;
