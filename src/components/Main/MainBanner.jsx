@@ -52,6 +52,7 @@ const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-content: space-between;
+  font-family: 'Noto Sans KR', sans-serif;
 `;
 
 const MainProduct = styled.div`

@@ -27,7 +27,6 @@ const ButtonBanner = ({
         {img && (<div className="img-box"><img src={img} alt="icon" /></div>)}
         {LargeText && (<p className="large-txt">{LargeText}</p>)}
       </div>
-      
     </Wrap>
   )
 }
@@ -44,6 +43,7 @@ const Wrap = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: ${props => props.bgColor};
+  font-family: 'Noto Sans KR', sans-serif;
   
   ${props => props.bgImg && css`
     background-image: url(${props.bgImg});

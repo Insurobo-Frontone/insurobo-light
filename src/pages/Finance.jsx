@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useLocation } from "react-router-dom";
 import Layout from "../layout";
 import SubHeader from "../layout/Header/SubHeader";
-import { useLocation } from "react-router-dom";
-import { useFormContext } from "react-hook-form";
+import SmallbizLoan from "../components/Finamce/SmallbizLoan";
+import SmallbizCard from "../components/Finamce/SmallbizCard";
+import StealthBankbook from "../components/Finamce/StealthBankbook";
+
 const Finance = () => {
   const location = useLocation();
-  const { watch } = useFormContext();
-  useEffect(() => {
-    console.log(watch('finance'))
-  }, [])
+
   const data = [
     {
       id: 1,
@@ -29,7 +29,14 @@ const Finance = () => {
 
   return (
     <Layout>
-      <SubHeader data={data} name='finance' />
+      <SubHeader data={data} />
+      {location.pathname === `/finance/smallbizLoan` ? (
+        <SmallbizLoan /> 
+      ) : location.pathname === `/finance/smallbizCard` ? (
+        <SmallbizCard />
+      ) : location.pathname === `/finance/stealthBankbook` && (
+        <StealthBankbook />
+      )}
     </Layout>
   )
 }

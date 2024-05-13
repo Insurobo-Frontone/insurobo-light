@@ -29,7 +29,6 @@ const GlobalStyle = createGlobalStyle`
     /* scroll-behavior: smooth; */
     font-size: 16px;
   }
-
   a {
     text-decoration: none;
     color: inherit;
@@ -38,7 +37,6 @@ const GlobalStyle = createGlobalStyle`
     max-width: 100%;
   }
   h1, h2, h3, h4, h5, h6, th {
-    font-family: 'Noto Sans KR', sans-serif;
     color: #393939;
     font-weight: 700;
   } 
@@ -56,7 +54,7 @@ const GlobalStyle = createGlobalStyle`
   figure, figcaption, footer, header, hgroup, 
   menu, nav, output, ruby, section, summary,
   time, mark, audio, video, button {
-    font-family: 'Noto Sans KR', sans-serif;
+    
     font-weight: 300;
     color: #545454;
   }
@@ -97,6 +95,8 @@ const GlobalStyle = createGlobalStyle`
     -webkit-appearance: none;
     margin: 0;
   }
+
+  
 `;
 
 

@@ -6,7 +6,6 @@ import ContentInner from "../ContentInner";
 
 const Header = () => {
   const navigate = useNavigate();
-
   function goPage(link) {
     navigate(link);
   }
@@ -16,8 +15,8 @@ const Header = () => {
         <Logo onClick={() => goPage('/')} />
         <Gnb>
           <Menu>
-            <li onClick={() => goPage('/finance/smallbizLoan')}>
-                금융
+            <li>
+              금융
                 <ul>
                   <li>
                     인슈로보 보험 전체보기
@@ -27,8 +26,8 @@ const Header = () => {
                   <li onClick={() => goPage('/finance/stealthBankbook')}>광주은행 WA뱅크 스텔스통장</li>
                 </ul>
             </li>
-            <li onClick={() => goPage('/')}>
-                혜택
+            <li>
+              혜택
                 <ul>
                   <li>소상공인 지원사업</li>
                   <li>소상공인 세금환급</li>
@@ -36,7 +35,7 @@ const Header = () => {
                   <li>이벤트</li>
                 </ul>
             </li>
-            <li onClick={() => goPage('/')}>
+            <li>
                 고객지원
                 <ul>
                   <li>공지사항</li>
@@ -45,8 +44,8 @@ const Header = () => {
                   <li>모바일 서비스안내</li>
                 </ul>
             </li>
-            <li onClick={() => goPage('/')}>
-                회사소개
+            <li>
+              회사소개
                 <ul>
                   <li>소개</li>
                   <li>인재상</li>
@@ -72,10 +71,15 @@ const Header = () => {
 export default Header;
 
 const Wrap = styled.div`
-
+  font-family: 'Noto Sans KR', sans-serif;
   border-bottom: 1px solid #F0F0F0;
   div, ul {
     display: flex;
+    cursor: pointer;
+  }
+
+  ${(props) => props.theme.window.mobile} {
+
   }
 `;
 const Gnb = styled.div`
@@ -136,6 +140,7 @@ const Menu = styled.ul`
     border-bottom: 1px solid #58A7E3;
     > ul {
       display: block;
+      z-index: 99999;
       > li:hover {
         background-color: #58A7E3;
         color: #FFFFFF;

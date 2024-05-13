@@ -1,18 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useFormContext } from "react-hook-form";
 import ContentInner from "../ContentInner";
 import home from "../../assets/icon/common/icon-home.png";
 import arrow from "../../assets/icon/common/icon-arrow.png";
 
-const SubHeader = ({ data, name }) => {
+const SubHeader = ({ data }) => {
   const navigate = useNavigate();
   const location = useLocation();
-
-  const { register, watch } = useFormContext();
-  const handleChange = (e) => {
-    navigate(e.target.value);
+  const url = location.pathname;
+  const name =  url.split('/')[1];
+  
+  const goPage = (e) => {
+    navigate(e.target.value)
   }
   return (
     <Wrap>
@@ -28,19 +28,15 @@ const SubHeader = ({ data, name }) => {
             }
           </li>
           <li>
-            <select
-              {...register(name)}
-              onChange={handleChange}
+            <SubMenu
+              onChange={(e) => goPage(e)}
             >
               {data.map((dt) => (
-                <option
-                  selected={location.pathname === `/${name}/${watch(name)}`}
-                  value={dt.value}
-                >
+                <option key={dt.id} value={dt.value} selected={dt.value === url.split('/')[2]}>
                   {dt.title}
                 </option>
               ))}
-            </select>
+            </SubMenu>
           </li>
         </ul>
       </ContentInner>
@@ -50,6 +46,7 @@ const SubHeader = ({ data, name }) => {
 export default SubHeader;
 
 const Wrap = styled.div`
+  font-family: Arial, Helvetica, sans-serif;
   background-color: #2EA5FF;
   ul {
     display: flex;
@@ -68,11 +65,7 @@ const Wrap = styled.div`
       > img {
         width: 26px;
       }
-      > select {
-        background: none;
-        width: 213px;
-        font-weight: 300;
-      }
+ 
     }
     > li::after {
       content: '';
@@ -96,3 +89,15 @@ const Wrap = styled.div`
     }
   }
 `;
+
+
+const SubMenu = styled.select`
+  width: 213px;
+  font-weight: 400;
+  background: none;
+
+  option {
+    color: #000;
+  }
+`;
+

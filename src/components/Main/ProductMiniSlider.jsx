@@ -104,6 +104,7 @@ export default ProductMiniSlider;
 
 const Wrap = styled.div`
   padding-bottom: 50px;
+  font-family: 'Noto Sans KR', sans-serif;
 `;
 
 const Product = styled.div`

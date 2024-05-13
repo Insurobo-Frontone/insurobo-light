@@ -46,6 +46,7 @@ const ProductBanner = () => {
 export default ProductBanner;
 
 const Wrap = styled.div`
+  font-family: 'Noto Sans KR', sans-serif;
   > ul {
     display: flex;
     justify-content: space-between;
@@ -56,7 +57,7 @@ const Wrap = styled.div`
       justify-content: space-between;
       position: relative;
       width: 373px;
-      height: 326px;
+      height: 256px;
       padding: 24px;
       border-radius: 15px;
       overflow: hidden;
@@ -81,10 +82,11 @@ const Wrap = styled.div`
     }
     > li:first-child {
       background-image: url(${img1});
-     
+      background-position: 50% 0;
     }
     > li:nth-child(2) {
       background-image: url(${img2});
+      background-position: 50% 0;
 
     }
     > li:last-child {

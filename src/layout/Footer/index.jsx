@@ -35,6 +35,7 @@ export default Footer;
 const Wrap =  styled.div`
   padding: 30px 0;
   border-top: 1px solid #F0F0F0;
+  font-family: 'Noto Sans KR', sans-serif;
   div, li {
     font-size: 12px;
     font-weight: 400;

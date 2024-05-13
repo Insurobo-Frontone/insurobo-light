@@ -25,6 +25,7 @@ export default InfoPlace;
 const Wrap = styled.div`
   padding-top: 40px;
   background-color: #FCFCFC;
+  font-family: 'Noto Sans KR', sans-serif;
   .slick-slide {
     margin: 30px 10px;
   }

@@ -99,6 +99,7 @@ export default MainInfo;
 
 const Wrap = styled.div`
   padding: 80px 0;
+  font-family: 'Noto Sans KR', sans-serif;
   > div {
     display: flex;
     justify-content: space-between;
