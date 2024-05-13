@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 import Slider from ".";
 
 const InfoSlider = () => {
-  const navigate = useNavigate();
   const settings = {
     infinite: true,
     autoplay: true,
