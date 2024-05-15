@@ -82,7 +82,7 @@ const MainInfo = () => {
           </div>
           <div className="notice">
             {data.slice(0, 3).map((dt) => (
-              <div>
+              <div key={dt.id}>
                 <p>{dt.title}</p>
                 <span>{dt.date}</span>
               </div>

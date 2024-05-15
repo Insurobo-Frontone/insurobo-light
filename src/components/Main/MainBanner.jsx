@@ -10,7 +10,7 @@ import calc from "../../assets/img/main/mainProduct_calc.jpg";
 
 const MainBanner = () => {
   return (
-    <ContentInner>
+    <ContentInner noneStyle>
       <Wrap>
         <MainSlider />
         <MainProduct>
@@ -53,6 +53,9 @@ const Wrap = styled.div`
   justify-content: space-between;
   align-content: space-between;
   font-family: 'Noto Sans KR', sans-serif;
+  ${(props) => props.theme.window.mobile} {
+    display: block;
+  }
 `;
 
 const MainProduct = styled.div`
@@ -80,7 +83,6 @@ const MainProduct = styled.div`
     }
   }
   > div:first-child {
-    
     > a {
       width: 485px;
       height: 172px;
@@ -93,7 +95,6 @@ const MainProduct = styled.div`
     }
   }
   > div:last-child {
-    
     > a {
       width: 235px;
       height: 179px;
@@ -109,6 +110,12 @@ const MainProduct = styled.div`
   > div:last-child > a:last-child {
     background-image: url(${calc});
     background-position: calc(100% - -20px) calc(100% - -18px);
+  }
+
+  ${(props) => props.theme.window.mobile} {
+    > div {
+      padding: 0 24px;
+    }
   }
 `;
 

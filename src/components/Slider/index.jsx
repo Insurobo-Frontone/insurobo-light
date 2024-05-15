@@ -61,7 +61,7 @@ const StyledSlider = styled(Slider)`
   border-radius: 15px;
   ${props => props.noneStyle && css`
     box-shadow: none;
-    border-radius: none;
+    border-radius: 0;
   `}
 `;
 
