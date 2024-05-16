@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import logo from "../../assets/img/common/mainLogo.jpg";
+import styled, { css } from "styled-components";
 import ContentInner from "../ContentInner";
 
+import logo from "../../assets/img/common/mainLogo.jpg";
+import toggle from "../../assets/icon/common/icon-menuToggle.png";
+import useWindowSize from "../../hooks/useWindowSize";
+
 const Header = () => {
+  const { width } = useWindowSize();
+  const [open, setOpen] = useState(false);
+  const [currentTab, setCurrentTab] = useState(1);
   const navigate = useNavigate();
+
+
   function goPage(link) {
     navigate(link);
   }
@@ -13,29 +21,29 @@ const Header = () => {
     <Wrap>
       <ContentInner>
         <Logo onClick={() => goPage('/')} />
-        <Gnb>
-          <Menu>
-            <li>
-              금융
+        <Gnb open={open}>
+          <ToggleButton onClick={() => setOpen(true)} />
+          <div className="toggle-menu">
+            <Menu className={width > 768 ? 'hover-style' : ''}>
+              <li onClick={() => setCurrentTab(1)} className={currentTab === 1 ? 'active' : ''}>
+                금융
                 <ul>
-                  <li>
-                    인슈로보 보험 전체보기
-                  </li>
+                  <li>인슈로보 보험 전체보기</li>
                   <li onClick={() => goPage('/finance/smallbizLoan')}>소상공인 전용대출</li>
                   <li onClick={() => goPage('/finance/smallbizCard')}>소상공인 전용카드</li>
                   <li onClick={() => goPage('/finance/stealthBankbook')}>광주은행 WA뱅크 스텔스통장</li>
                 </ul>
-            </li>
-            <li>
-              혜택
+              </li>
+              <li onClick={() => setCurrentTab(2)} className={currentTab === 2 ? 'active' : ''}>
+                혜택
                 <ul>
                   <li>소상공인 지원사업</li>
                   <li>소상공인 세금환급</li>
                   <li>시민안전보험</li>
                   <li>이벤트</li>
                 </ul>
-            </li>
-            <li>
+              </li>
+              <li onClick={() => setCurrentTab(3)} className={currentTab === 3 ? 'active' : ''}>
                 고객지원
                 <ul>
                   <li>공지사항</li>
@@ -43,25 +51,26 @@ const Header = () => {
                   <li>상담신청</li>
                   <li>모바일 서비스안내</li>
                 </ul>
-            </li>
-            <li>
-              회사소개
-                <ul>
+              </li>
+              <li onClick={() => setCurrentTab(4)} className={currentTab === 4 ? 'active' : ''}>
+                회사소개
+                <ul className={currentTab === 4 ? 'active' : ''}>
                   <li>소개</li>
                   <li>인재상</li>
                   <li>인사제도</li>
                   <li>채용공고</li>
                 </ul>
-            </li>
-          </Menu>
-          <User>
-            <li onClick={() => goPage('/')}>
-              로그인
-            </li>
-            <li onClick={() => goPage('/')}>
-              회원가입
-            </li>
-          </User>
+              </li>
+            </Menu>
+            <User>
+              <li onClick={() => goPage('/')}>
+                로그인
+              </li>
+              <li onClick={() => goPage('/')}>
+                회원가입
+              </li>
+            </User>
+          </div>
         </Gnb>
       </ContentInner>
     </Wrap>
@@ -74,29 +83,21 @@ const Wrap = styled.div`
   font-family: 'Noto Sans KR', sans-serif;
   border-bottom: 1px solid #F0F0F0;
   div, ul {
-    display: flex;
     cursor: pointer;
+  }
+  > div {
+    display: flex;
   }
 
   ${(props) => props.theme.window.mobile} {
-
-  }
-`;
-const Gnb = styled.div`
-  width: 81.63793103448276%;
-  justify-content: space-between;
-  > ul {
-    > li {
-      display: flex;
-      align-items: center;
-      color: #2D2D2D;
-      height: 94px;
-      padding: 0 33px;
-      box-sizing: border-box;
+    border-bottom: none;
+    padding: 15px 0;
+    > div {
+      justify-content: space-between;
     }
-    
   }
 `;
+
 const Logo = styled.div`
   width: 209px;
   height: 46px;
@@ -106,9 +107,93 @@ const Logo = styled.div`
   background-position: center;
   cursor: pointer;
   align-self: center;
+
+  ${(props) => props.theme.window.mobile} {
+    width: 106px;
+    height: 23px;
+    background-size: contain;
+  }
+`;
+
+const Gnb = styled.div`
+  width: 81.63793103448276%;
+  .toggle-menu {
+    display: flex;
+    justify-content: space-between;
+    > ul {
+      display: flex;
+      > li {
+        display: flex;
+        align-items: center;
+        color: #2D2D2D;
+        height: 94px;
+        padding: 0 33px;
+        box-sizing: border-box;
+      }
+    }
+  }
+  ${(props) => props.theme.window.mobile} {
+    width: auto;
+    .toggle-menu {
+      display: none;
+    }
+    ${props => props.open && css`
+      position: relative;
+      .toggle-menu {
+        background-color: gray;
+        display: block;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 998;
+        top: 54px;
+        left: 0;
+        > ul {
+          display: block;
+          > li {
+            height: 40px;
+            
+          }
+        }
+      }
+    `}
+    
+  }
+`;
+
+const ToggleButton = styled.div`
+  width: 24px;
+  height: 24px;
+  background-image: url(${toggle});
+  background-repeat: no-repeat;
+  background-position: center;
+  display: none;
+  ${(props) => props.theme.window.mobile} {
+    display: block;
+  }
 `;
 
 const Menu = styled.ul`
+  &.hover-style {
+    > li {
+      > ul {
+        display: none;
+      }
+    }
+    > li:hover {
+      font-weight: 700;
+      color: #58A7E3;
+      border-bottom: 1px solid #58A7E3;
+      > ul {
+        display: block;
+        z-index: 999;
+        > li:hover {
+          background-color: #58A7E3;
+          color: #FFFFFF;
+        }
+      }
+    }
+  }
   > li {
     > ul {
       position: absolute;
@@ -117,7 +202,6 @@ const Menu = styled.ul`
       background-color: #FFFFFF;
       border-radius: 10px;
       box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.07);
-      display: none;
       flex-direction: column;
       z-index: 999;
       overflow: hidden;
@@ -129,24 +213,41 @@ const Menu = styled.ul`
         font-size: 16px;
       }
     }
+    
   }
   > li:last-child > ul {
     width: 127px;
     box-sizing: border-box;
   }
-  > li:hover {
-    font-weight: 700;
-    color: #58A7E3;
-    border-bottom: 1px solid #58A7E3;
-    > ul {
-      display: block;
-      z-index: 99999;
-      > li:hover {
-        background-color: #58A7E3;
-        color: #FFFFFF;
+ 
+  ${(props) => props.theme.window.mobile} {
+    > li {
+      > ul {
+        display: none;
+      }
+    }
+    > li:last-child > ul {
+      width: 65%;
+    }
+    > li {
+
+      
+    }
+    .active {
+      background-color: #FFFFFF;
+      > ul {
+        position: fixed;
+        display: block;
+        border-radius: 0;
+        transform: translateX(0);
+        top: 54px;  
+        right: 0;
+        height: 100%;
+        box-shadow: none;
       }
     }
   }
+
 `;
 
 const User = styled.ul`

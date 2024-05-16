@@ -27,6 +27,17 @@ const Wrap = styled.div`
   > p {
     font-size: 18px;
   }
+
+  ${(props) => props.theme.window.mobile} {
+    > h2 {
+      font-size: 16px;
+      padding-bottom: 3px;
+    }
+    > p {
+    font-size: 14px;
+    white-space: pre-wrap;
+    }
+  }
 `;
 
 const Label = styled.div`
@@ -40,6 +51,12 @@ const Label = styled.div`
   background-color: #176FFF;
   color: #FFFFFF;
   margin-left: 10px;
+  ${(props) => props.theme.window.mobile} {
+    width: 36px;
+    height: 24px;
+    font-size: 14px;
+    line-height: 24px;
+  }
 `;
 
 const ArrowIcon = styled.div`
@@ -49,6 +66,9 @@ const ArrowIcon = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   margin-left: 10px;
+  ${(props) => props.theme.window.mobile} {
+    margin-left: 6px;
+  }
 `;
 
 
