@@ -1,5 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
+import useWindowSize from "../../hooks/useWindowSize";
 import ButtonBanner from "./ButtonBanner";
 import appIcon from "../../assets/img/main/appIcon.jpg";
 import MainTitle from "./MainTitle";
@@ -8,7 +9,9 @@ import apply from "../../assets/img/main/mainInfo_apply.png";
 import qna from "../../assets/img/main/mainInfo_qna.png";
 import documents from "../../assets/img/main/mainInfo_documents.png";
 
+
 const MainInfo = () => {
+  const { width } = useWindowSize();
   const data = [
     {
       id: 4,
@@ -81,8 +84,8 @@ const MainInfo = () => {
             <button>더보기</button>
           </div>
           <div className="notice">
-            {data.slice(0, 3).map((dt) => (
-              <div>
+            {data.slice(0, width > 768 ? 3 : 4).map((dt) => (
+              <div key={dt.id}>
                 <p>{dt.title}</p>
                 <span>{dt.date}</span>
               </div>
@@ -90,7 +93,6 @@ const MainInfo = () => {
           </div>
         </div>
       </div>
-
     </Wrap>
   )
 }
@@ -105,10 +107,36 @@ const Wrap = styled.div`
     justify-content: space-between;
     > div {
       width: 570px;
-      > div:first-child {
-        padding: 30px 0;
+      .question-wrap {
+        padding-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        > div {
+          padding: 20px 0 10px;
+          width: 175px;
+          height: 163px;
+          border-radius: 15px;
+          box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.10);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          > h2 {
+            font-size: 18px;
+            font-weight: 400;
+            color: #000000;
+          }
+          > div {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
       }
       .notice_title-wrap {
+        padding-bottom: 30px;
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
@@ -153,34 +181,59 @@ const Wrap = styled.div`
           border-radius: 50%;
         }
       }
-      .question-wrap {
-        display: flex;
+      
+    }
+  }
+  ${props => props.theme.window.mobile} {
+    padding: 20px 0;
+    > div:first-child > div:first-child {
+      margin-bottom: 10px;
+    }
+    > div {
+      flex-direction: column;
+      > div {
+        width: 100%;
         justify-content: space-between;
-        > div {
-          padding: 20px 0 10px;
-          width: 175px;
-          height: 163px;
-          border-radius: 15px;
-          box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.10);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: space-between;
-          > h2 {
-            font-size: 18px;
-            font-weight: 400;
-            color: #000000;
-          }
+        .question-wrap {
+          padding: 26px 0 20px 0;
           > div {
-            width: 100px;
-            height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 31%;
+            height: 95px;
+            padding: 10px 0;
+            > h2 {
+              font-size: 12px;
+            }
+            > div {
+              width: 54px;
+              height: 54px;
+            }
+          }
+        }
+        .notice_title-wrap {
+          padding-bottom: 23px;
+          > button {
+            font-size: 14px;
+          }
+        }
+        .notice {
+          padding: 16px 15px;
+          border-radius: 10px;
+          height: 112px;
+          > div {
+            padding-bottom: 8px;
+            font-size: 10px;
+            > p {
+              width: 82%;
+            }
+          }
+          > div > p::before {
+            top: 6.6px;
+            width: 3px;
+            height: 3px;
           }
         }
       }
+      
     }
   }
-
 `;

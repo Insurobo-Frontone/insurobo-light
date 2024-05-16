@@ -1,31 +1,36 @@
 import React from "react";
 import styled from "styled-components";
+import useWindowSize from "../../hooks/useWindowSize";
 import Slider from ".";
 
 const InfoSlider = () => {
+  const { width } = useWindowSize();
   const settings = {
     infinite: true,
     autoplay: true,
     slidesToShow: 5,
     slidesToScroll: 1,
-
     speed: 3000,
     autoplaySpeed: 3000,
     pauseOnHover: false,
     arrows: false,
     cssEase: "linear",
-    // responsive: [
-    //   {
-    //     breakpoint: 767.98,
-    //     settings: {
-    //       vertical: true,
-    //       verticalSwiping: true,
-    //       autoplay: false,
-    //       slidesToShow: 2,
-    //       slidesToScroll: 2,
-    //     }
-    //   },
-    // ]
+    responsive: [
+      {
+        breakpoint: 767.98,
+        settings: {
+          vertical: true,
+          verticalSwiping: true,
+          autoplay: false,
+          speed: 500,
+          autoplaySpeed: 500,
+          slidesToShow: 2,
+          slidesToScroll: 2,
+
+
+        }
+      },
+    ]
   }
   const data = [
     {
@@ -128,26 +133,29 @@ const InfoSlider = () => {
   ]
   
   return (
-    <Slider
-      width='1920px'
-      height='264px'
-      settings={settings}
-      noneStyle
-    >
-      {data.map((dt) => (
-        <Card key={dt.id}>
-          <TitleWrap>
-            <h2>{dt.title}</h2>
-            <Label 
-              label={dt.id === 3 ? 'NEW' : 'HOT'}
-            >{dt.id === 3 ? 'NEW' : 'HOT'}</Label>
-          </TitleWrap>
-          <ContentWrap>
-            <div dangerouslySetInnerHTML={{__html: dt.content}}></div>
-          </ContentWrap>
-        </Card>
-      ))}
-    </Slider>
+    <>
+      <Slider
+        width={width > 768 ? '1920px' : '100%'}
+        height={width > 768 ? '264px' : '308px'}
+        settings={settings}
+        noneStyle
+        more={width > 768 ? false : true}
+      >
+        {data.map((dt) => (
+          <Card key={dt.id}>
+            <TitleWrap>
+              <h2>{dt.title}</h2>
+              <Label 
+                label={dt.id === 3 ? 'NEW' : 'HOT'}
+              >{dt.id === 3 ? 'NEW' : 'HOT'}</Label>
+            </TitleWrap>
+            <ContentWrap>
+              <div dangerouslySetInnerHTML={{__html: dt.content}}></div>
+            </ContentWrap>
+          </Card>
+        ))}
+      </Slider>
+    </>
   )
 }
 
@@ -162,6 +170,11 @@ const Card = styled.div`
   box-shadow: 4px 6px 10px 0px rgba(0, 0, 0, 0.10);
   background-color: #FFFFFF;
   margin-right: 20px;
+  ${(props) => props.theme.window.mobile} {
+    box-shadow: none;
+    border: 1px solid #B4B4B4;
+    height: 149px;
+  }
 `;
 
 const TitleWrap = styled.div`
@@ -178,6 +191,12 @@ const TitleWrap = styled.div`
     font-size: 18px;
     font-weight: 300;
   }
+  ${(props) => props.theme.window.mobile} {
+    > h2 {
+      font-size: 14px;
+      width: 73.7%;
+    }
+  }
 `;
 const Label = styled.div`
   width: 49px;
@@ -190,6 +209,12 @@ const Label = styled.div`
   line-height: 23px;
   color:  ${props => props.label === 'HOT' ? ` #FF4117` : `#0061FF`};
   background-color: ${props => props.label === 'HOT' ? ` rgba(255, 65, 23, 0.28)` : `rgba(0, 97, 255, 0.20)`};
+  ${(props) => props.theme.window.mobile} {
+    width: 40px;
+    height: 22px;
+    font-size: 12px;
+    line-height: 22px;
+  }
 `;
 const ContentWrap = styled.div`
   width: 343px;
@@ -206,4 +231,12 @@ const ContentWrap = styled.div`
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
   }
+  ${(props) => props.theme.window.mobile} {
+    > div {
+      width: 79%;
+      font-size: 12px;
+      height: 52px;
+    }
+  }
 `;
+

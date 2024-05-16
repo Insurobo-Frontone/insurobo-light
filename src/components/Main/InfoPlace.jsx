@@ -11,7 +11,7 @@ function InfoPlace() {
       <ContentInner>
         <MainTitle
           title='알아두면 좋은 소상공인 정보마당'
-          text='혜택이 쏟아지는 모든 정보를 한 눈에, 원하는 정보를 골라서!'
+          text={'혜택이 쏟아지는 모든 정보를 한 눈에, \n원하는 정보를 골라서!'}
           icon
         />
       </ContentInner>
@@ -31,6 +31,15 @@ const Wrap = styled.div`
   }
 
   ${props => props.theme.window.mobile} {
-  
+    padding: 20px 0;
+
+    .slick-slide {
+      margin: 0;
+      padding: 0 24px;
+    }
+    .slick-vertical {
+      margin: 20px 0;
+      
+    }
   }
 `;
