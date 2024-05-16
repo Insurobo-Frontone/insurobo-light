@@ -73,6 +73,35 @@ const Wrap = styled.div`
       color: ${props => props.bgColor === '#176FFF' ? '#FFFFFF' : ''};
     }
   }
+
+  ${(props) => props.theme.window.mobile} {
+    margin: 0 0 40px;
+    padding: 19px 16px 18px 16px;
+    height: 76px;
+    justify-content: flex-start;
+
+    ${props => props.bgImg && css`
+      background-position: 93% 50%;
+      background-size: 13%;
+    `}
+    > div {
+      > h2 {
+        font-size: 14px;
+        padding-bottom: 2px;
+      }
+      > p {
+        font-size: 12px;
+      }
+      .img-box {
+        width: 44px;
+        height: 44px;
+        padding: 4px 5px;
+      }
+      .large-txt {
+        font-size: 20px;
+      }
+    }
+  }
 `;
 
 const Label = styled.div`
@@ -86,4 +115,8 @@ const Label = styled.div`
   background-color: #FF4117;
   color: #FFFFFF;
   margin-left: 10px;
+
+  ${(props) => props.theme.window.mobile} {
+    display: none;
+  }
 `;

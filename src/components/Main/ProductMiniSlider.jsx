@@ -81,8 +81,9 @@ const ProductMiniSlider = () => {
     <Wrap>
       <Slider
         width='100%'
-        height='54px'
+        height='44px'
         settings={settings}
+        border
       >
         {product.map((dt) => (
           <Product
@@ -105,6 +106,9 @@ export default ProductMiniSlider;
 const Wrap = styled.div`
   padding-bottom: 50px;
   font-family: 'Noto Sans KR', sans-serif;
+  ${(props) => props.theme.window.mobile} {
+    padding-bottom: 14px;
+  }
 `;
 
 const Product = styled.div`
@@ -112,11 +116,23 @@ const Product = styled.div`
   > div {
     display: flex;
     align-items: center;
-    height: 54px;
+    height: 44px;
     > img {
       margin-right: 10px;
       width: 30px;
     }
 
+  }
+
+  ${(props) => props.theme.window.mobile} {
+    margin-right: 10px;
+    > div {
+      > img {
+        margin-right: 6px;
+      }
+      > p {
+        font-size: 14px;
+      }
+    }
   }
 `;

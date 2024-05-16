@@ -87,14 +87,43 @@ const Wrap = styled.div`
     > li:nth-child(2) {
       background-image: url(${img2});
       background-position: 50% 0;
-
     }
     > li:last-child {
       background-image: url(${img3});
       background-position: -98px 0;
-
     }
-  } 
+
+    
+  }
+  ${(props) => props.theme.window.mobile} {
+    > ul {
+      padding: 20px 0;
+      flex-direction: column;
+      > li {
+        width: 100%;
+        height: 132px;
+        margin-bottom: 10px;
+        > h2 {
+          font-size: 16px;
+        }
+        > p {
+          font-size: 24px;
+        }
+      }
+      > li:first-child {
+        background-position: 22% 15%;
+        background-size: 105%;
+      }
+      > li:nth-child(2) {
+        background-position: 20% 18%;
+        background-size: 110%;
+      }
+      > li:last-child {
+        background-position: 70% 65%;
+        background-size: 110%;
+      }
+    }
+  }
 `;
 
 const Overlay = styled.div`

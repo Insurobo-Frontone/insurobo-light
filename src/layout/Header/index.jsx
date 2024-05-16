@@ -25,34 +25,34 @@ const Header = () => {
           <ToggleButton onClick={() => setOpen(true)} />
           <div className="toggle-menu">
             <Menu className={width > 768 ? 'hover-style' : ''}>
-              <li onClick={() => setCurrentTab(1)}>
+              <li onClick={() => setCurrentTab(1)} className={currentTab === 1 ? 'active' : ''}>
                 금융
-                <ul className={currentTab === 1 ? 'active' : ''}>
+                <ul>
                   <li>인슈로보 보험 전체보기</li>
                   <li onClick={() => goPage('/finance/smallbizLoan')}>소상공인 전용대출</li>
                   <li onClick={() => goPage('/finance/smallbizCard')}>소상공인 전용카드</li>
                   <li onClick={() => goPage('/finance/stealthBankbook')}>광주은행 WA뱅크 스텔스통장</li>
                 </ul>
               </li>
-              <li onClick={() => setCurrentTab(2)}>
+              <li onClick={() => setCurrentTab(2)} className={currentTab === 2 ? 'active' : ''}>
                 혜택
-                <ul className={currentTab === 2 ? 'active' : ''}>
+                <ul>
                   <li>소상공인 지원사업</li>
                   <li>소상공인 세금환급</li>
                   <li>시민안전보험</li>
                   <li>이벤트</li>
                 </ul>
               </li>
-              <li onClick={() => setCurrentTab(3)}>
+              <li onClick={() => setCurrentTab(3)} className={currentTab === 3 ? 'active' : ''}>
                 고객지원
-                <ul className={currentTab === 3 ? 'active' : ''}>
+                <ul>
                   <li>공지사항</li>
                   <li>자주묻는질문</li>
                   <li>상담신청</li>
                   <li>모바일 서비스안내</li>
                 </ul>
               </li>
-              <li onClick={() => setCurrentTab(4)}>
+              <li onClick={() => setCurrentTab(4)} className={currentTab === 4 ? 'active' : ''}>
                 회사소개
                 <ul className={currentTab === 4 ? 'active' : ''}>
                   <li>소개</li>
@@ -230,7 +230,12 @@ const Menu = styled.ul`
       width: 65%;
     }
     > li {
-      .active {
+
+      
+    }
+    .active {
+      background-color: #FFFFFF;
+      > ul {
         position: fixed;
         display: block;
         border-radius: 0;
@@ -241,7 +246,6 @@ const Menu = styled.ul`
         box-shadow: none;
       }
     }
-    
   }
 
 `;

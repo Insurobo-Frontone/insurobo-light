@@ -15,13 +15,9 @@ const Footer = () => {
         <ul>
           <li>(주)인슈로보 서울특별시 강남구 논현로 75길 10, 영창빌딩 4층</li>
           <li>사업자등록번호 690-87-01268</li>
-          <li>대표자:서 민 대표번호: 070-4126-3333 메일:info@insurobo.com</li>
+          <li>대표자:서 민 대표번호: 070-4126-3333</li>
+          <li>메일:info@insurobo.com</li>
         </ul>
-        <div>
-          ㈜인슈로보(이하 ‘회사’라 한다.)는 인슈로보 앱 서비스(이하 ‘서비스’라 한다.)를 제공함에 있어 정보통신망 이용촉진 및 정보보호 등에 관한 법률(이하 “정보통신망법”이라 한다.), 개인정보보호법, 인용정보 이용 및 보호에 관한<br />
-          법률 등 개인정보 보호 법령을 철저히 준수하면 관련 법규에 의거한 개인정보취급방침을 다음과 같이 두고 있습니다. 회사는 개인정보취급방침을 개정하는 경우 회사가 운영하는 사이트(이하 “사이트”라 한다.) 혹은 서비스의 공지사항<br />
-          (또는 개별공지)를 통해 공지할 것입니다. 
-        </div>
         <CopyRight>
           <Logo />
           <p>⒞ INSUROBO All Rights Reserved.</p>
@@ -41,8 +37,10 @@ const Wrap =  styled.div`
     font-weight: 400;
     color: #2D2D2D;
   }
-  ul {
-    padding-bottom: 20px;
+
+  ${props => props.theme.window.mobile} {
+    padding: 20px 0 40px;
+    
   }
 `;
 
@@ -55,21 +53,28 @@ const Fnb = styled.ul`
     margin-right: 30px;
     cursor: pointer;
   }
+  > li:last-child {
+      margin-right: 0;
+  }
 `;
 
 const Logo = styled.div`
   width: 170px;
-  height: 51px;
+  height: 35px;
   background-image: url(${logo});
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  ${props => props.theme.window.mobile} {
+    width: 99.27px;
+    height: 20.87px;
+  }
 `;
 
 const CopyRight = styled.div`
   display: flex;
   align-items: center;
-  padding: 40px 0 30px;
+  padding-top: 30px;
   > div {
     margin-right: 20px;
   }
@@ -77,5 +82,14 @@ const CopyRight = styled.div`
     font-size: 14px;
     font-weight: 400;
     color: #2D2D2D;
+  }
+  ${props => props.theme.window.mobile} {
+    padding-top: 20px;
+    > div {
+      margin-right: 9px;
+    }
+    > p {
+      font-size: 12px;
+    }
   }
 `;
