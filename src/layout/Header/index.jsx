@@ -51,10 +51,10 @@ const Header = () => {
               <li onClick={() => setCurrentTab(2)} className={currentTab === 2 ? 'active' : ''}>
                 혜택
                 <ul>
-                  <li>소상공인 지원사업</li>
-                  <li>소상공인 세금환급</li>
-                  <li>시민안전보험</li>
-                  <li>이벤트</li>
+                  <li onClick={() => goPage('/benefits/smallbizSupportList')}>소상공인 지원사업</li>
+                  <li onClick={() => goPage('/benefits/smallbizTaxRebate')}>소상공인 세금환급</li>
+                  <li onClick={() => goPage('/benefits/civilSafety')}>시민안전보험</li>
+                  <li onClick={() => goPage('/benefits/eventList')}>이벤트</li>
                 </ul>
               </li>
               <li onClick={() => setCurrentTab(3)} className={currentTab === 3 ? 'active' : ''}>
@@ -248,9 +248,11 @@ const Menu = styled.ul`
     }
   }
   > li {
+    position: relative;
     > ul {
-      position: absolute;
-      top: 98px;
+      width: 162px;
+      position: absolute; 
+      top: 96px;
       transform: translateX(-33px);
       background-color: #FFFFFF;
       border-radius: 10px;
@@ -262,17 +264,18 @@ const Menu = styled.ul`
         width: 100%;
         font-weight: 400;
         color: #545454;
-        padding: 8px 20px;
+        padding: 8px 0 8px 20px;
         font-size: 16px;
       }
     }
-    
+  }
+  > li:first-child > ul {
+    width: 233px;
+    box-sizing: border-box;
   }
   > li:last-child > ul {
     width: 127px;
-    box-sizing: border-box;
   }
- 
   ${(props) => props.theme.window.mobile} {
     > li {
       > ul {

@@ -5,6 +5,8 @@ import theme from './style/theme';
 import GlobalStyle from "./style/GlobalStyle";
 import Home from "./pages/Home";
 import Finance from "./pages/Finance";
+import NoMatch from "./pages/NoMatch";
+import Benefits from "./pages/Benefits";
 
 function App() {
   const methods = useForm({
@@ -25,9 +27,14 @@ function App() {
               <Route path="smallbizCard" element={<Finance />} />
               <Route path="stealthBankbook" element={<Finance />} />
             </Route>
-            
-
-            {/* <Route path="*" element={<NoMatch />} /> */}
+            <Route path="benefits" element={<Benefits />}>
+              <Route path="smallbizSupportList" element={<Benefits />} />
+              <Route path="smallbizSupportDetail" element={<Benefits />} />
+              <Route path="smallbizTaxRebate" element={<Benefits />} />
+              <Route path="civilSafety" element={<Benefits />} />
+              <Route path="eventList" element={<Benefits />} />
+            </Route>
+            <Route path="*" element={<NoMatch />} />
           </Routes>
         </Router>
       </FormProvider>
