@@ -20,6 +20,9 @@ const Header = () => {
   }, [location.pathname]);
 
   function goPage(link) {
+    if (width < 768) {
+      setOpen(false);
+    } 
     navigate(link);
   }
 
