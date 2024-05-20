@@ -16,6 +16,9 @@ const Header = () => {
   const navigate = useNavigate();
 
   function goPage(link) {
+    if (width < 768) {
+      setOpen(false);
+    } 
     navigate(link);
   }
 
@@ -35,7 +38,7 @@ const Header = () => {
               <li onClick={() => setCurrentTab(1)} className={currentTab === 1 ? 'active' : ''}>
                 금융
                 <ul>
-                  <li>인슈로보 보험 전체보기</li>
+                  <li onClick={() => goPage('/')}>인슈로보 보험 전체보기</li>
                   <li onClick={() => goPage('/finance/smallbizLoan')}>소상공인 전용대출</li>
                   <li onClick={() => goPage('/finance/smallbizCard')}>소상공인 전용카드</li>
                   <li onClick={() => goPage('/finance/stealthBankbook')}>광주은행 WA뱅크 스텔스통장</li>
