@@ -63,7 +63,22 @@ const Wrap = styled.div`
     color: #495057;
     margin-bottom: 1.6rem;
   }
+  ${props => props.theme.window.tab} {
+    background-position: top right;
+    background-size: 70px auto;
+    padding-top: 20px;
+    margin-top: -20px;
+    > p {
+      font-size: 14px;
+      line-height: 1.433;
+      margin-bottom: 6px
+    }
+  }
 
+  ${props => props.theme.window.mobile} {
+    padding: 20px 20px 20px 20px;
+    background-position: calc(100% - 20px) 0;
+  }
 `;
 
 const Highlight = styled.span`
@@ -84,6 +99,14 @@ const Highlight = styled.span`
     width: 100%;
     height: 10px;
     background-color: rgba(46, 165, 255, 0.3);
+  }
+  ${props => props.theme.window.tab} {
+    font-size: 22px;
+    line-height: 1.36;
+    ::after {
+      bottom: 0;
+      height: 7px;
+    }
   }
 `;
 
@@ -123,6 +146,27 @@ const ListContent = styled.ul`
       color: #2ea5ff;
     }
   }
+  ${props => props.theme.window.tab} {
+    width: 284px;
+    margin: 30px auto 40px;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    > li {
+      width: 132px;
+      height: 132px;
+      border-width: 8px;
+      margin-left: 0;
+      margin-top: 10px;
+      padding-bottom: 8px;
+      > p:first-child {
+        font-size: 18px;
+      }
+      > p:last-child {
+        font-size: 14px;
+        bottom: 17px;
+      }
+    }
+  }
 `;
 
 const ButtonWrap = styled.div`
@@ -136,5 +180,14 @@ const ButtonWrap = styled.div`
     font-size: 20px;
     color: #212529;
     font-weight: 400;
+  }
+
+  ${props => props.theme.window.mobile} {
+    width: 100%;
+    padding: 20px;
+    > p {
+      font-size: 16px;
+      line-height: 1.38;
+    }
   }
 `;

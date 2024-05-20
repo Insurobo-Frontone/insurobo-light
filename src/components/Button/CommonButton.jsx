@@ -20,5 +20,11 @@ const ButtonStyle = styled.button`
   background-color: #2ea5ff;
   font-weight: 700;
   font-family: Arial, Helvetica, sans-serif;
+  ${props => props.theme.window.mobile} {
+    min-width: 100%;
+    height: 48px;
+    font-size: 16px;
+    margin-top: 16px;
+  }
 `;
 

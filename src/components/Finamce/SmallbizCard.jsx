@@ -76,6 +76,12 @@ const Wrap = styled.div`
   padding: 40px;
   font-family: "Pretendard Variable";
   background-color: #f8f9fa;
+  ${props => props.theme.window.tab} {
+    padding: 20px 0;
+  }
+  ${props => props.theme.window.mobile} {
+    padding: 20px;
+  }
 `;
 
 const ContentInner = styled.div`
@@ -88,6 +94,20 @@ const ContentInner = styled.div`
     color: #adb5bd;
     font-weight: 400;
   }
+  ${props => props.theme.window.tab} {
+    width: 100%;
+    > p {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  }
+  ${props => props.theme.window.mobile} {
+    padding: 20px 0;
+    > p {
+      font-size: 14px;
+    }
+  }
+   
 `;
 
 const JehuTitle = styled.div`
@@ -98,11 +118,19 @@ const JehuTitle = styled.div`
   background-position: center;
   background-image: url(${title});
   background-repeat: no-repeat;
+  ${props => props.theme.window.tab} {
+    height: 31px;
+    margin-bottom: 20px;
+  }
+  
 `;
 
 const BoxWrap = styled.div`
   display: flex;
   justify-content: space-between;
+  ${props => props.theme.window.tab} {
+    flex-flow: row wrap;
+  }
 `;
 
 const ShadowBox = styled.div`
@@ -132,6 +160,8 @@ const ShadowBox = styled.div`
     > dd {
       color: #212529;
       font-size: 18px;
+      font-weight: 400;
+      line-height: 1.38
     }
     > dt {
       position: absolute;
@@ -152,10 +182,58 @@ const ShadowBox = styled.div`
     > p {
       color: #212529;
       font-size: 18px;
+      margin-top: 6px;
+      font-weight: 400;
       > strong {
         font-weight: 700;
         color: #384cff;
       }
+    }
+    > p:first-child {
+      margin-top: 0;
+    }
+  }
+  ${props => props.theme.window.tab} {
+    &:last-child {
+      margin-top: 20px;
+    }
+    width: 100%;
+    padding: 20px;
+    > p {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    > img {
+      width: 200px;
+      height: 126px;
+    }
+    > dl {
+      width: 175px;
+      padding-left: 53px;
+      margin: 16px auto;
+      > dd {
+        font-size: 16px;
+      }
+      > dt {
+        font-size: 16px;
+      }
+    }
+    .card-detail {
+      padding: 16px 0;
+      > p {
+        margin-top: 4px;
+        font-size: 16px;
+      }
+    }
+    > div {
+      > button {
+        margin-top: 0;
+      }
+    }
+  }
+  ${props => props.theme.window.mobile} {
+    > div {
+      width: 100%;
     }
   }
 `;

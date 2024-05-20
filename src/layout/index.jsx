@@ -24,6 +24,9 @@ const Wrap = styled.div`
   width: 100%;
   margin: 0 auto;
 
+  ${props => props.theme.window.mobile} {
+    padding-top: 55px;
+  }
 `;
 
 
