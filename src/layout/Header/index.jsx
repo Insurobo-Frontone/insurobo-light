@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled, { css } from "styled-components";
 import useWindowSize from "../../hooks/useWindowSize";
 import ContentInner from "../ContentInner";
@@ -14,6 +14,10 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   const [currentTab, setCurrentTab] = useState(1);
   const navigate = useNavigate();
+  const location = useLocation();
+  useEffect(() => {
+    setOpen(false)
+  }, [location.pathname]);
 
   function goPage(link) {
     navigate(link);
@@ -35,7 +39,7 @@ const Header = () => {
               <li onClick={() => setCurrentTab(1)} className={currentTab === 1 ? 'active' : ''}>
                 금융
                 <ul>
-                  <li>인슈로보 보험 전체보기</li>
+                  <li onClick={() => goPage('/')}>인슈로보 보험 전체보기</li>
                   <li onClick={() => goPage('/finance/smallbizLoan')}>소상공인 전용대출</li>
                   <li onClick={() => goPage('/finance/smallbizCard')}>소상공인 전용카드</li>
                   <li onClick={() => goPage('/finance/stealthBankbook')}>광주은행 WA뱅크 스텔스통장</li>
