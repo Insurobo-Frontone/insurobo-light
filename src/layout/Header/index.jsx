@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled, { css } from "styled-components";
+import useWindowSize from "../../hooks/useWindowSize";
 import ContentInner from "../ContentInner";
 
 import logo from "../../assets/img/common/mainLogo.jpg";
-import toggle from "../../assets/icon/common/icon-menuToggle.png";
-import useWindowSize from "../../hooks/useWindowSize";
+import toggle from "../../assets/icon/common/icon-header_toggle.png";
+import home from "../../assets/icon/common/icon-header_home.png";
+import close from "../../assets/icon/common/icon-header_close.png";
 
 const Header = () => {
   const { width } = useWindowSize();
@@ -13,16 +15,21 @@ const Header = () => {
   const [currentTab, setCurrentTab] = useState(1);
   const navigate = useNavigate();
 
-
   function goPage(link) {
     navigate(link);
   }
+
   return (
     <Wrap>
       <ContentInner>
-        <Logo onClick={() => goPage('/')} />
+        <Logo onClick={() => goPage('/')} open={open} />
         <Gnb open={open}>
-          <ToggleButton onClick={() => setOpen(true)} />
+          {!open ? (
+            <ToggleButton onClick={() => setOpen(true)} />
+          ) : (
+           <CloseButton onClick={() => setOpen(false)} />
+          )
+          }
           <div className="toggle-menu">
             <Menu className={width > 768 ? 'hover-style' : ''}>
               <li onClick={() => setCurrentTab(1)} className={currentTab === 1 ? 'active' : ''}>
@@ -54,7 +61,7 @@ const Header = () => {
               </li>
               <li onClick={() => setCurrentTab(4)} className={currentTab === 4 ? 'active' : ''}>
                 회사소개
-                <ul className={currentTab === 4 ? 'active' : ''}>
+                <ul>
                   <li>소개</li>
                   <li>인재상</li>
                   <li>인사제도</li>
@@ -90,7 +97,12 @@ const Wrap = styled.div`
   }
 
   ${(props) => props.theme.window.mobile} {
-    border-bottom: none;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: #FFFFFF;
     padding: 15px 0;
     > div {
       justify-content: space-between;
@@ -112,6 +124,12 @@ const Logo = styled.div`
     width: 106px;
     height: 23px;
     background-size: contain;
+
+    ${props => props.open && css`
+      width: 24px;
+      height: 24px;
+      background-image: url(${home});
+    `}
   }
 `;
 
@@ -140,19 +158,35 @@ const Gnb = styled.div`
     ${props => props.open && css`
       position: relative;
       .toggle-menu {
-        background-color: gray;
+        background-color: #FCFCFC;
         display: block;
         position: fixed;
         width: 100%;
         height: 100%;
         z-index: 998;
-        top: 54px;
+        top: 55px;
         left: 0;
         > ul {
           display: block;
+          .active {
+            font-weight: 700;
+          }
           > li {
-            height: 40px;
-            
+            height: 47px;
+            padding-left: 24px;
+            color: #393939;
+            font-weight: 400;
+            > ul {
+              width: 67.7%;
+              
+              > li {
+                height: 47px;
+                font-size: 14px;
+                font-weight: 700;
+                padding: 13px 0 14px 24px;
+                color: #393939;
+              }
+            }
           }
         }
       }
@@ -165,6 +199,18 @@ const ToggleButton = styled.div`
   width: 24px;
   height: 24px;
   background-image: url(${toggle});
+  background-repeat: no-repeat;
+  background-position: center;
+  display: none;
+  ${(props) => props.theme.window.mobile} {
+    display: block;
+  }
+`;
+
+const CloseButton = styled.div`
+  width: 24px;
+  height: 24px;
+  background-image: url(${close});
   background-repeat: no-repeat;
   background-position: center;
   display: none;
@@ -229,18 +275,15 @@ const Menu = styled.ul`
     > li:last-child > ul {
       width: 65%;
     }
-    > li {
-
-      
-    }
     .active {
       background-color: #FFFFFF;
+      font-weight: 700;
       > ul {
         position: fixed;
         display: block;
         border-radius: 0;
         transform: translateX(0);
-        top: 54px;  
+        top: 55px;  
         right: 0;
         height: 100%;
         box-shadow: none;

@@ -19,5 +19,10 @@ const Wrap = styled.div`
   line-height: 1.21;
   padding: 60px 0;
   font-family: "Pretendard Variable";
+  ${props => props.theme.window.mobile} {
+    font-size: 22px;
+    padding: 20px 0;
+    line-height: 1.36;
+  }
 `;
 

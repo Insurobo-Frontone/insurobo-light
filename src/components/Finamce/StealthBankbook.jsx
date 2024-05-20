@@ -21,12 +21,25 @@ const StealthBankbook = () => {
 export default StealthBankbook;
 
 const Wrap = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 140px;
+  > button {
+    width: 24.6%;
+    margin: 8px;
+  }
+
+  ${props => props.theme.window.tab} {
+    padding: 0 20px 20px 20px;
+    
+  }
+  ${props => props.theme.window.mobile} {
     > button {
-      width: 24.6%;
-      margin: 8px;
+      min-width: 50%;
+      height: 35px;
+      font-size: 14px;
+      margin: 4px;
     }
+  }
 `;

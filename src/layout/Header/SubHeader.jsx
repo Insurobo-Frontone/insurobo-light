@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { useLocation, useNavigate } from "react-router-dom";
 import ContentInner from "../ContentInner";
-import home from "../../assets/icon/common/icon-home.png";
-import arrow from "../../assets/icon/common/icon-arrow.png";
+import home from "../../assets/icon/common/icon-subHeader_home.png";
+import arrow from "../../assets/icon/common/icon-subHeader_arrow.png";
 
 const SubHeader = ({ data }) => {
   const navigate = useNavigate();
@@ -86,6 +86,12 @@ const Wrap = styled.div`
     > li:last-child::after {
       content: none;
 
+    }
+  }
+  ${props => props.theme.window.mobile} {
+    height: 1px;
+    > div {
+      display: none;
     }
   }
 `;
