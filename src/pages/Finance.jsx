@@ -1,14 +1,14 @@
 import React from "react";
+import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import Layout from "../layout";
 import SubHeader from "../layout/Header/SubHeader";
 import SmallbizLoan from "../components/Finamce/SmallbizLoan";
 import SmallbizCard from "../components/Finamce/SmallbizCard";
 import StealthBankbook from "../components/Finamce/StealthBankbook";
+import PageTitle from "../components/Content/PageTitle";
 
 const Finance = () => {
-  const location = useLocation();
-
   const data = [
     {
       id: 1,
@@ -25,19 +25,28 @@ const Finance = () => {
       title: '광주은행 Wa뱅크 스텔스통장',
       value: 'stealthBankbook'
     },
-  ]
+  ];
+  const location = useLocation();
+  const divide =  location.pathname.split('/')[2];
 
   return (
     <Layout>
       <SubHeader data={data} />
-      {location.pathname === `/finance/smallbizLoan` ? (
-        <SmallbizLoan /> 
-      ) : location.pathname === `/finance/smallbizCard` ? (
-        <SmallbizCard />
-      ) : location.pathname === `/finance/stealthBankbook` && (
-        <StealthBankbook />
-      )}
+      <Content>
+        {data.filter((path) => path.value === divide).map((dt) => (
+          <PageTitle title={dt.title} id={dt.id} />
+        ))}
+        {location.pathname === `/finance/smallbizLoan` ? (
+          <SmallbizLoan /> 
+        ) : location.pathname === `/finance/smallbizCard` ? (
+          <SmallbizCard />
+        ) : location.pathname === `/finance/stealthBankbook` && (
+          <StealthBankbook />
+        )}
+      </Content>
     </Layout>
   )
 }
 export default Finance;
+
+const Content = styled.div``;

@@ -1,47 +1,43 @@
 import React from "react";
 import { styled } from "styled-components";
-import PageTitle from "../Common/PageTitle";
 import money from '../../assets/img/content/finance_loan.png';
 import CommonButton from "../Button/CommonButton";
 
 const SmallbizLoan = () => {
   return (
-    <>
-      <PageTitle title='소상공인 전용대출'/>
-      <Wrap>
+    <Wrap>
+      <p>
+        대출 조건 깐깐하게 따지는 소상공인이라면
+      </p>
+      <Highlight><strong>대출</strong>도 남달라야합니다!</Highlight>
+      <ListContent>
+        <li>
+          <p>쉽고 빠른 대출</p>
+          <p>특징</p>
+        </li>
+        <li>
+          <p>소상공인</p>
+          <p>대상</p>
+        </li>
+        <li>
+          <p>연 5.90% ~ 20.90%</p>
+          <p>금리</p>
+        </li>
+        <li>
+          <p>최대 10년</p>
+          <p>기간</p>
+        </li>
+      </ListContent>
+      <ButtonWrap>
         <p>
-          대출 조건 깐깐하게 따지는 소상공인이라면
+          나도 대출이 될까하고 고민중이신가요?<br />
+          인슈로보에서는 중ㆍ저신용 고객님들도 대출 한도 확인 가능!
         </p>
-        <Highlight><strong>대출</strong>도 남달라야합니다!</Highlight>
-        <ListContent>
-          <li>
-            <p>쉽고 빠른 대출</p>
-            <p>특징</p>
-          </li>
-          <li>
-            <p>소상공인</p>
-            <p>대상</p>
-          </li>
-          <li>
-            <p>연 5.90% ~ 20.90%</p>
-            <p>금리</p>
-          </li>
-          <li>
-            <p>최대 10년</p>
-            <p>기간</p>
-          </li>
-        </ListContent>
-        <ButtonWrap>
-          <p>
-            나도 대출이 될까하고 고민중이신가요?<br />
-            인슈로보에서는 중ㆍ저신용 고객님들도 대출 한도 확인 가능!
-          </p>
-          <CommonButton
-            title='대출상담 신청하기'
-          />
-        </ButtonWrap>
-      </Wrap>
-    </>
+        <CommonButton
+          title='대출상담 신청하기'
+        />
+      </ButtonWrap>
+    </Wrap>
   )
 }
 

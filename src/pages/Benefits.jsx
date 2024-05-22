@@ -2,18 +2,15 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import Layout from "../layout";
 import SubHeader from "../layout/Header/SubHeader";
-import SmallbizLoan from "../components/Finamce/SmallbizLoan";
-import SmallbizCard from "../components/Finamce/SmallbizCard";
-import StealthBankbook from "../components/Finamce/StealthBankbook";
 import SmallbizSupportList from "../components/Benefits/SmallbizSupportList";
 import SmallbizTaxRebate from "../components/Benefits/SmallbizTaxRebate";
 import CivilSafety from "../components/Benefits/CivilSafety";
 import EventList from "../components/Benefits/EventList";
 import { styled } from "styled-components";
+import PageTitle from "../components/Content/PageTitle";
+import InnerBox from "../components/Content/InnerBox";
 
 const Benefits = () => {
-  const location = useLocation();
-
   const data = [
     {
       id: 1,
@@ -35,29 +32,34 @@ const Benefits = () => {
       title: '이벤트',
       value: 'eventList'
     },
-  ]
+  ];
+  const location = useLocation();
+  const divide =  location.pathname.split('/')[2];
 
   return (
     <Layout>
       <SubHeader data={data} />
-      <Wrap>
-        {location.pathname === `/benefits/smallbizSupportList` ? (
-          <SmallbizSupportList /> 
-        ) : location.pathname === `/benefits/smallbizTaxRebate` ? (
-          <SmallbizTaxRebate />
-        ) : location.pathname === `/benefits/civilSafety` ? (
-          <CivilSafety />
-        ) : location.pathname === `/benefits/eventList` && (
-          <EventList />
-        )}
-      </Wrap>
+      <Content>
+        {data.filter((path) => path.value === divide).map((dt) => (
+          <PageTitle title={dt.title} id={dt.id} />
+        ))}
+        <InnerBox>
+          {location.pathname === `/benefits/smallbizSupportList` ? (
+            <SmallbizSupportList /> 
+          ) : location.pathname === `/benefits/smallbizTaxRebate` ? (
+            <SmallbizTaxRebate />
+          ) : location.pathname === `/benefits/civilSafety` ? (
+            <CivilSafety />
+          ) : location.pathname === `/benefits/eventList` && (
+            <EventList />
+          )}
+        </InnerBox>
+      </Content>
     </Layout>
   )
 }
 export default Benefits;
 
-const Wrap = styled.div`
-  width: 1180px;
-  margin: 0 auto;
-
+const Content = styled.div`
+  padding-bottom: 140px;
 `;
