@@ -114,6 +114,35 @@ export const listData2 = [
     SBSCRB_YEAR: "2023",
     SIGNGU_NM: "(본청)"
   },
-  
 ]
 
+export const eventData = [
+  {
+    BASE_IDX: 1,
+    FILE_ID: 204,
+    TITIE: '홈페이지 리뉴얼',
+    START_YMD: '2024-03-01',
+    END_YMD: '2024-03-31',
+    DATE_TERM: '',
+    CONTENT: '새단장을 마친 인슈로보 홈페이지 방문을 환영합니다.'
+  }
+];
+
+export const noticeData = [
+  {
+    BASE_IDX: '131',
+    NOTICE_YN: 'Y',
+    TITIE: "인슈로보, 서비스 리뉴얼 '고객 편의 확대'",
+    NEW_MARK_YN: 'Y',
+    NOTICE_DATE: '2024.05.23',
+    CONTENT: '',
+  },
+  {
+    BASE_IDX: '131',
+    NOTICE_YN: '',
+    TITIE: "인슈로보, 서비스 리뉴얼 '고객 편의 확대'",
+    NEW_MARK_YN: '',
+    NOTICE_DATE: '2024.05.23',
+    CONTENT: '',
+  }
+]

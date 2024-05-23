@@ -1,11 +1,11 @@
 import React from "react";
 import { styled } from "styled-components";
 
-import title from "../../assets/img/content/finance_card.png";
-import card1 from "../../assets/img/content/finance_card_hi.png";
-import card2 from "../../assets/img/content/finance_card_simple.png";
-import CommonButton from "../Button/CommonButton";
-import JehuTitle from "../Content/JehuTitle";
+import title from "../../../assets/img/content/finance_card.png";
+import card1 from "../../../assets/img/content/finance_card_hi.png";
+import card2 from "../../../assets/img/content/finance_card_simple.png";
+import CommonButton from "../../Button/CommonButton";
+import JehuTitle from "../../Content/JehuTitle";
 
 
 const SmallbizCard = () => {
@@ -66,7 +66,6 @@ const SmallbizCard = () => {
     </Wrap>
   )
 }
-
 export default SmallbizCard;
 
 const Wrap = styled.div`

@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import SearchInput from "../Input/SearchInput";
-import SelectInput from "../Input/SelectInput";
-import { bizType, listData } from "../../api/data";
-import MoreButton from "../Button/MoreButton";
+import SearchInput from "../../Input/SearchInput";
+import SelectInput from "../../Input/SelectInput";
+import { bizType, listData } from "../../../api/data";
+import MoreButton from "../../Button/MoreButton";
 
 const SmallbizSupportList = () => {
   return (
@@ -20,7 +20,7 @@ const SmallbizSupportList = () => {
             <option value='content'>내용</option>
           </SelectInput>
         </div>
-        <SearchInput name='search' />
+        <SearchInput name='bizSupport_searchWrod' />
       </SearchWrap>
       <ListWrap>
         <ListTable>
@@ -67,6 +67,7 @@ const ListWrap = styled.div`
 `;
 
 const ListTable = styled.table`
+  margin-bottom: -10px;
   tr:hover {
     td {
       border-color: #007aff;

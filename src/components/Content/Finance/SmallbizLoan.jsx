@@ -1,7 +1,7 @@
 import React from "react";
 import { styled } from "styled-components";
-import money from '../../assets/img/content/finance_loan.png';
-import CommonButton from "../Button/CommonButton";
+import money from '../../../assets/img/content/finance_loan.png';
+import CommonButton from "../../Button/CommonButton";
 
 const SmallbizLoan = () => {
   return (

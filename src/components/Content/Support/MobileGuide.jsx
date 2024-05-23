@@ -1,11 +1,10 @@
 import React from "react";
 
-const EventList = () => {
+const MobileGuide = () => {
   return (
     <div>
-EventList
+      
     </div>
   )
 }
-
-export default EventList;
+export default MobileGuide;

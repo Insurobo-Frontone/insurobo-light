@@ -14,7 +14,7 @@ export default MoreButton;
 const ButtonWrap = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 30px;
   > button {
     width: 120px;
     padding: 0 10px;

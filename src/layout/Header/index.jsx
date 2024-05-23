@@ -60,10 +60,10 @@ const Header = () => {
               <li onClick={() => setCurrentTab(3)} className={currentTab === 3 ? 'active' : ''}>
                 고객지원
                 <ul>
-                  <li>공지사항</li>
-                  <li>자주묻는질문</li>
-                  <li>상담신청</li>
-                  <li>모바일 서비스안내</li>
+                  <li onClick={() => goPage('/support/noticeList')}>공지사항</li>
+                  <li onClick={() => goPage('/support/faqList')}>자주묻는질문</li>
+                  <li onClick={() => goPage('/support/counselingRequestForm')}>상담신청</li>
+                  <li onClick={() => goPage('/support/mobileGuide')}>모바일 서비스안내</li>
                 </ul>
               </li>
               <li onClick={() => setCurrentTab(4)} className={currentTab === 4 ? 'active' : ''}>

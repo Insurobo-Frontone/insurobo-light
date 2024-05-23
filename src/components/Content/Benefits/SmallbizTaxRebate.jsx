@@ -1,9 +1,9 @@
 import React from "react";
-import JehuTitle from "../Content/JehuTitle";
+import JehuTitle from "../JehuTitle";
 import styled from "styled-components";
-import title from "../../assets/img/content/benefits-tax_title.png";
-import tax from "../../assets/img/content/benefits-tax.jpg";
-import CommonButton from "../Button/CommonButton";
+import title from "../../../assets/img/content/benefits-tax_title.png";
+import tax from "../../../assets/img/content/benefits-tax.jpg";
+import CommonButton from "../../Button/CommonButton";
 
 const SmallbizTaxRebate = () => {
   return (

@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import Layout from "../layout";
 import SubHeader from "../layout/Header/SubHeader";
-import SmallbizLoan from "../components/Finamce/SmallbizLoan";
-import SmallbizCard from "../components/Finamce/SmallbizCard";
-import StealthBankbook from "../components/Finamce/StealthBankbook";
+import SmallbizLoan from "../components/Content/Finance/SmallbizLoan";
+import SmallbizCard from "../components/Content/Finance/SmallbizCard";
+import StealthBankbook from "../components/Content/Finance/StealthBankbook";
 import PageTitle from "../components/Content/PageTitle";
 
 const Finance = () => {

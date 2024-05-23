@@ -1,15 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
-import SelectInput from "../Input/SelectInput";
-import Input from "../Input";
-import { listData2 } from "../../api/data";
+import { listData2 } from "../../../api/data";
+import SelectInput from "../../Input/SelectInput";
+import Input from "../../Input";
+import MoreButton from "../../Button/MoreButton";
 
 
 const CivilSafety = () => {
-  const navigate = useNavigate();
   const goLink = (link) => {
-    navigate(link)
+    window.open(link)
   }
   return (
     <>
@@ -36,7 +35,7 @@ const CivilSafety = () => {
           </tr>
           {listData2.map((dt) => (
             <tr key={dt.BASE_IDX}>
-              <td>{dt.CTRD_NM}</td>
+              <td>{dt.CTRD_NM}<br />{dt.SIGNGU_NM}</td>
               <td>{dt.SBSCRB_YEAR}<br />({dt.SBSCRB_BGNDE}~{dt.SBSCRB_ENDDE})</td>
               <td>{dt.GRNT_IEM}</td>
               <td>{dt.CMPNY_NM}<br />({dt.CMPNY_TELNO})</td>
@@ -46,6 +45,7 @@ const CivilSafety = () => {
           ))}
         </ListTable>
       </ListWrap>
+      <MoreButton />
     </>
   )
 }
@@ -89,23 +89,35 @@ const SearchButton = styled.button`
 const ListWrap = styled.div``;
 
 const ListTable = styled.table`
+  border-collapse: collapse;
+  border-spacing: 0;
+  th:last-child, td:last-child {
+    border-right: 0;
+  }
   th, td {
     padding: 15px 20px;
     vertical-align: middle;
-
+    text-align: center;
+    border: 1px solid #f1f3f5;
+    border-left: 0;
   }
   td {
     font-size: 14px;
+    font-weight: 400;
+    color: #212529;
+    > button {
+        color: #384cff;
+        font-size: 14px;
+        text-decoration: underline;
+        text-underline-position: under;
+        line-height: 1.43;
+    }
   }
   th {
     background-color: #f8f9fa;
-    
     font-weight: bold;
     color: #495057;
-    text-align: center;
-    
     width: 140px;
-    
   }
   th:first-child {
     width: 130px;
