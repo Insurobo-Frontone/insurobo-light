@@ -8,6 +8,7 @@ import Finance from "./pages/Finance";
 import NoMatch from "./pages/NoMatch";
 import Benefits from "./pages/Benefits";
 import Support from "./pages/Support";
+import Company from "./pages/Company";
 
 function App() {
   const methods = useForm({
@@ -41,6 +42,12 @@ function App() {
               <Route path="faqList" element={<Support />} />
               <Route path="counselingRequestForm" element={<Support />} />
               <Route path="mobileGuide" element={<Support />} />
+            </Route>
+            <Route path="company" element={<Company />}>
+              <Route path="introduction" element={<Company />} />
+              <Route path="rightPeople" element={<Company />} />
+              <Route path="recruitSystem" element={<Company />} />
+              <Route path="recruitList" element={<Company />} />
             </Route>
             <Route path="*" element={<NoMatch />} />
           </Routes>
