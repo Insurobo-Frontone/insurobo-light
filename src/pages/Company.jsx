@@ -41,7 +41,7 @@ const Company = () => {
       <SubHeader data={data} />
       <Content>
         {data.filter((path) => path.value === divide).map((dt) => (
-          <PageTitle title={dt.title} id={dt.id} />
+          <PageTitle title={dt.title} id={dt.id} key={dt.id} />
         ))}
         {location.pathname === `/company/introduction` ? (
           <Introduction />

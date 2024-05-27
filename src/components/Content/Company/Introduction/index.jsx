@@ -3,6 +3,9 @@ import { styled } from "styled-components";
 import InnerBox from "../../InnerBox";
 import History from "./History";
 import bg from "../../../../assets/img/content/company-history.jpg";
+import Vision from "./Vision";
+import Partner from "./Partner";
+import Ci from "./Ci";
 
 const Introduction = () => {
   const [openTab, setOpenTab] = useState(1);
@@ -42,7 +45,7 @@ const Introduction = () => {
       <TabContentWrap>
         <TabMenu>
           {menu.map((dt) => (
-            <li className={openTab === dt.id ? 'selected': ''}>
+            <li className={openTab === dt.id ? 'selected': ''} key={dt.id}>
               <button onClick={() => setOpenTab(dt.id)}>
                 {dt.title}
               </button>
@@ -53,11 +56,11 @@ const Introduction = () => {
           {openTab === 1 ? (
             <History />) : 
           openTab === 2 ? (
-            <div>2</div>) : 
+            <Vision />) : 
           openTab === 3 ? (
-            <div>3</div>) : 
+            <Partner />) : 
           openTab === 4 && (
-            <div>4</div>
+            <Ci />
           )}
         </TabContent>
       </TabContentWrap>
