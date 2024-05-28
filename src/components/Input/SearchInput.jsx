@@ -19,7 +19,6 @@ const Wrap = styled.div`
   width: 100%;
   position: relative;
   > input {
-    
     padding-right: 52px;
   }
 `;

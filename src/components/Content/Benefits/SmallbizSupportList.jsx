@@ -61,6 +61,19 @@ const SearchWrap = styled.div`
       margin-right: 10px;
     }
   }
+
+  ${(props) => props.theme.window.mobile} {
+    display: flex;
+    flex-direction: column;
+    > div:first-child {
+      flex-direction: column;
+      > select {
+        width: 100%;
+        margin-bottom: 6px;
+        margin-right: 0;
+      }
+    }
+  }
 `;
 
 const ListWrap = styled.div`
@@ -118,6 +131,45 @@ const ListTable = styled.table`
   td:last-child {
     border-radius: 0 12px 12px 0;
     text-align: start;
+  }
+
+  ${(props) => props.theme.window.mobile} {
+    border-spacing: 0;
+    tr {
+      display: flex;
+      flex-flow: row wrap;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      margin-top: 10px;
+      padding: 16px;
+    }
+    tr:first-child {
+      display: none;
+    }
+    td:not(:last-child) {
+      background-color: #e9ecef;
+      height: 26px;
+      line-height: 1.5;
+      border-radius: 6px;
+      padding: 4px 12px;
+      font-size: 12px;
+      color: #495057;
+      margin-bottom: 5px;
+      margin-right: 5px;
+      border: 0;
+    }
+    td:first-child {
+      border-radius: 6px;
+    }
+    td:last-child {
+      width: 100%;
+      padding: 0;
+      height: auto;
+      font-size: 14px;
+      margin-top: 5px;
+      line-height: 1.43;
+      border: 0;
+    }
   }
 `;
 

@@ -92,4 +92,35 @@ const ListWrap = styled.div`
       background-size: 128px;
     }
   }
+  ${(props) => props.theme.window.mobile} {
+    border-top: 0;
+    border-bottom: 0;
+    padding: 0;
+    > ul {
+      > li:nth-child(-n+3) {
+        margin-top: 30px;
+      }
+      > li:first-child {
+        margin-top: 0;
+      }
+      > li {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 30px;
+        > button {
+          .img-wrap {
+            height: auto;
+          }
+          .event-title {
+            margin-top: 14px;
+            font-size: 16px;
+          }
+          .event-date {
+            margin-top: 8px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
 `;

@@ -125,7 +125,16 @@ export const eventData = [
     END_YMD: '2024-03-31',
     DATE_TERM: '',
     CONTENT: '새단장을 마친 인슈로보 홈페이지 방문을 환영합니다.'
-  }
+  },
+  {
+    BASE_IDX: 2,
+    FILE_ID: 1009,
+    TITIE: '홈페이지 리뉴얼',
+    START_YMD: '2024-05-01',
+    END_YMD: '2024-05-31',
+    DATE_TERM: '0',
+    CONTENT: '새단장을 마친 인슈로보 홈페이지 방문을 환영합니다.'
+  },
 ];
 
 export const noticeData = [

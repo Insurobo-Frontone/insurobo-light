@@ -35,10 +35,10 @@ const CivilSafety = () => {
           </tr>
           {listData2.map((dt) => (
             <tr key={dt.BASE_IDX}>
-              <td>{dt.CTRD_NM}<br />{dt.SIGNGU_NM}</td>
-              <td>{dt.SBSCRB_YEAR}<br />({dt.SBSCRB_BGNDE}~{dt.SBSCRB_ENDDE})</td>
+              <td>{dt.CTRD_NM} <br />{dt.SIGNGU_NM}</td>
+              <td>{dt.SBSCRB_YEAR} <br />({dt.SBSCRB_BGNDE}~{dt.SBSCRB_ENDDE})</td>
               <td>{dt.GRNT_IEM}</td>
-              <td>{dt.CMPNY_NM}<br />({dt.CMPNY_TELNO})</td>
+              <td>{dt.CMPNY_NM} <br />({dt.CMPNY_TELNO})</td>
               <td>{dt.LOCGOV_CHARGER_DEPT_NM}<br />({dt.LOCGOV_CHARGE_OFFM_TELNO})</td>
               <td><button onClick={() => goLink(dt.HMPG_URL)}>바로가기</button></td>
             </tr>
@@ -73,6 +73,24 @@ const SearchWrap = styled.div`
       width: 200px;
     }
   }
+
+  ${(props) => props.theme.window.mobile} {
+    flex-direction: column;
+    > p {
+      font-size: 14px;
+      margin-bottom: 10px;
+      line-height: 48px;
+    }
+    > div {
+      > select {
+        width: 100%;
+        margin: 0 16px 0 0;
+      }
+      > input {
+        width: 100%;
+      }
+    }
+  } 
 `;
 
 const SearchButton = styled.button`
@@ -84,6 +102,11 @@ const SearchButton = styled.button`
   font-weight: 700;
   border-radius: 8px;
   font-size: 16px;
+  ${(props) => props.theme.window.mobile} {
+    width: 100%;
+    margin: 10px 0 0 0;
+    font-size: 14px;
+  }
 `;
 
 const ListWrap = styled.div``;
@@ -106,11 +129,11 @@ const ListTable = styled.table`
     font-weight: 400;
     color: #212529;
     > button {
-        color: #384cff;
-        font-size: 14px;
-        text-decoration: underline;
-        text-underline-position: under;
-        line-height: 1.43;
+      color: #384cff;
+      font-size: 14px;
+      text-decoration: underline;
+      text-underline-position: under;
+      line-height: 1.43;
     }
   }
   th {
@@ -130,5 +153,41 @@ const ListTable = styled.table`
   }
   th:nth-child(4) {
     width: 210px;
+  }
+
+  ${(props) => props.theme.window.mobile} {
+    width: 100%;
+    border-top: 1px solid #f1f3f5;
+    tr {
+      display: flex;
+      flex-direction: column;
+      background-color: #f8f9fa;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      padding: 16px;
+      &:first-child {
+        display: none;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    th, td {
+      border: 0;
+      text-align: start;
+      padding: 0;
+    }
+    td {
+      margin-top: 8px;
+      &:first-child {
+        margin-top: 0;
+      }
+      > br {
+        display: none;
+      }
+      > button {
+        font-weight: 700;
+      }
+    }
   }
 `;

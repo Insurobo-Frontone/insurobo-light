@@ -10,7 +10,7 @@ const SmallbizTaxRebate = () => {
     <>
       <JehuTitle title={title} jehu='비즈넷 환급' />
       <PointText>
-        이미<span>820,000명</span>의 사장님이<br />
+        이미 <span>820,000명</span>의 사장님이<br />
         소득세ㆍ법인세 환급 혜택을 받았어요.
       </PointText>
       <BizBox>
@@ -40,6 +40,10 @@ const PointText = styled.p`
   > span {
     color: #2EA5FF;
     font-weight: 700;
+  }
+
+  ${(props) => props.theme.window.mobile} {
+    font-size: 20px;
   }
 `;
 
@@ -77,6 +81,28 @@ const BizBox = styled.div`
   > div {
     display: flex;
     justify-content: center;
+  }
+  ${(props) => props.theme.window.mobile} {
+    width: 100%;
+    border-radius: 12px;
+    height: 407px;
+    padding: 231px 20px 20px;
+    &::before {
+      height: 211px;
+      border-radius: 12px 12px 0 0;
+    }
+    > p {
+      font-size: 14px;
+      line-height: 1.33;
+      > span {
+        display: block;
+      }
+    }
+    > div {
+      > button {
+        margin-top: 20px;
+      }
+    }
   }
 `;
 

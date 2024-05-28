@@ -46,5 +46,12 @@ const BasicInput = styled.input`
     font-size: 16px;
     font-family: "Pretendard Variable";
   }
+  ${(props) => props.theme.window.mobile} {
+    font-size: 14px;
+    padding: 13px 16px 13px;
+    &::placeholder {
+      font-size: 14px;
+    }
+  }
 `;
 

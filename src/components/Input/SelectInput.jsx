@@ -58,7 +58,8 @@ const SelectBase = styled.select`
   }
 
   ${(props) => props.theme.window.mobile} {
-
+    font-size: 14px;
+    padding: 13px 52px 13px 16px;
   }
 `;
 
