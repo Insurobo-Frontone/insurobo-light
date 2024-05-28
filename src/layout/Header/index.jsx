@@ -15,6 +15,7 @@ const Header = () => {
   const [currentTab, setCurrentTab] = useState(1);
   const navigate = useNavigate();
   const location = useLocation();
+  
   useEffect(() => {
     setOpen(false)
   }, [location.pathname]);
@@ -71,19 +72,19 @@ const Header = () => {
                 <ul>
                   <li onClick={() => goPage('/company/introduction')}>소개</li>
                   <li onClick={() => goPage('/company/rightPeople')}>인재상</li>
-                  <li onClick={() => goPage('/company/rightPeople')}>인사제도</li>
-                  <li onClick={() => goPage('/company/recruitSystem')}>채용공고</li>
+                  <li onClick={() => goPage('/company/recruitSystem')}>인사제도</li>
+                  <li onClick={() => goPage('/company/recruitList')}>채용공고</li>
                 </ul>
               </li>
             </Menu>
-            <User>
+            {/* <User>
               <li onClick={() => goPage('/')}>
                 로그인
               </li>
               <li onClick={() => goPage('/')}>
                 회원가입
               </li>
-            </User>
+            </User> */}
           </div>
         </Gnb>
       </ContentInner>

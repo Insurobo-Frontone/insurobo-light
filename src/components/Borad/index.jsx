@@ -1,54 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import SearchInput from "../../Input/SearchInput";
-import { noticeData } from "../../../api/data";
-import MoreButton from "../../Button/MoreButton";
-import Board from "../../Borad";
 
-const NoticeList = () => {
+const Board = ({ children }) => {
   return (
-    <>
-      <SearchWrap>
-        <SearchInput name='notice_searchWord' />
-      </SearchWrap>
-      <Board>
-        {noticeData.map((dt) => (
-          <li key={dt.BASE_IDX}>
-            <button>
-              <div>
-                <span className={dt.NOTICE_YN && dt.NOTICE_YN === 'Y' ? 'type notice' : 'type'}>
-                  {dt.NOTICE_YN && dt.NOTICE_YN === 'Y' ? '공지' : dt.BASE_IDX}
-                </span>
-                <span className="title">
-                  {dt.TITIE}
-                  {dt.NEW_MARK_YN === 'Y' && (
-                    <span className="new">N</span>
-                  )}
-                </span>
-              </div>
-              <span className="date">{dt.NOTICE_DATE}</span>
-            </button>
-          </li>
-        ))}
-      </Board>
-      <MoreButton />
-    </>
-  )
+    <BoardWrap>
+      <ul>
+        {children}
+      </ul>
+    </BoardWrap>
+  );
 }
-export default NoticeList;
 
-const SearchWrap = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #f1f3f5;
-  > div {
-    width: 265px;
-  }
-`;
+export default Board;
 
-const ListWrap = styled.div`
+const BoardWrap = styled.div`
   > ul {
     > li {
       &:first-child {
@@ -73,6 +38,22 @@ const ListWrap = styled.div`
           display: flex;
           align-items: center;
         }
+        .recruit {
+          display: flex;
+          justify-content: space-between;
+          width: 150px;
+          &.single {
+            justify-content: center;
+          }
+        }
+        .recruit .type {
+          width: 70px;
+          padding: 0;
+          background-color:#868e96;
+          color: #FFFFFF;
+          font-weight: 700;
+          font-size: 16px;
+        }
         .type {
           display: flex;
           width: 100px;
@@ -86,11 +67,15 @@ const ListWrap = styled.div`
           color: #495057;
           border-radius: 6px;
         }
+        .type.blue {
+          background-color: #2ea5ff;
+        }
         .type.notice {
           background-color: #384cff;
           color: #FFFFFF;
           font-weight: 700;
         }
+
         .title {
           margin-left: 20px;
           color: #212529;
