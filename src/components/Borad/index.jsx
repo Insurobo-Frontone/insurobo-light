@@ -99,4 +99,48 @@ const BoardWrap = styled.div`
       }
     }
   }
+
+  ${(props) => props.theme.window.mobile} {
+    ul {
+      > li {
+        > button {
+          padding: 16px;
+          border-radius: 8px;
+          flex-direction: column;
+          align-items: flex-start;
+          > div {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .recruit {
+            width: 100px;
+            &.single {
+              width: auto;
+            }
+          }
+          .recruit .type {
+            width: 45px;
+            font-size: 12px;
+          }
+          .type {
+            width: auto;
+            height: 26px;
+            line-height: 26px;
+            min-width: 0;
+            padding: 0 12px;
+          }
+          .title {
+            margin-left: 0;
+            margin-top: 10px;
+   
+          }
+          .date {
+            margin-left: 0;
+            align-self: flex-end;
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
 `;

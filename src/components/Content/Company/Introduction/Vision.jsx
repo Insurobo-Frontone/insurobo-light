@@ -76,6 +76,10 @@ const Vision = () => {
   const ContentWrap = styled.div`
     margin-top: 16px;
     background-color: #f8f9fa;
+    
+    ${(props) => props.theme.window.mobile} {
+      margin-top: -20px;
+    }
   `;
 
   const ShadowBoxWrap = styled.ul`
@@ -93,11 +97,16 @@ const Vision = () => {
       background-size: 100px auto;
       border-radius: 12px;
       box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05);
+      .main {
+        color: #2EA5FF;
+        font-weight: 400;
+      }
       > .list-dot {
         > li {
           position: relative;
           padding-left: 14px;
           color: #495057;
+          font-weight: 400;
           &::after {
             content: '';
             position: absolute;
@@ -109,6 +118,27 @@ const Vision = () => {
             background-color: #212529;
           }
 
+        }
+      }
+    }
+    ${(props) => props.theme.window.mobile} {
+      padding: 20px 0 0 0;
+      flex-flow: row wrap;
+      > li {
+        width: calc(50% - (10px / 2));
+        height: 270px;
+        padding: 120px 16px 20px;
+        background-size: 80px auto;
+        background-position: center 20px;
+        font-size: 14px;
+        margin-bottom: 10px;
+        &:nth-child(3), &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      > .list-dot {
+        > li {
+          
         }
       }
     }

@@ -240,5 +240,28 @@ const PartnerWrap = styled.dl`
       max-width: 100%;
     }
   }
+  ${(props) => props.theme.window.mobile} {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #f1f3f5;
+    &:last-child {
+      border-bottom: 0;
+      padding-bottom: 10px;
+    }
+    > dt {
+      font-size: 16px;
+      margin-bottom: 0;
+    }
+    > dd {
+      width: calc(50% - 5px);
+      margin-right: 10px;
+      &:nth-child(5n + 1) {
+        margin-right: 10px;
+      }
+      &:nth-child(2n + 1) {
+        margin-right: 0;
+      }
+    }
+  }
 `;
 

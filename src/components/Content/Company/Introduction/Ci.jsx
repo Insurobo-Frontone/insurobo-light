@@ -2,14 +2,23 @@ import React from "react";
 import { styled } from "styled-components";
 import InnerBox from "../../InnerBox";
 import TopText from "./TopText";
+import useWindowSize from "../../../../hooks/useWindowSize";
 import ci1 from "../../../../assets/img/content/company-ci1.png";
+import ci1_m from "../../../../assets/img/content/company-ci1-m.png";
 import ci2 from "../../../../assets/img/content/company-ci2.png";
+import ci2_m from "../../../../assets/img/content/company-ci2-m.png";
 import ci3 from "../../../../assets/img/content/company-ci3.png";
+import ci3_m from "../../../../assets/img/content/company-ci3-m.png";
 import ci4 from "../../../../assets/img/content/company-ci4.png";
+import ci4_m from "../../../../assets/img/content/company-ci4-m.png";
 import ci5 from "../../../../assets/img/content/company-ci5.png";
+import ci5_m from "../../../../assets/img/content/company-ci5-m.png";
 import ci6 from "../../../../assets/img/content/company-ci6.png";
+import ci6_m from "../../../../assets/img/content/company-ci6-m.png";
+
 
 const Ci = () => {
+  const { width } = useWindowSize();
   return (
     <InnerBox>
       <TopText text='인슈로보 CI는 사용자들의 안전을 연결한다는 의무를 담고 있습니다.' />
@@ -17,11 +26,11 @@ const Ci = () => {
         <CiboxWrap>
           <div>
             <Title>대문자 조합 로고 타입</Title>
-            <img src={ci1} alt="대문자 조합 로고 타입 CI" />
+            <img src={width > 768 ? ci1 : ci1_m} alt="대문자 조합 로고 타입 CI" />
           </div>
           <div>
             <Title>한글 조합 로고 타입</Title>
-            <img src={ci2} alt="한글 조합 로고 타입 CI" />
+            <img src={width > 768 ? ci2 : ci2_m} alt="한글 조합 로고 타입 CI" />
           </div>
           <div className="btn-wrap">
             <button>ai 다운로드</button>
@@ -36,7 +45,7 @@ const Ci = () => {
               기업 전용 컬러는 브랜드 이미지를 나타내고 있습니다.<br />
               지정된 색상으로 회사의 아이덴티티를 명확히 합니다.
             </p>
-            <img src={ci3} alt="CI 컬러가이드" />
+            <img src={width > 768 ? ci3 : ci3_m} alt="CI 컬러가이드" />
           </div>
         </div>
         <div>
@@ -47,8 +56,8 @@ const Ci = () => {
               이미지 왜곡 및 손상을 막기 위해 다음의 배경색 사용규정을 준수하여 오용사례까지 발생하지 않도록 해야합니다.
             </p>
             <CiboxWrap className="ci-box3">
-              <img src={ci4} alt="CI Full 컬러가이드" />
-              <img src={ci5} alt="CI Main/Negative 컬러가이드" />
+              <img src={width > 768 ? ci4 : ci4_m} alt="CI Full 컬러가이드" />
+              <img src={width > 768 ? ci5 : ci5_m} alt="CI Main/Negative 컬러가이드" />
             </CiboxWrap>
           </div>
         </div>
@@ -61,7 +70,7 @@ const Ci = () => {
               검은색 바탕의 순차적인 명도 변화에 따른 로고타입은 아래 예시에 따라 사용하도록 합니다.
             </p>
             <CiboxWrap className="ci-box4">
-              <img src={ci6} alt="CI 로고단색 활용구조가이드" />
+              <img src={width > 768 ? ci6 : ci6_m} alt="CI 로고단색 활용구조가이드" />
             </CiboxWrap>
           </div>
         </div>
@@ -85,6 +94,22 @@ const ContentWrap = styled.div`
       }
     }
   }
+  ${(props) => props.theme.window.mobile} {
+    > div {
+      margin-top: 60px;
+      > div {
+        > p {
+          font-size: 14px;
+          line-height: 1.43;
+        }
+      }
+      &:first-child {
+        border-top: 1px solid #f1f3f5;
+        padding-top: 20px;
+        margin: 0;
+      }
+    }
+  }
 `;
 
 const Title = styled.h2`
@@ -92,6 +117,10 @@ const Title = styled.h2`
   line-height: 1.33;
   color: #212529;
   margin-bottom: 16px;
+  ${(props) => props.theme.window.mobile} {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
 `;
 
 const CiboxWrap = styled.div`
@@ -119,6 +148,7 @@ const CiboxWrap = styled.div`
         &:first-child {
           margin-left: 0;
         }
+        
       }
     }
   }
@@ -136,5 +166,45 @@ const CiboxWrap = styled.div`
     > img:first-child {
       width: 835px;
     }
-  } 
+  }
+  ${(props) => props.theme.window.mobile} {
+    > div {
+      width: 100%;
+      margin-bottom: 20px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &.btn-wrap {
+        margin-top: 0;
+        flex-flow: column;
+        
+      > button {
+        min-width: 0;
+        padding: 0 16px;
+        height: 40px;
+        font-size: 14px;
+        margin-left: 0;
+        margin-bottom: 10px;
+        font-weight: 400;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      }
+    }
+    &.ci-box3 {
+      > img:first-child {
+        width: 100%;
+      }
+      > img:last-child {
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+    &.ci-box4 {
+      > img:first-child {
+        width: 100%;
+      }
+    }
+  }
 `;

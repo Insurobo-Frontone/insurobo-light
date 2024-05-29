@@ -57,4 +57,10 @@ const SearchWrap = styled.div`
   > div {
     width: 265px;
   }
+
+  ${(props) => props.theme.window.mobile} {
+    > div {
+      width: 100%;
+    }
+  }
 `;

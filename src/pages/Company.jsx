@@ -60,4 +60,8 @@ export default Company;
 
 const Content = styled.div`
   padding-bottom: 140px;
+
+  ${(props) => props.theme.window.mobile} {
+    padding-bottom: 0;
+  }
 `;

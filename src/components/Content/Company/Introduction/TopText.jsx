@@ -15,4 +15,9 @@ const Text = styled.p`
   line-height: 1.33;
   text-align: center;
   font-weight: 400;
+
+  ${(props) => props.theme.window.mobile} {
+    margin: 20px 0;
+    font-size: 18px;
+  }
 `;

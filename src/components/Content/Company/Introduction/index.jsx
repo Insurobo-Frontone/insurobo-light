@@ -88,6 +88,22 @@ const IntroduceWrap = styled.div`
     line-height: 1.36;
     color: #FFFFFF;
   }
+
+  ${(props) => props.theme.window.mobile} {
+    padding: 30px;
+    min-height: 0;
+
+    > div {
+      padding: 0;
+    }
+    h2 {
+      font-size: 22px;
+    }
+    p {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  }
 `;
 
 const TabContentWrap = styled.div`
@@ -117,6 +133,30 @@ const TabMenu = styled.ul`
         font-weight: bold;
         color: #384cff;
         border-bottom: 2px solid #384cff;
+      }
+    }
+  }
+  ${(props) => props.theme.window.mobile} {
+    width: 100%;
+    padding-top: 0;
+    margin-top: 10px;
+    > li {
+      > button {
+        font-size: 14px;
+        height: 40px;
+        line-height: 1.43;
+      }
+      &.selected {
+        > button::after {
+          content: '';
+          width: 4px;
+          height: 4px;
+          display: inline-block;
+          border-radius: 2px;
+          background-color: #384cff;
+          vertical-align: top;
+          margin-left: 2px;
+        }
       }
     }
   }

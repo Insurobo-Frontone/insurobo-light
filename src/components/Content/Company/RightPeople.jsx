@@ -60,6 +60,11 @@ const BigTitle = styled.h2`
   text-align: center;
   color: #2ea5ff;
   margin-bottom: 20px;
+
+  ${(props) => props.theme.window.mobile} {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
 `;
 
 const SubTitle = styled.p`
@@ -67,6 +72,9 @@ const SubTitle = styled.p`
   font-weight: 400;
   color: #212529;
   text-align: center;
+  ${(props) => props.theme.window.mobile} {
+    font-size: 16px;
+  }
 `;
 
 const ContentWrap = styled.div`
@@ -96,5 +104,20 @@ const ContentWrap = styled.div`
       margin-right: 0;
     }
   }
-  
+  ${(props) => props.theme.window.mobile} {
+    padding-top: 30px;
+    flex-flow: column;
+    > div {
+      width: 100%;
+      height: 84px;
+      padding: 20px 20px 20px 92px;
+      background-size: 40px auto;
+      background-position: 20px center;
+      margin: 0 0 10px 0;
+      font-size: 16px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
 `

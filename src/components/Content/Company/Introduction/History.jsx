@@ -69,6 +69,33 @@ const TabContentWrap = styled.div`
       }
     }
   }
+
+  ${(props) => props.theme.window.mobile} {
+    > div {
+      width: 100%;
+      margin: 30px 0;
+      .list-history:not(:first-child) {
+        margin-top: 20px;
+      }
+      .list-history {
+        padding-left: 50px;
+        padding-top: 5px;
+        > dt {
+          font-size: 24px;
+        }
+        > dd {
+          .list-dot {
+            > li {
+              font-size: 14px;
+              &::before {
+                top: 6px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 `;
 
 const TabMenu = styled.ul`
@@ -110,9 +137,17 @@ const TabMenu = styled.ul`
       }
     }
   }
-  
+  ${(props) => props.theme.window.mobile} {
+    > li {
+      margin-left: 16px;
+      padding-left: 16px;
+      > button {
+        font-size: 16px;
+      }
+    }
+  }
 `;
 
-const TabContent = styled.div``;
+
 
 

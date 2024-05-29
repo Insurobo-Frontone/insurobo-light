@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from "styled-components";
 import InnerBox from "../InnerBox";
 import arrow from "../../../assets/img/content/company-recruitSystem-arrow.png";
+import arrow_m from "../../../assets/img/content/company-recruitSystem-arrow-m.png";
 import clothes from "../../../assets/img/content/company-recruitSystem_clothes.png";
 import date from "../../../assets/img/content/company-recruitSystem_date.png";
 import food from "../../../assets/img/content/company-recruitSystem_food.png";
@@ -68,6 +69,16 @@ margin-top: 16px;
       justify-content: space-between;
     }
   }
+  ${(props) => props.theme.window.mobile} {
+    margin-top: -16px;
+    div {
+      > div {
+        flex-flow: column;
+        justify-content: flex-start;
+      }
+    }
+  }
+
 `;
 const StepBox = styled.div`
   position: relative;
@@ -116,6 +127,54 @@ const StepBox = styled.div`
       color: #495057;
     }
   }
+  ${(props) => props.theme.window.mobile} {
+    width: 100%;
+    height: 64.8px;
+    margin: 0 0 20px 0;
+    border-radius: 8px;
+
+    padding: 10px 16px;
+    background-color: #FFFFFF !important;
+    &:first-child {
+      margin-top: 20px;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &:first-child::before {
+    content: block;
+    }
+    &::before {
+      top: -14px;
+      left: 50%;
+      width: 15px;
+      height: 8px;
+      margin-top: 0;
+      margin-left: -12.5px;
+      background-image: url(${arrow_m});
+      
+    }
+    > p {
+      background-color: #FFFFFF;
+      border-radius: 0;
+      height: 18px;
+      color: #384cff;
+      font-size: 12px;
+      line-height: 18px;
+      text-align: start;
+    }
+    > div {
+      width: 100%;
+      background-color: #FFFFFF;
+      height: auto;
+      padding: 0 14px;
+      > p {
+        width: 100%;
+        font-size: 14px;
+        text-align: end;
+      }
+    }
+  }
 `;
 
 
@@ -123,12 +182,20 @@ const Title = styled.h2`
   font-size: 24px;
   color: #212529;
   margin-bottom: 10px;
+  ${(props) => props.theme.window.mobile} {
+    font-size: 18px;
+    
+  }
 `;
 
 const Text = styled.p`
   font-size: 18px;
   line-height: 1.33;
   color: #adb5bd;
+  ${(props) => props.theme.window.mobile} {
+    font-size: 14px;
+    
+  }
 `;
 
 const WelFareWrap = styled.div`
@@ -158,6 +225,26 @@ const WelFareWrap = styled.div`
         font-size: 18px;
         line-height: 1.33;
         color: #868e96;
+      }
+    }
+  }
+  ${(props) => props.theme.window.mobile} {
+    margin-top: 40px;
+    padding-bottom: 20px;
+    ul {
+      margin-top: 20px;
+      flex-flow: column;
+      > li {
+        width: 100%;
+        padding: 14px 14px 14px 90px;
+        background-size: 60px auto;
+        > h2 {
+          font-size: 16.2px;
+        }
+        > p {
+          font-size: 14px;
+          margin-top: 4px;
+        }
       }
     }
   }
