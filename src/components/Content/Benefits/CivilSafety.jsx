@@ -5,7 +5,6 @@ import SelectInput from "../../Input/SelectInput";
 import Input from "../../Input";
 import MoreButton from "../../Button/MoreButton";
 
-
 const CivilSafety = () => {
   const goLink = (link) => {
     window.open(link)
@@ -76,18 +75,20 @@ const SearchWrap = styled.div`
 
   ${(props) => props.theme.window.mobile} {
     flex-direction: column;
+    
     > p {
       font-size: 14px;
       margin-bottom: 10px;
       line-height: 48px;
     }
     > div {
+      justify-content: space-between;
       > select {
-        width: 100%;
-        margin: 0 16px 0 0;
+        width: calc(50% - 5px);
+        margin: 0;
       }
       > input {
-        width: 100%;
+        width: calc(50% - 5px);
       }
     }
   } 
