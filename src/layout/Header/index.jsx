@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled, { css } from "styled-components";
 import useWindowSize from "../../hooks/useWindowSize";
 import ContentInner from "../ContentInner";
@@ -14,6 +14,11 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   const [currentTab, setCurrentTab] = useState(1);
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  useEffect(() => {
+    setOpen(false)
+  }, [location.pathname]);
 
   function goPage(link) {
     if (width < 768) {
@@ -47,39 +52,39 @@ const Header = () => {
               <li onClick={() => setCurrentTab(2)} className={currentTab === 2 ? 'active' : ''}>
                 혜택
                 <ul>
-                  <li>소상공인 지원사업</li>
-                  <li>소상공인 세금환급</li>
-                  <li>시민안전보험</li>
-                  <li>이벤트</li>
+                  <li onClick={() => goPage('/benefits/smallbizSupportList')}>소상공인 지원사업</li>
+                  <li onClick={() => goPage('/benefits/smallbizTaxRebate')}>소상공인 세금환급</li>
+                  <li onClick={() => goPage('/benefits/civilSafety')}>시민안전보험</li>
+                  <li onClick={() => goPage('/benefits/eventList')}>이벤트</li>
                 </ul>
               </li>
-              <li onClick={() => setCurrentTab(3)} className={currentTab === 3 ? 'active' : ''}>
+              {/* <li onClick={() => setCurrentTab(3)} className={currentTab === 3 ? 'active' : ''}>
                 고객지원
                 <ul>
-                  <li>공지사항</li>
-                  <li>자주묻는질문</li>
-                  <li>상담신청</li>
-                  <li>모바일 서비스안내</li>
+                  <li onClick={() => goPage('/support/noticeList')}>공지사항</li>
+                  <li onClick={() => goPage('/support/faqList')}>자주묻는질문</li>
+                  <li onClick={() => goPage('/support/counselingRequestForm')}>상담신청</li>
+                  <li onClick={() => goPage('/support/mobileGuide')}>모바일 서비스안내</li>
                 </ul>
-              </li>
+              </li> */}
               <li onClick={() => setCurrentTab(4)} className={currentTab === 4 ? 'active' : ''}>
                 회사소개
                 <ul>
-                  <li>소개</li>
-                  <li>인재상</li>
-                  <li>인사제도</li>
-                  <li>채용공고</li>
+                  <li onClick={() => goPage('/company/introduction')}>소개</li>
+                  <li onClick={() => goPage('/company/rightPeople')}>인재상</li>
+                  <li onClick={() => goPage('/company/recruitSystem')}>인사제도</li>
+                  <li onClick={() => goPage('/company/recruitList')}>채용공고</li>
                 </ul>
               </li>
             </Menu>
-            <User>
+            {/* <User>
               <li onClick={() => goPage('/')}>
                 로그인
               </li>
               <li onClick={() => goPage('/')}>
                 회원가입
               </li>
-            </User>
+            </User> */}
           </div>
         </Gnb>
       </ContentInner>
@@ -244,9 +249,11 @@ const Menu = styled.ul`
     }
   }
   > li {
+    position: relative;
     > ul {
-      position: absolute;
-      top: 98px;
+      width: 162px;
+      position: absolute; 
+      top: 96px;
       transform: translateX(-33px);
       background-color: #FFFFFF;
       border-radius: 10px;
@@ -258,17 +265,18 @@ const Menu = styled.ul`
         width: 100%;
         font-weight: 400;
         color: #545454;
-        padding: 8px 20px;
+        padding: 8px 0 8px 20px;
         font-size: 16px;
       }
     }
-    
+  }
+  > li:first-child > ul {
+    width: 233px;
+    box-sizing: border-box;
   }
   > li:last-child > ul {
     width: 127px;
-    box-sizing: border-box;
   }
- 
   ${(props) => props.theme.window.mobile} {
     > li {
       > ul {

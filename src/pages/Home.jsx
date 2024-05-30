@@ -24,6 +24,7 @@ const Home = () => {
           text={width > 768 ? `이름과 사업자등록번호 확인 후 납입 보험료를 바로 알아보세요.` : `이름, 사업자등록번호만으로 보험료 확인!`}
           label='HOT!'
           bgImg={speaker}
+          link='https://insurobo.com/dmgSF/contractor'
         />
        <ProductBanner />
       </ContentInner>

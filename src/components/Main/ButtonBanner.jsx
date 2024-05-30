@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+
 import styled, { css } from "styled-components";
 
 const ButtonBanner = ({
@@ -9,16 +9,17 @@ const ButtonBanner = ({
   LargeText,
   label,
   bgImg,
-  bgColor
+  bgColor,
+  link
 }) => {
-  const navigate = useNavigate();
+
 
   function goPage(link) {
-    navigate(link);
+    window.open(link)
   }
 
   return (
-    <Wrap bgImg={bgImg} bgColor={bgColor} onClick={() => goPage('/')}>
+    <Wrap bgImg={bgImg} bgColor={bgColor} onClick={() => goPage(link)}>
       <div>
         <h2>{title}{label && <Label>{label}</Label>}</h2>
         <p>{text}</p>

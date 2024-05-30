@@ -18,7 +18,7 @@ const MainBanner = () => {
         <MainSlider />
         <MainProduct>
           <div>
-            <Link>
+            <Link to='/finance/smallbizLoan'>
               <h2>소상공인 전용대출</h2>
               <p>
                 {width > 768 ? `사장님들을 위하여 준비했습니다!\n지금 당장 확인해보세요.` : `사장님들을 위하여 준비했습니다!`}
@@ -26,13 +26,13 @@ const MainBanner = () => {
             </Link>
           </div>
           <div>
-            <Link>
+            <Link to='/benefits/smallbizSupportList'>
               <h2>지원사업정보</h2>
               <p>
                 {width > 768 ? `소상공인을 위한\n맞춤 정보 공간` : `소상공인 맞춤 공간`}
               </p>
             </Link>
-            <Link>
+            <Link to='https://insurobo.com'>
               <h2>간편보험계산</h2>
               <p>
                 {width > 768 ? `매우 간단하게\n보험료 계산해보세요.` : `간단한 보험료 계산`}

@@ -1,9 +1,9 @@
 import React from "react";
 import { styled } from "styled-components";
 
-const CommonButton = ({ title, onClick}) => {
+const CommonButton = ({ title, onClick, className }) => {
   return (
-    <ButtonStyle onClick={onClick}>
+    <ButtonStyle onClick={onClick} className={className}>
       {title}
     </ButtonStyle>
   )   
@@ -20,6 +20,10 @@ const ButtonStyle = styled.button`
   background-color: #2ea5ff;
   font-weight: 700;
   font-family: Arial, Helvetica, sans-serif;
+  &.gray {
+    background-color: #f1f3f5;
+    color: #212529;
+  }
   ${props => props.theme.window.mobile} {
     min-width: 100%;
     height: 48px;

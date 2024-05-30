@@ -6,6 +6,9 @@ import img2 from "../../assets/img/main/productBanner_must.png";
 import img3 from "../../assets/img/main/productBanner_invest.png";
 
 const ProductBanner = () => {
+  const goLink = (link, target) => {
+    window.open(link, target);
+  }
   return (
     <Wrap>
       <MainTitle
@@ -14,7 +17,7 @@ const ProductBanner = () => {
         label='Go!'
       />
       <ul>
-        <li>
+        <li onClick={() => goLink('https://insurobo.com/smallbiz/multiuse', "_self")}>
           <Overlay />
           <h2>
             업종별 의무보험<br />
@@ -23,7 +26,7 @@ const ProductBanner = () => {
           <p>의무보험</p>
 
         </li>
-        <li>
+        <li onClick={() => goLink('https://insurobo.com/smallbiz/disaster', "_self")}>
           <Overlay />
           <h2>
             사업장 <b>안전!</b><br />
@@ -31,7 +34,7 @@ const ProductBanner = () => {
           </h2>
           <p>필수보험</p>
         </li>
-        <li>
+        <li onClick={() => goLink('https://insurobo.com/personal/cancerCare', "_self")}>
           <Overlay />
           <h2>
             저축과 <b>위험보장</b>을<br />
@@ -53,6 +56,7 @@ const Wrap = styled.div`
     padding: 34px 0 80px;
     > li {
       display: flex;
+      cursor: pointer;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
@@ -63,11 +67,12 @@ const Wrap = styled.div`
       overflow: hidden;
       background-repeat: no-repeat;
       background-position: center;
-      z-index: -2;
+
       > h2 {
         color: #FFFFFF;
         font-size: 23px;
         font-weight: 300;
+        z-index: 1;
         > b {
           color: #FFFFFF;
           font-weight: 700;
@@ -78,6 +83,7 @@ const Wrap = styled.div`
         font-size: 30px;
         font-weight: 700;
         align-self: flex-end;
+        z-index: 1;
       }
     }
     > li:first-child {
@@ -132,7 +138,7 @@ const Overlay = styled.div`
   background-color: rgba(0,0,0,0.58);
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
 `;
 
 

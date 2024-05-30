@@ -1,9 +1,9 @@
 import React from "react";
 import { styled } from "styled-components";
 
-const PageTitle = ({ title }) => {
+const PageTitle = ({ title, id }) => {
   return (
-    <Wrap>
+    <Wrap id={id}>
       {title}
     </Wrap>
   )
