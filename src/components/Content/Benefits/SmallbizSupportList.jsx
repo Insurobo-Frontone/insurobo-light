@@ -4,8 +4,13 @@ import SearchInput from "../../Input/SearchInput";
 import SelectInput from "../../Input/SelectInput";
 import { bizType, listData } from "../../../api/data";
 import MoreButton from "../../Button/MoreButton";
+import { useNavigate } from "react-router-dom";
 
 const SmallbizSupportList = () => {
+  const navigate = useNavigate();
+  const goDetail = (link) => {
+    navigate(link)
+  }
   return (
     <>
       <SearchWrap>
@@ -32,7 +37,7 @@ const SmallbizSupportList = () => {
             <th>공고명</th>
           </tr>
           {listData.map((dt) => (
-            <tr key={dt.BASE_IDX}>
+            <tr key={dt.BASE_IDX} onClick={() => goDetail(`/benefits/smallbizSupportDetail?detailIdx=${dt.BASE_IDX}`)}>
               <td>{dt.BIZTYPE}</td>
               <td>{dt.REQNM}</td>
               <td>{dt.TERM}</td>

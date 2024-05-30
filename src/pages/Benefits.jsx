@@ -9,6 +9,7 @@ import EventList from "../components/Content/Benefits/EventList";
 import { styled } from "styled-components";
 import PageTitle from "../components/Content/PageTitle";
 import InnerBox from "../components/Content/InnerBox";
+import SmallbizSupportDetail from "../components/Content/Benefits/SmallbizSupportDetail";
 
 const Benefits = () => {
   const data = [
@@ -35,23 +36,27 @@ const Benefits = () => {
   ];
   const location = useLocation();
   const divide =  location.pathname.split('/')[2];
-
+  const detailPageTitle = location.pathname.split('/')[2] === 'smallbizSupportDetail' && '소상공인 지원사업'
   return (
     <Layout>
       <SubHeader data={data} />
       <Content>
-        {data.filter((path) => path.value === divide).map((dt) => (
-          <PageTitle title={dt.title} id={dt.id} />
-        ))}
+        {location.pathname === '/benefits/smallbizSupportDetail' ? <PageTitle title={detailPageTitle} /> : <>
+          {data.filter((path) => path.value === divide).map((dt) => (
+            <PageTitle title={dt.title} id={dt.id} />
+          ))}
+        </>}
         <InnerBox>
           {location.pathname === `/benefits/smallbizSupportList` ? (
-            <SmallbizSupportList /> 
-          ) : location.pathname === `/benefits/smallbizTaxRebate` ? (
-            <SmallbizTaxRebate />
-          ) : location.pathname === `/benefits/civilSafety` ? (
-            <CivilSafety />
-          ) : location.pathname === `/benefits/eventList` && (
-            <EventList />
+            <SmallbizSupportList /> ) : 
+            location.pathname === `/benefits/smallbizSupportDetail` ? (
+              <SmallbizSupportDetail /> ) : 
+            location.pathname === `/benefits/smallbizTaxRebate` ? (
+              <SmallbizTaxRebate /> ) :
+            location.pathname === `/benefits/civilSafety` ? (
+              <CivilSafety />) :
+            location.pathname === `/benefits/eventList` && (
+              <EventList />
           )}
         </InnerBox>
       </Content>
