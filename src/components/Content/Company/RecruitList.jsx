@@ -27,8 +27,8 @@ const RecruitList = () => {
                 ) : (
                   <span className="recruit single">
                     <span className="type">
-                      {data.CATEGORY === "NEW" || data.CATEGORY === "New" ? '신입' :
-                      data.CATEGORY === "EXP" || data.CATEGORY === "Exp" && '경력'}
+                      {(data.CATEGORY === "NEW" || data.CATEGORY === "New" ) ? '신입' :
+                      (data.CATEGORY === "EXP" || data.CATEGORY === "Exp") && '경력'}
                     </span>
                   </span>
                 )}
