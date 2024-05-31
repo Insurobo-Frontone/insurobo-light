@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import nodata from "../../assets/img/common/nodata.png";
+
 
 const Board = ({ children }) => {
   return (
