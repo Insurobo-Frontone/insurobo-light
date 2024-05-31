@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import nodata from "../../assets/img/common/nodata.png";
 
 const Board = ({ children }) => {
   return (
@@ -96,6 +97,7 @@ const BoardWrap = styled.div`
           margin-left: 20px;
           color: #adb5bd;
         }
+       
       }
     }
   }
