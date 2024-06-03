@@ -2,10 +2,10 @@ import React from "react";
 import { styled } from "styled-components";
 import ButtonBanner from "./ButtonBanner";
 import appIcon from "../../assets/img/main/appIcon.jpg";
-import MainTitle from "./MainTitle";
-import apply from "../../assets/img/main/mainInfo_apply.png";
-import qna from "../../assets/img/main/mainInfo_qna.png";
-import documents from "../../assets/img/main/mainInfo_documents.png";
+// import MainTitle from "./MainTitle";
+// import apply from "../../assets/img/main/mainInfo_apply.png";
+// import qna from "../../assets/img/main/mainInfo_qna.png";
+// import documents from "../../assets/img/main/mainInfo_documents.png";
 
 const MainInfo = () => {
   return (
