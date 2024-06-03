@@ -26,7 +26,6 @@ const MainSlider = () => {
         breakpoint: 767.98,
         settings: {
           dots: true,
-
         }
       },
     ]

@@ -26,7 +26,6 @@ const SmallbizSupportList = () => {
     setData([]);
     setPage(1);
     getBizSupportList(1,10, watch('searchCodeA'), watch('searchDvsn'), watch('searchStr')).then((res) => {
-      console.log(res)
       setData(res.data.items)
       setCount(res.data.total_count);
     })
@@ -35,8 +34,9 @@ const SmallbizSupportList = () => {
   const moreList = () => {
     getBizSupportList(page ,10, watch('searchCodeA'), watch('searchDvsn'), watch('searchStr')).then((res) => {
       setData(data.concat(res.data.items));
-    })
+    });
   }
+  
   const navigate = useNavigate();
   const today = dateFomat(new Date());
 
