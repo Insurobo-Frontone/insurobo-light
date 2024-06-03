@@ -19,6 +19,7 @@ const SmallbizSupportList = () => {
 
   useEffect(() => {
     searchList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const searchList = () => {
