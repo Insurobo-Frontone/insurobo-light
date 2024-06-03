@@ -4,7 +4,7 @@ import CommonButton from "../Button/CommonButton";
 import { useNavigate } from "react-router-dom";
 
 const BoradDetail = ({ data }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <>
       <BoradDetailWrap>
@@ -25,7 +25,7 @@ const BoradDetail = ({ data }) => {
       </BoradDetailWrap>
       <ButtonWrap>
         {data.PBLANCDTLURL && <CommonButton title='상세정보' onClick={() => window.open(data.PBLANCDTLURL, '_blank')}/>}
-        <CommonButton title='목록' className='gray' onClick={() => navigate(-1, {
+        <CommonButton title='목록' className='gray' onClick={() => navigate(`/benefits/smallbizSupportList`, {
           state: { ...data }
         })} />
       </ButtonWrap>

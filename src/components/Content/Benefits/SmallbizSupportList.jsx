@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { getBizSupportList } from "../../../api/BizSupport";
 import { dateFomat } from "../../dateFomat";
 import { useFormContext } from "react-hook-form";
-import nodata from "../../../assets/img/common/nodata.png";
+import NoData from "../../Borad/NoData";
 
 const SmallbizSupportList = () => {
   const [data, setData] = useState([]);
@@ -63,22 +63,26 @@ const SmallbizSupportList = () => {
         <>  
           <ListWrap>
             <ListTable>
-              <tr>
-                <th>사업유형</th>
-                <th>신청여부</th>
-                <th>신청기간</th>
-                <th>지원기관</th>
-                <th>공고명</th>
-              </tr>
-              {data.map((dt) => (
-                <tr key={dt.PBLANCSEQ} onClick={() => goDetail(`/benefits/smallbizSupportDetail?pblancseq=${dt.PBLANCSEQ}`)}>
-                  <td>{dt.BIZTYPE}</td>
-                  <td>{new Date(dt.PBLANCENDDT) >= new Date(today) ? '신청가능' : '신청불가' }</td>
-                  <td>{dt.PBLANCBGNDT === '' ? '상시접수' : `${dt.PBLANCBGNDT} ~ ${dt.PBLANCENDDT}`}</td>
-                  <td>{dt.SPORTINSTTNM}</td>
-                  <td>{dt.PBLANCNM}</td>
+              <thead>
+                <tr>
+                  <th>사업유형</th>
+                  <th>신청여부</th>
+                  <th>신청기간</th>
+                  <th>지원기관</th>
+                  <th>공고명</th>
                 </tr>
-              ))}
+              </thead>
+              <tbody>
+                {data.map((dt) => (
+                  <tr key={dt.PBLANCSEQ} onClick={() => goDetail(`/benefits/smallbizSupportDetail?pblancseq=${dt.PBLANCSEQ}`)}>
+                    <td>{dt.BIZTYPE}</td>
+                    <td>{new Date(dt.PBLANCENDDT) >= new Date(today) ? '신청가능' : '신청불가' }</td>
+                    <td>{dt.PBLANCBGNDT === '' ? '상시접수' : `${dt.PBLANCBGNDT} ~ ${dt.PBLANCENDDT}`}</td>
+                    <td>{dt.SPORTINSTTNM}</td>
+                    <td>{dt.PBLANCNM}</td>
+                  </tr>
+                ))}
+              </tbody>
             </ListTable>
           </ListWrap>
           <>
@@ -89,7 +93,7 @@ const SmallbizSupportList = () => {
           </>
         </>
       ) : (
-        <NoData>검색된 결과가 없습니다.</NoData>
+        <NoData />
       )}
     </>
   )
@@ -221,10 +225,3 @@ const ListTable = styled.table`
   }
 `;
 
-const NoData = styled.div`
-  width: 100%;
-  margin: 210px 0;
-  background-image: url(${nodata});
-  background-repeat: no-repeat;
-  font-size: 18px;
-`;

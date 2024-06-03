@@ -43,7 +43,7 @@ const Benefits = () => {
       <Content>
         {location.pathname === '/benefits/smallbizSupportDetail' ? <PageTitle title={detailPageTitle} /> : <>
           {data.filter((path) => path.value === divide).map((dt) => (
-            <PageTitle title={dt.title} id={dt.id} />
+            <PageTitle title={dt.title} key={dt.id} />
           ))}
         </>}
         <InnerBox>
