@@ -14,6 +14,7 @@ const SlickSlider = ({
   player,
   totalSlides,
   currentSlide,
+  mobileGuide,
   width, 
   height,
   noneStyle,
@@ -35,6 +36,7 @@ const SlickSlider = ({
         height={height}
         ref={sliderRef}
         noneStyle={noneStyle}
+        mobileGuide={mobileGuide}
         border={border}
         {...settings}
       >
@@ -101,6 +103,11 @@ const StyledSlider = styled(Slider)`
 
     ${props => props.border && css`
       border: 1px solid #69BEFF;
+    `}
+
+    ${props => props.mobileGuide && css`
+      background-color: #f8f9fa;
+      padding: 20px 0 70px 20px;
     `}
   }
 `;

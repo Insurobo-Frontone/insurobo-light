@@ -41,19 +41,20 @@ const Support = () => {
       <SubHeader data={data} />
       <Content>
         {data.filter((path) => path.value === divide).map((dt) => (
-          <PageTitle title={dt.title} id={dt.id} />
+          <PageTitle title={dt.title} id={dt.id} className={dt.id === 4 ? 'none' : ''} />
         ))}
         <InnerBox>
           {location.pathname === `/support/noticeList` ? (
             <NoticeList />
           ) : location.pathname === `/support/faqList` ? (
             <FaqList />
-          ) : location.pathname === `/support/counselingRequestForm` ? (
+          ) : location.pathname === `/support/counselingRequestForm` && (
             <CounselingRequestForm />
-          ) : location.pathname === `/support/mobileGuide` && (
-            <MobileGuide />
           )}
         </InnerBox>
+        {location.pathname === `/support/mobileGuide` && (
+          <MobileGuide />
+        )}
       </Content>
     </Layout>
   )
@@ -62,4 +63,8 @@ export default Support;
 
 const Content = styled.div`
   padding-bottom: 140px;
+  ${(props) => props.theme.window.mobile} {
+    padding-bottom: 0;
+  }
+
 `;

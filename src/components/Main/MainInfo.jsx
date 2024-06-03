@@ -2,10 +2,10 @@ import React from "react";
 import { styled } from "styled-components";
 import ButtonBanner from "./ButtonBanner";
 import appIcon from "../../assets/img/main/appIcon.jpg";
-import MainTitle from "./MainTitle";
-import apply from "../../assets/img/main/mainInfo_apply.png";
-import qna from "../../assets/img/main/mainInfo_qna.png";
-import documents from "../../assets/img/main/mainInfo_documents.png";
+// import MainTitle from "./MainTitle";
+// import apply from "../../assets/img/main/mainInfo_apply.png";
+// import qna from "../../assets/img/main/mainInfo_qna.png";
+// import documents from "../../assets/img/main/mainInfo_documents.png";
 
 const MainInfo = () => {
   return (
@@ -24,7 +24,7 @@ const MainInfo = () => {
           bgColor='#176FFF'
         />
       </div>
-      <div>
+      {/* <div>
         <div>
           <MainTitle
             title='궁금증을 해결해 드릴게요'
@@ -45,7 +45,7 @@ const MainInfo = () => {
             </div>
           </div>
         </div>
-        {/* <div>
+        <div>
           <div className="notice_title-wrap">
             <MainTitle
               title='공지사항'
@@ -61,8 +61,8 @@ const MainInfo = () => {
               </div>
             ))}
           </div>
-        </div> */}
-      </div>
+        </div>
+      </div> */}
     </Wrap>
   )
 }

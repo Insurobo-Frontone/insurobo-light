@@ -1,9 +1,9 @@
 import React from "react";
 import { styled } from "styled-components";
 
-const PageTitle = ({ title, id }) => {
+const PageTitle = ({ title, id, className }) => {
   return (
-    <Wrap id={id}>
+    <Wrap id={id} className={className}>
       {title}
     </Wrap>
   )
@@ -19,10 +19,16 @@ const Wrap = styled.div`
   line-height: 1.21;
   padding: 60px 0;
   font-family: "Pretendard Variable";
+  &.none {
+    display: none;
+  }
   ${props => props.theme.window.mobile} {
     font-size: 22px;
     padding: 20px 0;
     line-height: 1.36;
+    &.none + div {
+      display: none;
+    }
   }
 `;
 
