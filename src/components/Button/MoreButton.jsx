@@ -2,10 +2,10 @@ import React from "react";
 import more from '../../assets/icon/common/icon-btn_more.png';
 import styled from "styled-components";
 
-const MoreButton = () => {
+const MoreButton = ({ onClick }) => {
   return (
     <ButtonWrap>
-      <button><span />더보기</button>
+      <button onClick={onClick}><span />더보기</button>
     </ButtonWrap>
   )
 }

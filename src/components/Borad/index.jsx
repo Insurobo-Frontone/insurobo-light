@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+
 const Board = ({ children }) => {
   return (
     <BoardWrap>
@@ -96,6 +97,7 @@ const BoardWrap = styled.div`
           margin-left: 20px;
           color: #adb5bd;
         }
+       
       }
     }
   }

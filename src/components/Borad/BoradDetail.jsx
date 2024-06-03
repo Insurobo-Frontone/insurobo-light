@@ -4,18 +4,18 @@ import CommonButton from "../Button/CommonButton";
 import { useNavigate } from "react-router-dom";
 
 const BoradDetail = ({ data }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <>
       <BoradDetailWrap>
         <BoradTop>
           <h2>{data.PBLANCNM}</h2>
-          {data.SPORTINSTTNM && data.REQNM && (
+          {data.SPORTINSTTNM && (
             <dl>
               <dt>주관기관 :</dt>
               <dd>&nbsp;{data.SPORTINSTTNM}</dd>
               <dt>진행상태 :</dt>
-              <dd>&nbsp;{data.REQNM}</dd>
+              <dd>신청가능</dd>
             </dl>
           )}
         </BoradTop>
@@ -25,7 +25,9 @@ const BoradDetail = ({ data }) => {
       </BoradDetailWrap>
       <ButtonWrap>
         {data.PBLANCDTLURL && <CommonButton title='상세정보' onClick={() => window.open(data.PBLANCDTLURL, '_blank')}/>}
-        <CommonButton title='목록' className='gray' onClick={() => navigate(-1)} />
+        <CommonButton title='목록' className='gray' onClick={() => navigate(`/benefits/smallbizSupportList`, {
+          state: { ...data }
+        })} />
       </ButtonWrap>
     </>
   )

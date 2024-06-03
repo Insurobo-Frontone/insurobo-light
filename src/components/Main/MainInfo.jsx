@@ -46,6 +46,7 @@ const MainInfo = () => {
           title='인슈로보 모바일앱 다운로드'
           text='휴대폰에서도 간편하게!'
           img={appIcon}
+          link='/support/mobileGuide'
         />
         <ButtonBanner
           title='대표 상담번호'
@@ -75,7 +76,7 @@ const MainInfo = () => {
             </div>
           </div>
         </div>
-        <div>
+        {/* <div>
           <div className="notice_title-wrap">
             <MainTitle
               title='공지사항'
@@ -91,7 +92,7 @@ const MainInfo = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </Wrap>
   )

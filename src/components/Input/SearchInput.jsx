@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import Input from '.';
 import search from '../../assets/icon/common/icon-input_serch.png';
 
-const SearchInput = ({ name }) => {
+const SearchInput = ({ name, onClick }) => {
   return (
     <Wrap>
       <Input name={name} placeholder='검색어를 입력해 주세요.' />
-      <SearchButton />
+      <SearchButton onClick={onClick} />
     </Wrap>
   )
 }

@@ -1,53 +1,100 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import SearchInput from "../../Input/SearchInput";
 import SelectInput from "../../Input/SelectInput";
-import { bizType, listData } from "../../../api/data";
+import { bizType } from "../../../api/data";
 import MoreButton from "../../Button/MoreButton";
 import { useNavigate } from "react-router-dom";
+import { getBizSupportList } from "../../../api/BizSupport";
+import { dateFomat } from "../../dateFomat";
+import { useFormContext } from "react-hook-form";
+import NoData from "../../Borad/NoData";
 
 const SmallbizSupportList = () => {
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [count, setCount] = useState(0);
+  const { watch } = useFormContext();
+    // const location = useLocation();
+
+  useEffect(() => {
+    searchList();
+  }, []);
+
+  const searchList = () => {
+    setData([]);
+    setPage(1);
+    getBizSupportList(1,10, watch('searchCodeA'), watch('searchDvsn'), watch('searchStr')).then((res) => {
+      console.log(res)
+      setData(res.data.items)
+      setCount(res.data.total_count);
+    })
+  }
+
+  const moreList = () => {
+    getBizSupportList(page ,10, watch('searchCodeA'), watch('searchDvsn'), watch('searchStr')).then((res) => {
+      setData(data.concat(res.data.items));
+    })
+  }
   const navigate = useNavigate();
+  const today = dateFomat(new Date());
+
   const goDetail = (link) => {
     navigate(link)
   }
+  
   return (
     <>
       <SearchWrap>
         <div>
-          <SelectInput name='bizType' placeholder='전체' defaultValue=''>
+          <SelectInput name='searchCodeA' placeholder='전체' defaultValue=''>
             {bizType.map((dt) => (
               <option key={dt.cdId} value={dt.cdId}>{dt.cdNm}</option>
             ))}
           </SelectInput>
-          <SelectInput name='searchKey' defaultValue='title'>
-            <option value='title'>제목</option>
+          <SelectInput name='searchDvsn' defaultValue='subject'>
+            <option value='subject'>제목</option>
             <option value='content'>내용</option>
           </SelectInput>
         </div>
-        <SearchInput name='bizSupport_searchWrod' />
+        <SearchInput name='searchStr'  onClick={() => searchList()} />
       </SearchWrap>
-      <ListWrap>
-        <ListTable>
-          <tr>
-            <th>사업유형</th>
-            <th>신청여부</th>
-            <th>신청기간</th>
-            <th>지원기관</th>
-            <th>공고명</th>
-          </tr>
-          {listData.map((dt) => (
-            <tr key={dt.BASE_IDX} onClick={() => goDetail(`/benefits/smallbizSupportDetail?detailIdx=${dt.BASE_IDX}`)}>
-              <td>{dt.BIZTYPE}</td>
-              <td>{dt.REQNM}</td>
-              <td>{dt.TERM}</td>
-              <td>{dt.SPORTINSTTNM}</td>
-              <td>{dt.PBLANCNM}</td>
-            </tr>
-          ))}
-        </ListTable>
-      </ListWrap>
-      <MoreButton />
+      {count > 0 ? (
+        <>  
+          <ListWrap>
+            <ListTable>
+              <thead>
+                <tr>
+                  <th>사업유형</th>
+                  <th>신청여부</th>
+                  <th>신청기간</th>
+                  <th>지원기관</th>
+                  <th>공고명</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((dt) => (
+                  <tr key={dt.PBLANCSEQ} onClick={() => goDetail(`/benefits/smallbizSupportDetail?pblancseq=${dt.PBLANCSEQ}`)}>
+                    <td>{dt.BIZTYPE}</td>
+                    <td>{new Date(dt.PBLANCENDDT) >= new Date(today) ? '신청가능' : '신청불가' }</td>
+                    <td>{dt.PBLANCBGNDT === '' ? '상시접수' : `${dt.PBLANCBGNDT} ~ ${dt.PBLANCENDDT}`}</td>
+                    <td>{dt.SPORTINSTTNM}</td>
+                    <td>{dt.PBLANCNM}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </ListTable>
+          </ListWrap>
+          <>
+            {count > 10 && (<MoreButton onClick={() => {
+            setPage(page + 1)
+            moreList()
+           }} />)}
+          </>
+        </>
+      ) : (
+        <NoData />
+      )}
     </>
   )
 }
