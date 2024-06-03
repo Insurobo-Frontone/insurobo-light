@@ -1,44 +1,13 @@
 import React from "react";
 import { styled } from "styled-components";
-import useWindowSize from "../../hooks/useWindowSize";
 import ButtonBanner from "./ButtonBanner";
 import appIcon from "../../assets/img/main/appIcon.jpg";
 import MainTitle from "./MainTitle";
-
 import apply from "../../assets/img/main/mainInfo_apply.png";
 import qna from "../../assets/img/main/mainInfo_qna.png";
 import documents from "../../assets/img/main/mainInfo_documents.png";
 
-
 const MainInfo = () => {
-  const { width } = useWindowSize();
-  const data = [
-    {
-      id: 4,
-      title: `[프라임경제]인슈로보, 서비스 리뉴얼 '고객편의확대`,
-      date: '2024.04.04',
-      content: ``
-    },
-    {
-      id: 3,
-      title: `[프라임경제] '인슈로보-요기요, 소상공인 풍수해보험 무료 서비스 개시`,
-      date: '2024.04.03',
-      content: ``
-    },
-    {
-      id: 2,
-      title: `[머니투데이] '7일→5분' 주소만 입력하면 보험 OK…소상공인 인슈어테크 뜬다`,
-      date: '2024.04.01',
-      content: ``
-    },
-    {
-      id: 1,
-      title: `[프라임경제] 소상공인 특화 보험 서비스 출시, 서민 인슈로보 대표`,
-      date: '2024.03.08',
-      content: ``
-    },
-  ]
-
   return (
     <Wrap>
       <div>
