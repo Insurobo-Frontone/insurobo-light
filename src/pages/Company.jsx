@@ -8,6 +8,7 @@ import RightPeople from "../components/Content/Company/RightPeople";
 import RecruitSystem from "../components/Content/Company/RecruitSystem";
 import RecruitList from "../components/Content/Company/RecruitList";
 import Introduction from "../components/Content/Company/Introduction";
+import RecruitDetail from "../components/Content/Company/RecruitDetail";
 
 
 const Company = () => {
@@ -38,7 +39,7 @@ const Company = () => {
 
   return (
     <Layout>
-      <SubHeader data={data} />
+      <SubHeader data={data} selected={location.pathname === `/company/recruitDetail` && 'recruitList'}/>
       <Content>
         {data.filter((path) => path.value === divide).map((dt) => (
           <PageTitle title={dt.title} id={dt.id} key={dt.id} />
@@ -49,9 +50,11 @@ const Company = () => {
             <RightPeople />
           ) : location.pathname === `/company/recruitSystem` ? (
             <RecruitSystem />
-          ) : location.pathname === `/company/recruitList` && (
-          <RecruitList />
-        )}
+          ) : location.pathname === `/company/recruitList` ? (
+            <RecruitList />
+          ) : location.pathname === `/company/recruitDetail` && (
+            <RecruitDetail />
+          )}
       </Content>
     </Layout>
   )

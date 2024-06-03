@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import BoradDetail from "../../Borad/BoradDetail";
-import { getBizSupportDetail } from "../../../api/BizSupport";
+import { getBizSupportDetail } from "../../../api/benefits";
 
 
 const SmallbizSupportDetail = () => {

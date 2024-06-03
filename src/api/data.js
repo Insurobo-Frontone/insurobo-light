@@ -467,19 +467,11 @@ export const years = [
 
 export const recruitList = [
   {
-    BASE_IDX: 1,
-    CATEGORY: "Exp",
-    TITIE: '[상시채용]',
-    START_YMD: '2024.03.06',
-    END_YMD: '2024.06.30',
-    CONTENT: `<pre id="contents"><p>인슈로보에 관심가져 주셔서 감사합니다.&nbsp;</p><p>&nbsp;</p><p>&nbsp;현재 진행중인 채용 포지션은 없습니다만,</p><p>&nbsp;</p><p>&nbsp;“소상공인과 개인 고객을 위한 생활금융파트너”라는 비전을 실현할 창의적이고 도전적인 분에 대한 상시 채용 정책을 적용하고 있습니다.</p><p>&nbsp;</p><ul><li><i><strong>&nbsp;지원분야(예. IT개발 , 마케팅, 경영전략 등)를 기재하신 이력서를 보내주시면 포지션 오픈시 가장 빠르게 연락 드리겠습니다</strong></i></li></ul></pre>`
-  },
-  {
-    BASE_IDX: 2,
+    BASE_IDX: '1',
     CATEGORY: "All",
     TITIE: '[상시채용]',
     START_YMD: '2024.03.06',
     END_YMD: '2024.06.30',
     CONTENT: `<pre id="contents"><p>인슈로보에 관심가져 주셔서 감사합니다.&nbsp;</p><p>&nbsp;</p><p>&nbsp;현재 진행중인 채용 포지션은 없습니다만,</p><p>&nbsp;</p><p>&nbsp;“소상공인과 개인 고객을 위한 생활금융파트너”라는 비전을 실현할 창의적이고 도전적인 분에 대한 상시 채용 정책을 적용하고 있습니다.</p><p>&nbsp;</p><ul><li><i><strong>&nbsp;지원분야(예. IT개발 , 마케팅, 경영전략 등)를 기재하신 이력서를 보내주시면 포지션 오픈시 가장 빠르게 연락 드리겠습니다</strong></i></li></ul></pre>`
-  },
+  }
 ]

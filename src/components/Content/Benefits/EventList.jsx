@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { eventData } from "../../../api/data";
 import end from "../../../assets/img/content/event-end.png";
+import { getEventList } from "../../../api/benefits";
 
 const EventList = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    getEventList().then((res) => {
+      setData(res.data.items)
+    })
+  }, []);
   return (
     <ListWrap>
       <ul>
-        {eventData.map((dt) => (
+        {data.map((dt) => (
           <li className={dt.DATE_TERM && dt.DATE_TERM === '0' ? '' : 'end'}>
             <button>
               <span className="img-wrap">

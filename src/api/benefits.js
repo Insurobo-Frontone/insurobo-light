@@ -12,3 +12,12 @@ export const getBizSupportDetail = async (id) => {
     `/api/info/smallbiz_support_detail?pblancseq=${id}`);
 };
 
+export const getCivilSafetyList = async (page, per_page, searchDvsn, searchStr) => {
+  return CommonApi.get(
+    `/api/info/citizen_safety_list?${searchDvsn && `searchDvsn=${searchDvsn}&`}${searchStr && `searchStr=${searchStr}&`}page=${page}&per_page=${per_page}`
+  );
+};
+
+export const getEventList = async () => {
+  return CommonApi.get(`/api/info/event_list?page=1&per_page=10`);
+}
