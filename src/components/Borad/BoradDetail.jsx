@@ -1,34 +1,66 @@
 import React from "react";
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 import CommonButton from "../Button/CommonButton";
 import { useNavigate } from "react-router-dom";
 
-const BoradDetail = ({ data }) => {
+const BoradDetail = ({ data, recruit }) => {
   const navigate = useNavigate();
   return (
     <>
-      <BoradDetailWrap>
-        <BoradTop>
-          <h2>{data.PBLANCNM}</h2>
-          {data.SPORTINSTTNM && (
-            <dl>
-              <dt>주관기관 :</dt>
-              <dd>&nbsp;{data.SPORTINSTTNM}</dd>
-              <dt>진행상태 :</dt>
-              <dd>신청가능</dd>
-            </dl>
-          )}
-        </BoradTop>
-        <BoradContent dangerouslySetInnerHTML={{ __html: data.POLICYCNTS }} />
-          {data.TERM && (<TermDate>신청기간 : {data.TERM}</TermDate>)}
-          {data.REFRNC && (<SubData dangerouslySetInnerHTML={{ __html: data.REFRNC }} />)}
-      </BoradDetailWrap>
-      <ButtonWrap>
-        {data.PBLANCDTLURL && <CommonButton title='상세정보' onClick={() => window.open(data.PBLANCDTLURL, '_blank')}/>}
-        <CommonButton title='목록' className='gray' onClick={() => navigate(`/benefits/smallbizSupportList`, {
-          state: { ...data }
-        })} />
-      </ButtonWrap>
+      {recruit ? (
+        <>
+           <BoradDetailWrap recruit={recruit}>
+            <BoradTop>
+              {data.CATEGORY === "ALL" || data.CATEGORY === "All" ? (
+                <span className="recruit">
+                  <span className="type">경력</span>
+                  <span className="type blue">신입</span>
+                </span>    
+              ) : (
+                <span className="recruit single">
+                  <span className="type">
+                    {(data.CATEGORY === "NEW" || data.CATEGORY === "New" ) ? '신입' :
+                    (data.CATEGORY === "EXP" || data.CATEGORY === "Exp") && '경력'}
+                  </span>
+                </span>
+              )}
+              <p>{data.START_YMD} ~ {data.END_YMD}</p>
+            </BoradTop>
+            <BoradContent dangerouslySetInnerHTML={{ __html: data.CONTENT }} />
+          </BoradDetailWrap>
+          <ButtonWrap>
+            <CommonButton title='목록' className='gray' onClick={() => navigate(`/company/recruitList`, { state: { ...data }})} />
+            <CommonButton title='지원하기' onClick={() => window.open(`https://www.jobkorea.co.kr/Recruit/GI_Read/44208763?Oem_Code=1`)}/>
+          </ButtonWrap>
+        </>
+      ) : (
+        <>
+          <BoradDetailWrap>
+            <BoradTop>
+              <h2>{data.PBLANCNM}</h2>
+              {data.SPORTINSTTNM && (
+                <dl>
+                  <dt>주관기관 :</dt>
+                  <dd>&nbsp;{data.SPORTINSTTNM}</dd>
+                  <dt>진행상태 :</dt>
+                  <dd>신청가능</dd>
+                </dl>
+              )}
+            </BoradTop>
+            <BoradContent dangerouslySetInnerHTML={{ __html: data.POLICYCNTS }} />
+            {data.TERM && (<TermDate>신청기간 : {data.TERM}</TermDate>)}
+            {data.REFRNC && (<SubData dangerouslySetInnerHTML={{ __html: data.REFRNC }} />)}
+          </BoradDetailWrap>
+          <ButtonWrap>
+            {data.PBLANCDTLURL && <CommonButton title='상세정보' onClick={() => window.open(data.PBLANCDTLURL, '_blank')}/>}
+            <CommonButton title='목록' className='gray' onClick={() => navigate(`/benefits/smallbizSupportList`, { state: { ...data }})} />
+          </ButtonWrap>
+        </>
+      )}
+    
+    
+        
+      
     </>
   )
 }
@@ -38,6 +70,9 @@ export default BoradDetail;
 const BoradDetailWrap = styled.div`
   padding-bottom: 20px;
   border-bottom: 1px solid #f1f3f5;
+  ${props => props.recruit && css`
+    border-bottom: none;
+  `}
   ${(props) => props.theme.window.mobile} {
 
   }
@@ -74,6 +109,32 @@ const BoradTop = styled.div`
       }
     }
   }
+  .recruit {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    .type {
+      display: flex;
+      width: 70px;
+      height: 43px;
+      color: #FFFFFF;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 700;
+      align-items: center;
+      justify-content: center;
+      background-color: #868e96;
+      &.blue {
+        background-color: #2ea5ff;
+      }
+    }
+  }
+  p {
+    text-align: right;
+    color: #adb5bd;
+    line-height: 1.38;
+    margin-top: 10px;
+  }
   ${(props) => props.theme.window.mobile} {
     padding-bottom: 10px;
     > h2 {
@@ -84,6 +145,18 @@ const BoradTop = styled.div`
       > dd, dt {
         font-size: 14px;
       }
+    }
+    .recruit {
+      width: 100px;
+      .type {
+        width: 45px;
+        height: 26px;
+        font-size: 12px;
+      }
+    }
+    p {
+      font-size: 14px;
+      line-height: 1.43;
     }
   }
 `;
@@ -108,9 +181,10 @@ const BoradContent = styled.div`
   ${(props) => props.theme.window.mobile} {
     min-height: 300px;
     line-height: 1.57;
-    white-space: pre-wrap;
-    p {
+    p, li {
       font-size: 14px;
+      white-space: pre-wrap;
+      font-weight: 700;
     }
   }
 `;

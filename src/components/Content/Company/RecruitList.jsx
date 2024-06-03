@@ -1,14 +1,17 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import { recruitList } from "../../../api/data";
 import InnerBox from "../InnerBox";
 import SearchInput from "../../Input/SearchInput";
 import Board from "../../Borad";
 
 
-
-
 const RecruitList = () => {
+  const navigate = useNavigate();
+  const goDetail = (link) => {
+    navigate(link)
+  }
   return (
     <InnerBox>
       <SearchWrap>
@@ -16,7 +19,7 @@ const RecruitList = () => {
       </SearchWrap>
       <Board>
         {recruitList.map((data) => (
-          <li key={data.BASE_IDX}>
+          <li key={data.BASE_IDX} onClick={() => goDetail(`/company/recruitDetail?recruitIdx=${data.BASE_IDX}`)}>
             <button>
               <div>
                 {data.CATEGORY === "ALL" || data.CATEGORY === "All" ? (

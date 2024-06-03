@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import useWindowSize from "../../hooks/useWindowSize";
-import { getBizSupportList } from "../../api/BizSupport";
+import { getBizSupportList } from "../../api/benefits";
 import { dateFomat } from "../dateFomat";
 import Slider from ".";
 import { useNavigate } from "react-router-dom";

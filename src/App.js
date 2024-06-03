@@ -48,6 +48,7 @@ function App() {
               <Route path="rightPeople" element={<Company />} />
               <Route path="recruitSystem" element={<Company />} />
               <Route path="recruitList" element={<Company />} />
+              <Route path="recruitDetail" element={<Company />} />
             </Route>
             <Route path="*" element={<NoMatch />} />
           </Routes>

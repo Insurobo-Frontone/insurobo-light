@@ -5,7 +5,7 @@ import ContentInner from "../ContentInner";
 import home from "../../assets/icon/common/icon-subHeader_home.png";
 import arrow from "../../assets/icon/common/icon-subHeader_arrow.png";
 
-const SubHeader = ({ data }) => {
+const SubHeader = ({ data, selected }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const url = location.pathname;
@@ -32,7 +32,7 @@ const SubHeader = ({ data }) => {
               onChange={(e) => goPage(e)}
             >
               {data.map((dt) => (
-                <option key={dt.id} value={dt.value} selected={dt.value === url.split('/')[2]}>
+                <option key={dt.id} value={dt.value} selected={selected ? selected : dt.value === url.split('/')[2]}>
                   {dt.title}
                 </option>
               ))}

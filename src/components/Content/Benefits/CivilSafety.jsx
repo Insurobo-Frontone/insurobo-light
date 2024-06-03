@@ -1,11 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { listData2 } from "../../../api/data";
 import SelectInput from "../../Input/SelectInput";
 import Input from "../../Input";
 import MoreButton from "../../Button/MoreButton";
+import { useFormContext } from "react-hook-form";
+import { getCivilSafetyList } from "../../../api/benefits";
+import NoData from "../../Borad/NoData";
 
 const CivilSafety = () => {
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [count, setCount] = useState(0);
+  const { watch } = useFormContext();
+
+  useEffect(() => {
+    searchList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  const searchList = () => {
+    setData([]);
+    setPage(1);
+    getCivilSafetyList(1,10,watch('searchDvsnCity'), watch('searchStrCity')).then((res) => {
+      setData(res.data.items)
+      console.log(res)
+      setCount(res.data.total_count);
+    })
+  }
+  const moreList = () => {
+    getCivilSafetyList(page ,10, watch('searchDvsnCity'), watch('searchStrCity')).then((res) => {
+      setData(data.concat(res.data.items));
+    });
+  }
+
   const goLink = (link) => {
     window.open(link)
   }
@@ -14,37 +40,49 @@ const CivilSafety = () => {
       <SearchWrap>
         <p>검색구분</p>
         <div>
-          <SelectInput name='searchKey_city' placeholder='전체' defaultValue=''>
-            <option value='city'>시도</option>
-            <option value='district'>시군구</option>
+          <SelectInput name='searchDvsnCity' placeholder='전체' defaultValue=''>
+            <option value='sido'>시도</option>
+            <option value='sigun'>시군구</option>
           </SelectInput>
-          <Input name='city_keyword' placeholder='검색어를 입력해주세요.' />
+          <Input name='searchStrCity' placeholder='검색어를 입력해주세요.' />
         </div>
-        <SearchButton>검색</SearchButton>
+        <SearchButton onClick={() => searchList()}>검색</SearchButton>
       </SearchWrap>
-      <ListWrap>
-        <ListTable>
-          <tr>
-            <th>시도<br />(시군구)</th>
-            <th>가입년도<br />(가입기간)</th>
-            <th>보장항목</th>
-            <th>보험·공제사명<br />(전화번호)</th>
-            <th>담당부서<br />(전화번호)</th>
-            <th>홈페이지<br />(상제정보 조회)</th>
-          </tr>
-          {listData2.map((dt) => (
-            <tr key={dt.BASE_IDX}>
-              <td>{dt.CTRD_NM} <br />{dt.SIGNGU_NM}</td>
-              <td>{dt.SBSCRB_YEAR} <br />({dt.SBSCRB_BGNDE}~{dt.SBSCRB_ENDDE})</td>
-              <td>{dt.GRNT_IEM}</td>
-              <td>{dt.CMPNY_NM} <br />({dt.CMPNY_TELNO})</td>
-              <td>{dt.LOCGOV_CHARGER_DEPT_NM}<br />({dt.LOCGOV_CHARGE_OFFM_TELNO})</td>
-              <td><button onClick={() => goLink(dt.HMPG_URL)}>바로가기</button></td>
-            </tr>
-          ))}
-        </ListTable>
-      </ListWrap>
-      <MoreButton />
+      {count > 0 ? (
+        <>
+          <ListWrap>
+            <ListTable>
+              <tr>
+                <th>시도<br />(시군구)</th>
+                <th>가입년도<br />(가입기간)</th>
+                <th>보장항목</th>
+                <th>보험·공제사명<br />(전화번호)</th>
+                <th>담당부서<br />(전화번호)</th>
+                <th>홈페이지<br />(상제정보 조회)</th>
+              </tr>
+              {data.map((dt) => (
+                <tr key={dt.BASE_IDX}>
+                  <td>{dt.CTRD_NM} <br />{dt.SIGNGU_NM}</td>
+                  <td>{dt.SBSCRB_YEAR} <br />({dt.SBSCRB_BGNDE}~{dt.SBSCRB_ENDDE})</td>
+                  <td>{dt.GRNT_IEM}</td>
+                  <td>{dt.CMPNY_NM} <br />({dt.CMPNY_TELNO})</td>
+                  <td>{dt.LOCGOV_CHARGER_DEPT_NM}<br />({dt.LOCGOV_CHARGE_OFFM_TELNO})</td>
+                  <td><button onClick={() => goLink(dt.HMPG_URL)}>바로가기</button></td>
+                </tr>
+              ))}
+            </ListTable>
+          </ListWrap>
+          {count > 10 && (
+            <MoreButton onClick={() => {
+              setPage(page + 1)
+              moreList()
+            }} />
+          )}
+        </>
+      
+        ) : (
+          <NoData />
+        )}
     </>
   )
 }

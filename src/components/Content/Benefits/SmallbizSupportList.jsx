@@ -5,7 +5,7 @@ import SelectInput from "../../Input/SelectInput";
 import { bizType } from "../../../api/data";
 import MoreButton from "../../Button/MoreButton";
 import { useNavigate } from "react-router-dom";
-import { getBizSupportList } from "../../../api/BizSupport";
+import { getBizSupportList } from "../../../api/benefits";
 import { dateFomat } from "../../dateFomat";
 import { useFormContext } from "react-hook-form";
 import NoData from "../../Borad/NoData";
@@ -36,7 +36,7 @@ const SmallbizSupportList = () => {
       setData(data.concat(res.data.items));
     });
   }
-  
+
   const navigate = useNavigate();
   const today = dateFomat(new Date());
 
@@ -88,9 +88,9 @@ const SmallbizSupportList = () => {
           </ListWrap>
           <>
             {count > 10 && (<MoreButton onClick={() => {
-            setPage(page + 1)
-            moreList()
-           }} />)}
+              setPage(page + 1)
+              moreList()
+            }} />)}
           </>
         </>
       ) : (
