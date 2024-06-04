@@ -62,7 +62,7 @@ const CivilSafety = () => {
               </tr>
               {data.map((dt) => (
                 <tr key={dt.BASE_IDX}>
-                  <td>{dt.CTRD_NM} <br />{dt.SIGNGU_NM}</td>
+                  <td>{dt.CTRD_NM} <br />{dt.SIGNGU_NM === null ? '본청' : dt.SIGNGU_NM}</td>
                   <td>{dt.SBSCRB_YEAR} <br />({dt.SBSCRB_BGNDE}~{dt.SBSCRB_ENDDE})</td>
                   <td>{dt.GRNT_IEM}</td>
                   <td>{dt.CMPNY_NM} <br />({dt.CMPNY_TELNO})</td>
