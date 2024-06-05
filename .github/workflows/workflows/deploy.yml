@@ -12,14 +12,14 @@ jobs:
         environment: ${{ inputs.environment }}
         steps:
             - uses: actions/checkout@v4
-            - uses: actions/setup-node@v4
-              with:
-                node-version: 18
             - name: .env setting
               run: |
                 touch .env
                 echo "PORT=${{ vars.SERVICE_PORT }}" >> .env
                 # echo "INSUROBOPLUSDB=${{ secrets.INSUROBOPLUSDB }}" >> .env
+            - uses: actions/setup-node@v4
+              with:
+                node-version: 18
             - name: Deploy 
               uses: up9cloud/action-rsync@master # Hi Mona
 
