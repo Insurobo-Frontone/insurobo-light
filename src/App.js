@@ -36,6 +36,7 @@ function App() {
               <Route path="smallbizTaxRebate" element={<Benefits />} />
               <Route path="civilSafety" element={<Benefits />} />
               <Route path="eventList" element={<Benefits />} />
+              <Route path="eventDetail" element={<Benefits />} />
             </Route>
             <Route path="support" element={<Support />}>
               <Route path="noticeList" element={<Support />} />

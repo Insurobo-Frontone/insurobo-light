@@ -3,13 +3,13 @@ import { css, styled } from "styled-components";
 import CommonButton from "../Button/CommonButton";
 import { useNavigate } from "react-router-dom";
 
-const BoradDetail = ({ data, recruit }) => {
+const BoradDetail = ({ data, recruit, event }) => {
   const navigate = useNavigate();
   return (
     <>
       {recruit ? (
         <>
-           <BoradDetailWrap recruit={recruit}>
+           <BoradDetailWrap recruit={recruit} event={event}>
             <BoradTop>
               {data.CATEGORY === "ALL" || data.CATEGORY === "All" ? (
                 <span className="recruit">
@@ -24,6 +24,7 @@ const BoradDetail = ({ data, recruit }) => {
                   </span>
                 </span>
               )}
+
               <p>{data.START_YMD} ~ {data.END_YMD}</p>
             </BoradTop>
             <BoradContent dangerouslySetInnerHTML={{ __html: data.CONTENT }} />
@@ -31,6 +32,19 @@ const BoradDetail = ({ data, recruit }) => {
           <ButtonWrap>
             <CommonButton title='목록' className='gray' onClick={() => navigate(`/company/recruitList`, { state: { ...data }})} />
             <CommonButton title='지원하기' onClick={() => window.open(`https://www.jobkorea.co.kr/Recruit/GI_Read/44208763?Oem_Code=1`)}/>
+          </ButtonWrap>
+        </>
+      ) : event ? (
+        <>
+          <BoradDetailWrap>
+            <BoradTop className="event">
+              <h2>{data.TITIE}</h2>
+              <p>{data.UPD_DTTM.split('T')[0]}</p>
+            </BoradTop>
+          </BoradDetailWrap>
+          <BoradContent dangerouslySetInnerHTML={{ __html: data.CONTENT }} />
+          <ButtonWrap className="event">
+            <CommonButton title='목록' className='gray' onClick={() => navigate(`/benefits/eventList`, { state: { ...data }})} />
           </ButtonWrap>
         </>
       ) : (
@@ -57,10 +71,6 @@ const BoradDetail = ({ data, recruit }) => {
           </ButtonWrap>
         </>
       )}
-    
-    
-        
-      
     </>
   )
 }
@@ -74,7 +84,7 @@ const BoradDetailWrap = styled.div`
     border-bottom: none;
   `}
   ${(props) => props.theme.window.mobile} {
-
+    padding-bottom: 0;
   }
 `;
 
@@ -108,6 +118,9 @@ const BoradTop = styled.div`
         background-color: #adb5bd;
       }
     }
+  }
+  &.event {
+    padding-bottom: 0;
   }
   .recruit {
     width: 150px;
@@ -158,6 +171,9 @@ const BoradTop = styled.div`
       font-size: 14px;
       line-height: 1.43;
     }
+  }
+  &.event {
+    padding-bottom: 10px;
   }
 `;
 
@@ -236,5 +252,8 @@ const ButtonWrap = styled.div`
         margin-left: 0;
       }
     }
+  }
+  &.event {
+    justify-content: center;
   }
 `;

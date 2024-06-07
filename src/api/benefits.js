@@ -21,3 +21,7 @@ export const getCivilSafetyList = async (page, per_page, searchDvsn, searchStr) 
 export const getEventList = async () => {
   return CommonApi.get(`/api/info/event_list?page=1&per_page=10`);
 }
+
+export const getEventDetail = async (id) => {
+  return CommonApi.get(`api/info/event_detail?eventidx=${id}`);
+}

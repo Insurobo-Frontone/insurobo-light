@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import end from "../../../assets/img/content/event-end.png";
 import { getEventList } from "../../../api/benefits";
+import { useNavigate } from "react-router-dom";
 
 const EventList = () => {
   const [data, setData] = useState([]);
@@ -10,11 +11,16 @@ const EventList = () => {
       setData(res.data.items)
     })
   }, []);
+  const navigate = useNavigate();
+  const goDetail = (link) => {
+    navigate(link)
+  }
+
   return (
     <ListWrap>
       <ul>
         {data.map((dt) => (
-          <li className={dt.DATE_TERM && dt.DATE_TERM === '0' ? '' : 'end'}>
+          <li kety={dt.EVENT_IDX} className={dt.DATE_TERM && dt.DATE_TERM === '0' ? '' : 'end'} onClick={() => goDetail(`/benefits/eventDetail?eventidx=${dt.EVENT_IDX}`)}>
             <button>
               <span className="img-wrap">
                 <img src={`http://210.179.175.154:8070/file/fileDownload/${dt.FILE_ID}`} alt="이벤트 이미지"/>

@@ -10,6 +10,7 @@ import { styled } from "styled-components";
 import PageTitle from "../components/Content/PageTitle";
 import InnerBox from "../components/Content/InnerBox";
 import SmallbizSupportDetail from "../components/Content/Benefits/SmallbizSupportDetail";
+import EventDetail from "../components/Content/Benefits/EventDetail";
 
 const Benefits = () => {
   const data = [
@@ -55,9 +56,11 @@ const Benefits = () => {
               <SmallbizTaxRebate /> ) :
             location.pathname === `/benefits/civilSafety` ? (
               <CivilSafety />) :
-            location.pathname === `/benefits/eventList` && (
-              <EventList />
-          )}
+            location.pathname === `/benefits/eventList` ? (
+              <EventList />) : 
+            location.pathname === `/benefits/eventDetail` && (
+              <EventDetail />
+            )}
         </InnerBox>
       </Content>
     </Layout>
