@@ -16,10 +16,14 @@ jobs:
               run: |
                 touch .env
                 echo "PORT=${{ vars.SERVICE_PORT }}" >> .env
+                echo "REACT_APP_API_URL=${{ vars.REACT_APP_API_URL }}" >> .env
                 # echo "INSUROBOPLUSDB=${{ secrets.INSUROBOPLUSDB }}" >> .env
             - uses: actions/setup-node@v4
               with:
                 node-version: 18
+            - run: |
+                npm i
+                npm run build
             - name: Deploy 
               uses: up9cloud/action-rsync@master # Hi Mona
 
