@@ -39,7 +39,7 @@ const BoradDetail = ({ data, recruit, event }) => {
           <BoradDetailWrap>
             <BoradTop className="event">
               <h2>{data.TITIE}</h2>
-              <p>{data.UPD_DTTM.split('T')[0]}</p>
+              <p>{data.UPD_DTTM}</p>
             </BoradTop>
           </BoradDetailWrap>
           <BoradContent dangerouslySetInnerHTML={{ __html: data.CONTENT }} />
