@@ -17,6 +17,7 @@ jobs:
                 touch .env
                 echo "PORT=${{ vars.SERVICE_PORT }}" >> .env
                 echo "REACT_APP_API_URL=${{ vars.REACT_APP_API_URL }}" >> .env
+                echo "REACT_APP_HOST=${{ vars.REACT_APP_HOST }}" >> .env
                 # echo "INSUROBOPLUSDB=${{ secrets.INSUROBOPLUSDB }}" >> .env
             - uses: actions/setup-node@v4
               with:
