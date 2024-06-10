@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 import useWindowSize from "../../hooks/useWindowSize";
 
 import Slider from ".";
 import oneday from "../../assets/img/main/mainSlideBanner_oneDay.png";
 import travel from "../../assets/img/main/mainSlideBanner_travel.jpg";
+import dmgSF from "../../assets/img/main/mainSlideBanner_dmgSF.jpg";
+import civilSafety from "../../assets/img/main/mainSlideBanner_civilSafety.jpg";
+
 
 const MainSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const navigate = useNavigate();
   const { width } = useWindowSize();
   const settings = {
     speed: 1000,
@@ -34,23 +35,27 @@ const MainSlider = () => {
   const data = [
     {
       id: 1,
-      link: '/freeApply',
+      link: 'https://insuroboplus.com/traveler/oneday',
       img: oneday,
+      tarket: '_blank'
     },
     {
       id: 2,
-      link: '/bizsupport',
+      link: 'https://insuroboplus.com/traveler/home',
       img: travel,
+      tarket: '_blank'
     },
     {
       id: 3,
-      link: '/windstorm',
-      img: oneday,
+      link: 'https://insuroboplus.com/dmgSF/introduce',
+      img: dmgSF,
+      tarket: '_blank'
     },
     {
       id: 4,
-      link: '/bizsupport',
-      img: travel,
+      link: 'https://insurobo.com/benefits/civilSafety',
+      img: civilSafety,
+      tarket: '_self'
     },
   ];
   return (
@@ -67,7 +72,7 @@ const MainSlider = () => {
         <Banner 
           key={dt.id}
           img={dt.img}
-          onClick={() => navigate(dt.link)}
+          onClick={() => window.open(dt.link, dt.tarket)}
         />
       ))}
     </Slider>
