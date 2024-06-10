@@ -3,7 +3,7 @@ import styled from "styled-components";
 import end from "../../../assets/img/content/event-end.png";
 import { getEventList } from "../../../api/benefits";
 import { useNavigate } from "react-router-dom";
-const host_url=process.env.REACT_APP_HOST;
+const host_url=process.env.REACT_APP_INSUROBO_PLUS_HOST;
 
 const EventList = () => {
   const [data, setData] = useState([]);
