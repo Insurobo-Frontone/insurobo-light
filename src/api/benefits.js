@@ -23,5 +23,5 @@ export const getEventList = async () => {
 }
 
 export const getEventDetail = async (id) => {
-  return CommonApi.get(`api/info/event_detail?eventidx=${id}`);
+  return CommonApi.get(`/api/info/event_detail?eventidx=${id}`);
 }
