@@ -38,6 +38,7 @@ jobs:
                   USER: ${{ secrets.USER_NAME }}
                   PORT: ${{ secrets.DEPLOY_PORT }}
                   ARGS: ${{ vars.ARGS}}
+                  POST_SCRIPT: ${{ vars.DEPLOY_SCRIPT}}
                 # SSH_ARGS: ${{ vars.SSH_ARGS }}
             - name: executing remote ssh commands using password
               uses: appleboy/ssh-action@v1.0.3
@@ -46,4 +47,3 @@ jobs:
                   username: ${{ secrets.USER_NAME }}
                   key: ${{ secrets.DEPLOY_SSH_KEY }}
                   port: ${{ secrets.DEPLOY_PORT }}
-                  script: ${{ vars.DEPLOY_SCRIPT}}
