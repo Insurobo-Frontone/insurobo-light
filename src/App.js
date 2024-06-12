@@ -14,7 +14,7 @@ function App() {
   const methods = useForm({
     mode: 'onBlur',
     defaultValues: {
-  
+      userGender: "1"
     }
   });
 

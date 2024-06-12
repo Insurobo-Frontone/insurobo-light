@@ -153,7 +153,15 @@ export const noticeData = [
     NEW_MARK_YN: '',
     NOTICE_DATE: '2024.05.23',
     CONTENT: '',
-  }
+  },
+  {
+    BASE_IDX: '133',
+    NOTICE_YN: '',
+    TITIE: "인슈로보, 서비스 리뉴얼 '고객 편의 확대'",
+    NEW_MARK_YN: '',
+    NOTICE_DATE: '2024.05.23',
+    CONTENT: '',
+  },
 ];
 
 export const faqList = [

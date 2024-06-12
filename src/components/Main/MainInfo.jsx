@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { styled } from "styled-components";
 import ButtonBanner from "./ButtonBanner";
 import appIcon from "../../assets/img/main/appIcon.jpg";
-// import MainTitle from "./MainTitle";
-// import apply from "../../assets/img/main/mainInfo_apply.png";
-// import qna from "../../assets/img/main/mainInfo_qna.png";
-// import documents from "../../assets/img/main/mainInfo_documents.png";
+import MainTitle from "./MainTitle";
+import apply from "../../assets/img/main/mainInfo_apply.png";
+import qna from "../../assets/img/main/mainInfo_qna.png";
+import documents from "../../assets/img/main/mainInfo_documents.png";
+import { noticeData } from "../../api/data";
+import useWindowSize from "../../hooks/useWindowSize";
+import { useNavigate } from "react-router-dom";
 
 const MainInfo = () => {
+  const [data, setData] = useState([]);
+  const { width } = useWindowSize();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setData(noticeData);
+    // getBizSupportList(1,10).then((res) => {
+    //   console.log(res)
+    //   setData(res.data.items)
+    // })
+
+  }, []);
   return (
     <Wrap>
       <div>
@@ -24,7 +39,7 @@ const MainInfo = () => {
           bgColor='#176FFF'
         />
       </div>
-      {/* <div>
+      <div>
         <div>
           <MainTitle
             title='궁금증을 해결해 드릴게요'
@@ -51,18 +66,18 @@ const MainInfo = () => {
               title='공지사항'
               text='인슈로보 주요 정보를 한 눈에!'
             />
-            <button>더보기</button>
+            <button onClick={() => navigate('/support/noticeList')}>더보기</button>
           </div>
           <div className="notice">
             {data.slice(0, width > 768 ? 3 : 4).map((dt) => (
-              <div key={dt.id}>
-                <p>{dt.title}</p>
-                <span>{dt.date}</span>
+              <div key={dt.BASE_IDX}>
+                <p>{dt.TITIE}</p>
+                <span>{dt.NOTICE_DATE}</span>
               </div>
             ))}
           </div>
         </div>
-      </div> */}
+      </div>
     </Wrap>
   )
 }

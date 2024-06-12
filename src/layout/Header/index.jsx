@@ -58,7 +58,7 @@ const Header = () => {
                   <li onClick={() => goPage('/benefits/eventList')}>이벤트</li>
                 </ul>
               </li>
-              {/* <li onClick={() => setCurrentTab(3)} className={currentTab === 3 ? 'active' : ''}>
+              <li onClick={() => setCurrentTab(3)} className={currentTab === 3 ? 'active' : ''}>
                 고객지원
                 <ul>
                   <li onClick={() => goPage('/support/noticeList')}>공지사항</li>
@@ -66,7 +66,7 @@ const Header = () => {
                   <li onClick={() => goPage('/support/counselingRequestForm')}>상담신청</li>
                   <li onClick={() => goPage('/support/mobileGuide')}>모바일 서비스안내</li>
                 </ul>
-              </li> */}
+              </li>
               <li onClick={() => setCurrentTab(4)} className={currentTab === 4 ? 'active' : ''}>
                 회사소개
                 <ul>
