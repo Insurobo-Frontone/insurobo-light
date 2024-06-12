@@ -43,7 +43,7 @@ const Header = () => {
               <li onClick={() => setCurrentTab(1)} className={currentTab === 1 ? 'active' : ''}>
                 금융
                 <ul>
-                  <li onClick={() => goPage('/')}>인슈로보 보험 전체보기</li>
+                  <li onClick={() => window.open('https://insuroboplus.com/home')}>인슈로보 보험 전체보기</li>
                   <li onClick={() => goPage('/finance/smallbizLoan')}>소상공인 전용대출</li>
                   <li onClick={() => goPage('/finance/smallbizCard')}>소상공인 전용카드</li>
                   <li onClick={() => goPage('/finance/stealthBankbook')}>광주은행 WA뱅크 스텔스통장</li>
@@ -77,14 +77,14 @@ const Header = () => {
                 </ul>
               </li>
             </Menu>
-            {/* <User>
-              <li onClick={() => goPage('/')}>
+            <User>
+              <li onClick={() => goPage('/user/login')}>
                 로그인
               </li>
-              <li onClick={() => goPage('/')}>
+              <li onClick={() => goPage('/user/userJoin')}>
                 회원가입
               </li>
-            </User> */}
+            </User>
           </div>
         </Gnb>
       </ContentInner>
@@ -304,7 +304,7 @@ const Menu = styled.ul`
 
 `;
 
-// const User = styled.ul`
+const User = styled.ul`
 
-// `;
+`;
 

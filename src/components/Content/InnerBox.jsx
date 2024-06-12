@@ -1,9 +1,9 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const InnerBox = ({ children }) => {
+const InnerBox = ({ children, small }) => {
   return (
-    <InnerBoxWrap>
+    <InnerBoxWrap small={small}>
       {children}
     </InnerBoxWrap>
   )
@@ -16,6 +16,9 @@ const InnerBoxWrap = styled.div`
   margin: 0 auto;
   font-family: "Pretendard Variable";
 
+  ${props => props.small && css`
+    width: 700px;
+  `}
   ${(props) => props.theme.window.mobile} {
     width: 100%;
     padding: 0 20px 20px;

@@ -9,6 +9,7 @@ import NoMatch from "./pages/NoMatch";
 import Benefits from "./pages/Benefits";
 import Support from "./pages/Support";
 import Company from "./pages/Company";
+import User from "./pages/User";
 
 function App() {
   const methods = useForm({
@@ -50,6 +51,10 @@ function App() {
               <Route path="recruitSystem" element={<Company />} />
               <Route path="recruitList" element={<Company />} />
               <Route path="recruitDetail" element={<Company />} />
+            </Route>
+            <Route path="user" element={<User />}>
+              <Route path="login" element={<User />} />
+              <Route path="userJoin" element={<User />} />
             </Route>
             <Route path="*" element={<NoMatch />} />
           </Routes>

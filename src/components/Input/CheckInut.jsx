@@ -1,13 +1,13 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import checkboxBtn from "../../assets/icon/common/icon-checkbox_default.png";
 import checkboxChekedBtn from "../../assets/icon/common/icon-checkbox_checked.png";
 
-const CheckInput = ({ label, name, required }) => {
+const CheckInput = ({ label, name, required, user }) => {
   const { register } = useFormContext();
   return (
-    <CheckInputWrap>
+    <CheckInputWrap user={user}>
       <input
         type="checkbox"
         name={name}
@@ -42,8 +42,13 @@ const CheckInputWrap = styled.div`
     margin-left: 10px;
     font-weight: 700;
     color: #495057;
+    
   }
-
+  ${props => props.user && css`
+    > label {
+      font-weight: 400;
+    }
+  `}
   ${props => props.theme.window.mobile} {
     > label {
       font-size: 14px;
