@@ -49,7 +49,7 @@ const RadioInputWrap = styled.div`
   > div {
     display: flex;
     align-items: center;
-    &:last-child {
+    &:not(:first-child) {
       margin-left: 30px;
     }
     > label {
@@ -60,7 +60,7 @@ const RadioInputWrap = styled.div`
   }
   ${props => props.theme.window.mobile} {
     > div {
-      &:last-child {
+      &:not(:first-child) {
         margin-left: 0;
       }
       > label {

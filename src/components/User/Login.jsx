@@ -6,12 +6,14 @@ import CommonButton from "../Button/CommonButton";
 import { useNavigate } from "react-router-dom";
 import naver from "../../assets/icon/common/icon-login_naver.png";
 import kakao from "../../assets/icon/common/icon-login_kakao.png";
+import SubTitle from "./SubTitle";
 
 const Login = () => {
   const navigate = useNavigate();
 
   return (
     <Wrap>
+      <SubTitle title='로그인정보를 입력해주세요.' />
       <form>
         <Table>
           <tr>
@@ -33,8 +35,8 @@ const Login = () => {
                 name='pwd'
               />
               <CheckWrap>
-                <CheckInput name='chkSaveID' label='아이디 저장' user/>
-                <CheckInput name='chkAuto' label='자동 로그인' user />
+                <CheckInput name='chkSaveID' label='아이디 저장' className='user' />
+                <CheckInput name='chkAuto' label='자동 로그인' className='user' />
               </CheckWrap>
             </td>
           </tr>

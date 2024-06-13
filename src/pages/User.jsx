@@ -14,13 +14,11 @@ const User = () => {
         <InnerBox small>
           {location.pathname === '/user/login' ? (
             <>
-              <SubTitle>로그인정보를 입력해 주세요.</SubTitle>
               <Login />
             </>
 
           ) : location.pathname === '/user/userJoin' && (
             <>
-              <SubTitle>회원정보를 입력해 주세요.</SubTitle>
               <UserJoin />
             </>
           )}
@@ -37,9 +35,3 @@ const Content = styled.div`
 `;
 
 
-const SubTitle = styled.p`
-  margin-top: 40px;
-  font-weight: 400;
-  font-size: 20px;
-  color: #212529;
-`;

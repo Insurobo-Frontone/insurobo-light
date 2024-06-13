@@ -10,6 +10,7 @@ const Input = ({
   pattern,
   onBlur,
   placeholder,
+  maxLength,
   readOnly
 }) => {
   const { register } = useFormContext();
@@ -23,6 +24,7 @@ const Input = ({
         required: required,
         validate: validate,
         pattern: pattern,
+        maxLength: maxLength,
         onBlur: onBlur
       })}
     />
