@@ -147,7 +147,7 @@ const UserJoin = () => {
           <p>개인정보 유효기간</p>
           <RadioInput name='rdoExpire' data={expiration} />
           <div>
-            <span>* 회원탈퇴시 - 탈퇴 전까지 <b>휴면 전환 걱정 NO</b>인슈로보플러스 평생회원이 되어보세요!</span> 
+            <span>* 회원탈퇴시 - 탈퇴 전까지 <b>휴면 전환 걱정 NO</b> 인슈로보 평생회원이 되어보세요!</span> 
           </div>
         </RadioInputWrap>
         <ButtonWrap>
@@ -186,7 +186,11 @@ const Table = styled.table`
       font-size: 16px;
       border-radius: 8px;
     }
-
+  }
+  ${(props) => props.theme.window.mobile} {
+    tr > * {
+      display: block;
+    }
   }
 `;
 

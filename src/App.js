@@ -10,6 +10,8 @@ import Benefits from "./pages/Benefits";
 import Support from "./pages/Support";
 import Company from "./pages/Company";
 import User from "./pages/User";
+import FooterInfo from "./pages/FooterInfo";
+
 
 function App() {
   const methods = useForm({
@@ -56,6 +58,11 @@ function App() {
               <Route path="login" element={<User />} />
               <Route path="userJoin" element={<User />} />
             </Route>
+            <Route path="layout" element={<FooterInfo />}>
+              <Route path="termsOfUse" element={<FooterInfo />} />
+              <Route path="privacyPolicy" element={<FooterInfo />} />
+            </Route>
+            
             <Route path="*" element={<NoMatch />} />
           </Routes>
         </Router>

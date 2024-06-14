@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import styled, { css } from "styled-components";
 import useWindowSize from "../../hooks/useWindowSize";
 import ContentInner from "../ContentInner";
-
 import logo from "../../assets/img/common/mainLogo.jpg";
 import toggle from "../../assets/icon/common/icon-header_toggle.png";
 import home from "../../assets/icon/common/icon-header_home.png";
@@ -58,7 +57,7 @@ const Header = () => {
                   <li onClick={() => goPage('/benefits/eventList')}>이벤트</li>
                 </ul>
               </li>
-              <li onClick={() => setCurrentTab(3)} className={currentTab === 3 ? 'active' : ''}>
+              {/* <li onClick={() => setCurrentTab(3)} className={currentTab === 3 ? 'active' : ''}>
                 고객지원
                 <ul>
                   <li onClick={() => goPage('/support/noticeList')}>공지사항</li>
@@ -66,7 +65,7 @@ const Header = () => {
                   <li onClick={() => goPage('/support/counselingRequestForm')}>상담신청</li>
                   <li onClick={() => goPage('/support/mobileGuide')}>모바일 서비스안내</li>
                 </ul>
-              </li>
+              </li> */}
               <li onClick={() => setCurrentTab(4)} className={currentTab === 4 ? 'active' : ''}>
                 회사소개
                 <ul>
@@ -77,14 +76,14 @@ const Header = () => {
                 </ul>
               </li>
             </Menu>
-            <User>
+            {/* <User>
               <li onClick={() => goPage('/user/login')}>
                 로그인
               </li>
               <li onClick={() => goPage('/user/userJoin')}>
                 회원가입
               </li>
-            </User>
+            </User> */}
           </div>
         </Gnb>
       </ContentInner>
@@ -304,7 +303,7 @@ const Menu = styled.ul`
 
 `;
 
-const User = styled.ul`
+// const User = styled.ul`
 
-`;
+// `;
 

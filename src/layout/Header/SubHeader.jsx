@@ -24,7 +24,8 @@ const SubHeader = ({ data, selected }) => {
               name === 'finance' ? '금융' :
               name === 'benefits' ? '혜택' :
               name === 'support' ? '고객지원' :
-              name === 'company' && '회사소개'
+              name === 'company' ? '회사소개' :
+              name === 'layout' && 'Footer'
             }
           </li>
           <li>

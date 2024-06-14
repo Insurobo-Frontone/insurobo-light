@@ -2,13 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import ContentInner from "../ContentInner";
 import logo from "../../assets/img/common/mainLogo.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <Wrap>
       <ContentInner>
         <Fnb>
-          <li>회사소개</li>
+          <li onClick={() => navigate('/layout/termsOfUse')}>회사소개</li> 
           <li>개인정보처리방침</li>
           <li>이용약관</li>
         </Fnb>
