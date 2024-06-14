@@ -25,7 +25,7 @@ const MainInfo = () => {
   }, []);
   return (
     <Wrap>
-      <div>
+      {/* <div>
         <ButtonBanner
           title='인슈로보 모바일앱 다운로드'
           text='휴대폰에서도 간편하게!'
@@ -38,9 +38,9 @@ const MainInfo = () => {
           LargeText='070-4126-3333'
           bgColor='#176FFF'
         />
-      </div>
+      </div> */}
       <div>
-        <div>
+        {/* <div>
           <MainTitle
             title='궁금증을 해결해 드릴게요'
             text='상담신청을 통해서 궁금증을 빠르게 해결하세요.'
@@ -59,7 +59,7 @@ const MainInfo = () => {
               <div><img src={documents} alt="필요서류안내"/></div>
             </div>
           </div>
-        </div>
+        </div> */}
         <div>
           <div className="notice_title-wrap">
             <MainTitle

@@ -11,9 +11,9 @@ const Footer = () => {
     <Wrap>
       <ContentInner>
         <Fnb>
-          <li onClick={() => navigate('/layout/termsOfUse')}>회사소개</li> 
-          <li>개인정보처리방침</li>
-          <li>이용약관</li>
+          <li onClick={() => navigate('/company/introduction')}>회사소개</li> 
+          <li onClick={() => navigate('/layout/privacyPolicy')}>개인정보처리방침</li>
+          <li onClick={() => navigate('/layout/termsOfUse')}>이용약관</li>
         </Fnb>
         <ul>
           <li>(주)인슈로보 서울특별시 강남구 논현로 75길 10, 영창빌딩 4층</li>
