@@ -27,7 +27,7 @@
     }
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=3002 && react-scripts start",
     "watch": "npm-watch",
     "build": "react-scripts build",
     "test": "react-scripts test",

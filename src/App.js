@@ -43,6 +43,7 @@ function App() {
             </Route>
             <Route path="support" element={<Support />}>
               <Route path="noticeList" element={<Support />} />
+              <Route path="noticeDetail" element={<Support />} />
               <Route path="faqList" element={<Support />} />
               <Route path="counselingRequestForm" element={<Support />} />
               <Route path="mobileGuide" element={<Support />} />
