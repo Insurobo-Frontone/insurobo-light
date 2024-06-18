@@ -1,16 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { styled } from "styled-components";
-import ButtonBanner from "./ButtonBanner";
-import appIcon from "../../assets/img/main/appIcon.jpg";
+// import ButtonBanner from "./ButtonBanner";
+// import appIcon from "../../assets/img/main/appIcon.jpg";
 // import MainTitle from "./MainTitle";
 // import apply from "../../assets/img/main/mainInfo_apply.png";
 // import qna from "../../assets/img/main/mainInfo_qna.png";
 // import documents from "../../assets/img/main/mainInfo_documents.png";
+// import { noticeData } from "../../api/data";
+import useWindowSize from "../../hooks/useWindowSize";
+import { useNavigate } from "react-router-dom";
+// import { getNoticeList } from "../../api/support";
 
 const MainInfo = () => {
+  // const [data, setData] = useState([]);
+  // const { width } = useWindowSize();
+  // const navigate = useNavigate();
+  // const goDetail = (link) => {
+  //   navigate(link)
+  // }
+  // useEffect(() => {
+  //   getNoticeList(1,10).then((res) => {
+  //     console.log(res)
+  //     setData(res.data.items)
+  //   })
+
+  // }, []);
   return (
     <Wrap>
-      <div>
+      {/* <div>
         <ButtonBanner
           title='인슈로보 모바일앱 다운로드'
           text='휴대폰에서도 간편하게!'
@@ -23,9 +40,9 @@ const MainInfo = () => {
           LargeText='070-4126-3333'
           bgColor='#176FFF'
         />
-      </div>
-      {/* <div>
-        <div>
+      </div> */}
+      <div>
+        {/* <div>
           <MainTitle
             title='궁금증을 해결해 드릴게요'
             text='상담신청을 통해서 궁금증을 빠르게 해결하세요.'
@@ -44,25 +61,25 @@ const MainInfo = () => {
               <div><img src={documents} alt="필요서류안내"/></div>
             </div>
           </div>
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <div className="notice_title-wrap">
             <MainTitle
               title='공지사항'
               text='인슈로보 주요 정보를 한 눈에!'
             />
-            <button>더보기</button>
+            <button onClick={() => navigate('/support/noticeList')}>더보기</button>
           </div>
           <div className="notice">
             {data.slice(0, width > 768 ? 3 : 4).map((dt) => (
-              <div key={dt.id}>
-                <p>{dt.title}</p>
-                <span>{dt.date}</span>
+              <div key={dt.NOTICE_IDX} onClick={() => goDetail(`/support/noticeDetail?noticeidx=${dt.NOTICE_IDX}`)}>
+                <p>{dt.TITIE}</p>
+                <span>{dt.NOTICE_DATE}</span>
               </div>
             ))}
           </div>
-        </div>
-      </div> */}
+        </div> */}
+      </div>
     </Wrap>
   )
 }

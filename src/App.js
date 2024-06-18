@@ -9,12 +9,15 @@ import NoMatch from "./pages/NoMatch";
 import Benefits from "./pages/Benefits";
 import Support from "./pages/Support";
 import Company from "./pages/Company";
+import User from "./pages/User";
+import FooterInfo from "./pages/FooterInfo";
+
 
 function App() {
   const methods = useForm({
     mode: 'onBlur',
     defaultValues: {
-  
+      userGender: "1"
     }
   });
 
@@ -40,6 +43,7 @@ function App() {
             </Route>
             <Route path="support" element={<Support />}>
               <Route path="noticeList" element={<Support />} />
+              <Route path="noticeDetail" element={<Support />} />
               <Route path="faqList" element={<Support />} />
               <Route path="counselingRequestForm" element={<Support />} />
               <Route path="mobileGuide" element={<Support />} />
@@ -51,6 +55,15 @@ function App() {
               <Route path="recruitList" element={<Company />} />
               <Route path="recruitDetail" element={<Company />} />
             </Route>
+            <Route path="user" element={<User />}>
+              <Route path="login" element={<User />} />
+              <Route path="userJoin" element={<User />} />
+            </Route>
+            <Route path="layout" element={<FooterInfo />}>
+              <Route path="termsOfUse" element={<FooterInfo />} />
+              <Route path="privacyPolicy" element={<FooterInfo />} />
+            </Route>
+            
             <Route path="*" element={<NoMatch />} />
           </Routes>
         </Router>

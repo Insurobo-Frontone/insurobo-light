@@ -1,4 +1,4 @@
-import { CommonApi } from "./CommonApi"
+import { CommonApi } from "./CommonApi";
 
 
 export const getBizSupportList = async (page, per_page, searchCodeA, searchDvsn, searchStr) => {

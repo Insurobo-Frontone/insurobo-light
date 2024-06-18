@@ -16,21 +16,21 @@ const Support = () => {
       title: '공지사항',
       value: 'noticeList'
     },
-    {
-      id: 2,
-      title: '자주 묻는 질문',
-      value: 'faqList'
-    },
-    {
-      id: 3,
-      title: '상담신청',
-      value: 'counselingRequestForm'
-    },
-    {
-      id: 4,
-      title: '모바일 서비스 안내',
-      value: 'mobileGuide'
-    },
+    // {
+    //   id: 2,
+    //   title: '자주 묻는 질문',
+    //   value: 'faqList'
+    // },
+    // {
+    //   id: 3,
+    //   title: '상담신청',
+    //   value: 'counselingRequestForm'
+    // },
+    // {
+    //   id: 4,
+    //   title: '모바일 서비스 안내',
+    //   value: 'mobileGuide'
+    // },
   ];
 
   const location = useLocation();

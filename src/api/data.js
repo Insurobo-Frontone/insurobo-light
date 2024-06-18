@@ -141,10 +141,31 @@ export const noticeData = [
   {
     BASE_IDX: '131',
     NOTICE_YN: 'Y',
-    TITIE: "인슈로보, 서비스 리뉴얼 '고객 편의 확대'",
+    TITIE: "[프라임경제]인슈로보, 서비스 리뉴얼 '고객 편의 확대'",
     NEW_MARK_YN: 'Y',
     NOTICE_DATE: '2024.05.23',
-    CONTENT: '',
+    CONTENT: `
+      서민 대표 "소상공인을 비롯한 일반 사용자까지 사업 분야 확장 추진"
+      [프라임경제] 디지털 금융 플랫폼 인슈로보(대표 서민)는 자사의 플랫폼을 리뉴얼해 고객 편의성을 개선했다고 27일 밝혔다.
+
+ 
+
+      인슈로보는 '쉽고 간편한 생활금융파트너'를 지향하는 기업이다. 이번 리뉴얼은 사용자 편의성 제고와 소상공인‧개인 고객을 위한 다양한 금융 서비스 제공 등 
+
+두 가지 핵심 가치를 기반으로 진행됐다.
+
+또 사업자 번호 입력만으로 간편한 보험 가입이 가능한 '손해보험 간편 가입시스템' 기술 고도화와 합리적인 비용으로 꼭 필요한 보장만 빠르고 쉽게 가입할 수 있는
+
+'e보험 간편 가입 서비스'도 함께 선뵀다.
+
+ 
+
+김우람 기자 | kwr@newsprime.co.kr | 2024.03.27 10:15:12
+
+ 
+
+https://www.newsprime.co.kr/news/article/?no=633494
+    `,
   },
   {
     BASE_IDX: '131',
@@ -153,7 +174,15 @@ export const noticeData = [
     NEW_MARK_YN: '',
     NOTICE_DATE: '2024.05.23',
     CONTENT: '',
-  }
+  },
+  {
+    BASE_IDX: '133',
+    NOTICE_YN: '',
+    TITIE: "인슈로보, 서비스 리뉴얼 '고객 편의 확대'",
+    NEW_MARK_YN: '',
+    NOTICE_DATE: '2024.05.23',
+    CONTENT: '',
+  },
 ];
 
 export const faqList = [
@@ -474,4 +503,47 @@ export const recruitList = [
     END_YMD: '2024.06.30',
     CONTENT: `<pre id="contents"><p>인슈로보에 관심가져 주셔서 감사합니다.&nbsp;</p><p>&nbsp;</p><p>&nbsp;현재 진행중인 채용 포지션은 없습니다만,</p><p>&nbsp;</p><p>&nbsp;“소상공인과 개인 고객을 위한 생활금융파트너”라는 비전을 실현할 창의적이고 도전적인 분에 대한 상시 채용 정책을 적용하고 있습니다.</p><p>&nbsp;</p><ul><li><i><strong>&nbsp;지원분야(예. IT개발 , 마케팅, 경영전략 등)를 기재하신 이력서를 보내주시면 포지션 오픈시 가장 빠르게 연락 드리겠습니다</strong></i></li></ul></pre>`
   }
-]
+];
+
+export const interest = [
+  {
+    cdId: "PC10",
+    cdNm: "금융"
+  },
+  {
+    cdId: "PC20",
+    cdNm: "기술"
+  },
+  {
+    cdId: "PC30",
+    cdNm: "인력"
+  },
+  {
+    cdId: "PC40",
+    cdNm: "수출"
+  },
+  {
+    cdId: "PC50",
+    cdNm: "내수"
+  },
+  {
+    cdId: "PC60",
+    cdNm: "창업"
+  },
+  {
+    cdId: "PC70",
+    cdNm: "경영"
+  },
+  {
+    cdId: "PC80",
+    cdNm: "소상공인"
+  },
+  {
+    cdId: "PC90",
+    cdNm: "지원"
+  },
+  {
+    cdId: "PC11",
+    cdNm: "벤처"
+  },
+];
