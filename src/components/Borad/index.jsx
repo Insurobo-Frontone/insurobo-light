@@ -134,7 +134,7 @@ const BoardWrap = styled.div`
           .title {
             margin-left: 0;
             margin-top: 10px;
-   
+            white-space: pre-wrap;
           }
           .date {
             margin-left: 0;

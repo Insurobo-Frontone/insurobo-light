@@ -9,6 +9,7 @@ import NoticeList from "../components/Content/Support/NoticeList";
 import FaqList from "../components/Content/Support/FaqList";
 import MobileGuide from "../components/Content/Support/MobileGuide";
 import CounselingRequestForm from "../components/Content/Support/CounselingRequestForm";
+import NoticeDetail from "../components/Content/Support/NoticeDetail";
 const Support = () => {
   const data = [
     {
@@ -46,6 +47,8 @@ const Support = () => {
         <InnerBox>
           {location.pathname === `/support/noticeList` ? (
             <NoticeList />
+          ) : location.pathname === `/support/noticeDetail` ? (
+            <NoticeDetail /> 
           ) : location.pathname === `/support/faqList` ? (
             <FaqList />
           ) : location.pathname === `/support/counselingRequestForm` && (

@@ -5,7 +5,7 @@ import ContentInner from "../layout/ContentInner";
 import MainBanner from "../components/Main/MainBanner";
 import ProductMiniSlider from "../components/Main/ProductMiniSlider";
 import ButtonBanner from "../components/Main/ButtonBanner";
-
+import MainInfo from "../components/Main/MainInfo";
 import speaker from "../assets/icon/main/icon-mainButton_speaker.png";
 import ProductBanner from "../components/Main/ProductBanner";
 import InfoPlace from "../components/Main/InfoPlace";
@@ -28,9 +28,9 @@ const Home = () => {
        <ProductBanner />
       </ContentInner>
       <InfoPlace />
-      {/* <ContentInner>
+      <ContentInner>
         <MainInfo />
-      </ContentInner> */}
+      </ContentInner>
     </Layout>
   )
 }

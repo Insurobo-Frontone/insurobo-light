@@ -3,7 +3,7 @@ import { css, styled } from "styled-components";
 import CommonButton from "../Button/CommonButton";
 import { useNavigate } from "react-router-dom";
 
-const BoradDetail = ({ data, recruit, event }) => {
+const BoradDetail = ({ data, recruit, event, notice }) => {
   const navigate = useNavigate();
   return (
     <>
@@ -47,7 +47,21 @@ const BoradDetail = ({ data, recruit, event }) => {
             <CommonButton title='목록' className='gray' onClick={() => navigate(`/benefits/eventList`, { state: { ...data }})} />
           </ButtonWrap>
         </>
-      ) : (
+      ) : notice ? (
+        <>
+          <BoradDetailWrap>
+            <BoradTop className="center">
+              <h2>{data.TITIE}</h2>
+              <p>{data.REGIST_DTTM}</p>
+            </BoradTop>
+            <BoradContent dangerouslySetInnerHTML={{ __html: data.CONTENT }} />
+            <ButtonWrap className="center">
+              <CommonButton title='목록' className='gray' onClick={() => navigate(`/support/noticeList`, { state: { ...data }})} />
+            </ButtonWrap>
+          </BoradDetailWrap>
+        </>
+      ) 
+      :(
         <>
           <BoradDetailWrap>
             <BoradTop>
@@ -253,7 +267,7 @@ const ButtonWrap = styled.div`
       }
     }
   }
-  &.event {
+  &.center {
     justify-content: center;
   }
 `;

@@ -1,30 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { styled } from "styled-components";
-// import ButtonBanner from "./ButtonBanner";
-// import appIcon from "../../assets/img/main/appIcon.jpg";
-// import MainTitle from "./MainTitle";
-// import apply from "../../assets/img/main/mainInfo_apply.png";
-// import qna from "../../assets/img/main/mainInfo_qna.png";
-// import documents from "../../assets/img/main/mainInfo_documents.png";
+import ButtonBanner from "./ButtonBanner";
+import appIcon from "../../assets/img/main/appIcon.jpg";
+import MainTitle from "./MainTitle";
+import apply from "../../assets/img/main/mainInfo_apply.png";
+import qna from "../../assets/img/main/mainInfo_qna.png";
+import documents from "../../assets/img/main/mainInfo_documents.png";
 // import { noticeData } from "../../api/data";
 import useWindowSize from "../../hooks/useWindowSize";
 import { useNavigate } from "react-router-dom";
-// import { getNoticeList } from "../../api/support";
+import { getNoticeList } from "../../api/support";
 
 const MainInfo = () => {
-  // const [data, setData] = useState([]);
-  // const { width } = useWindowSize();
-  // const navigate = useNavigate();
-  // const goDetail = (link) => {
-  //   navigate(link)
-  // }
-  // useEffect(() => {
-  //   getNoticeList(1,10).then((res) => {
-  //     console.log(res)
-  //     setData(res.data.items)
-  //   })
+  const [data, setData] = useState([]);
+  const { width } = useWindowSize();
+  const navigate = useNavigate();
+  const goDetail = (link) => {
+    navigate(link)
+  }
+  useEffect(() => {
+    getNoticeList(1,10).then((res) => {
+      console.log(res)
+      setData(res.data.items)
+    })
 
-  // }, []);
+  }, []);
   return (
     <Wrap>
       {/* <div>
@@ -62,7 +62,7 @@ const MainInfo = () => {
             </div>
           </div>
         </div> */}
-        {/* <div>
+        <div>
           <div className="notice_title-wrap">
             <MainTitle
               title='공지사항'
@@ -74,11 +74,11 @@ const MainInfo = () => {
             {data.slice(0, width > 768 ? 3 : 4).map((dt) => (
               <div key={dt.NOTICE_IDX} onClick={() => goDetail(`/support/noticeDetail?noticeidx=${dt.NOTICE_IDX}`)}>
                 <p>{dt.TITIE}</p>
-                <span>{dt.NOTICE_DATE}</span>
+                <span>{dt.REGIST_DTTM.split('T')[0]}</span>
               </div>
             ))}
           </div>
-        </div> */}
+        </div>
       </div>
     </Wrap>
   )

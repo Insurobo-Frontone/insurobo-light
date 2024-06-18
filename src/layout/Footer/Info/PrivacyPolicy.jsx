@@ -1,12 +1,16 @@
 import React from "react";
-import { css, styled } from "styled-components";
+import InnerText from "./InnerText";
+import ListTitle from "./ListTitle";
+import OlList from "./OlList";
+import Table from "./Table";
+import UlTypeList from "./UlTypeList";
 
 const PrivacyPolicy = () => {
   return (
     <>
-      <InnerText>㈜인슈로보플러스(이하 '회사'라 한다.)는 인슈로보플러스 앱 서비스(이하 "서비스"라 한다.)를 제공함에 있어 정보통신망 이용촉진 및 정보보호 등에 관한 법률(이하 "정보통신망법"이라 한다.), 개인정보보호법, 인용정보 이용 및 보호에 관한 법률 등 개인정보 보호 법령을 철저히 준수하면 관련 법규에 의거한 개인정보취급방침을 다음과 같이 두고 있습니다. 회사는 개인정보취급방침을 개정하는 경우 회사가 운영하는 사이트(이하 "사이트"라 한다.) 혹은 서비스의 공지사항(또는 개별공지)를 통해 공지할 것입니다.</InnerText>
+      <InnerText>㈜인슈로보(이하 '회사'라 한다.)는 인슈로보 앱 서비스(이하 "서비스"라 한다.)를 제공함에 있어 정보통신망 이용촉진 및 정보보호 등에 관한 법률(이하 "정보통신망법"이라 한다.), 개인정보보호법, 인용정보 이용 및 보호에 관한 법률 등 개인정보 보호 법령을 철저히 준수하면 관련 법규에 의거한 개인정보취급방침을 다음과 같이 두고 있습니다. 회사는 개인정보취급방침을 개정하는 경우 회사가 운영하는 사이트(이하 "사이트"라 한다.) 혹은 서비스의 공지사항(또는 개별공지)를 통해 공지할 것입니다.</InnerText>
       <ListTitle>1. 수집하는 개인정보의 항목과 이용목적</ListTitle>
-      <OlList type='1' >
+      <OlList type='1'>
         <li>
           1.1 회사는 회원가입, 고객상담, 각종 서비스 등 기본적인 서비스를 위한 필수정보와 고객 맞춤 서비스 제공을 위한 선택정보로 구분하여 아래와 같은 개인정보를 수집하고 있습니다. 수집한 개인정보는 서비스 제공 기간 동안 보유합니다.
           <Table className="table_01">
@@ -293,122 +297,4 @@ const PrivacyPolicy = () => {
 }
 export default PrivacyPolicy;
 
-const InnerText = styled.div`
-  font-weight: 400;
 
-`;
-
-const ListTitle = styled.p`
-  font-weight: 700;
-  margin: 40px 0;
-`;
-
-
-const OlList = styled.ol`
-  
-  .dep2 {
-    padding: 10px;
-    > li {
-      font-weight: 400;
-      margin-bottom: 20px;
-
-    }
-  }
-  .dep3 {
-    > li:not(:first-child) {
-      margin-top: 3px;
-    }
-  }
-  ${props => props.type === '1' && css`
-    
-  `}
-`;
-
-const Table = styled.table`
-  border-top: 1px solid #f1f3f5;
-  margin: 50px 0;
-  th, td {
-    border-bottom: 1px solid #f1f3f5;
-    border-right: 1px solid #f1f3f5;
-    padding: 15px 20px;
-    vertical-align: middle;
-    
-  &:last-child {
-    border-right: 0;
-  }
- }
- th {
-    padding: 15px 20px;
-    color: #495057;
-    background-color: #f8f9fa;
-    text-align: center;
-  }
-  td {
-    text-align: left;
-  }
- &.table_01 {
-  th {
-    &:first-child {
-      width: 15%;
-    }
-    &:nth-child(2) {
-      width: 45%;
-    }
-    &:nth-child(3) {
-      width: 40%;
-    }
-  }
- }
- &.table_02 {
-  th {
-    &:first-child {
-      width: 25%;
-    }
-    &:nth-child(2) {
-      width: 75%;
-    }
-  }
- }
- &.table_03 {
-  th {
-    width: 295px;
-  }
- }
- &.table_04 {
-  width: 100%;
-  th {
-    &:first-child {
-      width: 40%;
-    }
-    &:nth-child(2) {
-      width: 30%;
-    }
-    &:nth-child(3) {
-      width: 30%;
-    }
-  }
- }
- &.table_05 {
-  width: 100%;
-  th {
-    &:first-child {
-      width: 30%;
-    }
-    &:nth-child(2) {
-      width: 25%;
-    }
-    &:nth-child(3) {
-      width: 45%;
-    }
-  }
- }
-`;
-
-  const UlTypeList = styled.ul`
-  margin-top: 40px;
-  > li {
-    &:not(:last-child) {
-      margin-bottom: 20px;
-    }
-  }
-`;

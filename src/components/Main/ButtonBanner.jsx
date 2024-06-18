@@ -15,7 +15,11 @@ const ButtonBanner = ({
 
 
   function goPage(link) {
-    window.open(link)
+    if (link) {
+      window.open(link)
+    } else {
+      return false;
+    }
   }
 
   return (

@@ -1,18 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import SearchInput from "../../Input/SearchInput";
-import { noticeData } from "../../../api/data";
 import MoreButton from "../../Button/MoreButton";
 import Board from "../../Borad";
+import { useFormContext } from "react-hook-form";
+import { getNoticeList } from "../../../api/support";
 
 const NoticeList = () => {
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [count, setCount] = useState(0);
+  const { watch } = useFormContext();
+  useEffect(() => {
+    searchList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const searchList = () => {
+    setData([]);
+    setPage(1);
+    getNoticeList(1,10).then((res) => {
+      setData(res.data.items)
+      setCount(res.data.total_count);
+    })
+  }
+  const moreList = () => {
+    getNoticeList(page ,10).then((res) => {
+      setData(data.concat(res.data.items));
+    });
+  }
+
   return (
     <>
       <SearchWrap>
         <SearchInput name='notice_searchWord' />
       </SearchWrap>
       <Board>
-        {noticeData.map((dt) => (
+        {data.map((dt) => (
           <li key={dt.BASE_IDX}>
             <button>
               <div>
@@ -26,12 +50,12 @@ const NoticeList = () => {
                   )}
                 </span>
               </div>
-              <span className="date">{dt.NOTICE_DATE}</span>
+              <span className="date">{dt.REGIST_DTTM}</span>
             </button>
           </li>
         ))}
       </Board>
-      <MoreButton />
+      <MoreButton onClick={() => moreList()} />
     </>
   )
 }

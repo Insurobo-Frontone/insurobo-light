@@ -8,5 +8,5 @@ export const getNoticeList = async (page, per_page) => {
 
 export const getNoticeDetail = async (id) => {
   return CommonApi.get(
-    `/api/info/event_detail?eventidx=${id}`);
+    `/api/info/notice_detail?noticeidx=${id}`);
 };
