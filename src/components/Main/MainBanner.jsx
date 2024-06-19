@@ -32,7 +32,7 @@ const MainBanner = () => {
                 {width > 768 ? `소상공인을 위한\n맞춤 정보 공간` : `소상공인 맞춤 공간`}
               </p>
             </Link>
-            <Link to='https://insuroboplus.com'>
+            <Link to='https://insuroboplus.com/home'>
               <h2>간편보험계산</h2>
               <p>
                 {width > 768 ? `매우 간단하게\n보험료 계산해보세요.` : `간단한 보험료 계산`}
