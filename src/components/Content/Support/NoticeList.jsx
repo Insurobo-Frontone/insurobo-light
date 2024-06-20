@@ -5,6 +5,7 @@ import MoreButton from "../../Button/MoreButton";
 import Board from "../../Borad";
 import { useFormContext } from "react-hook-form";
 import { getNoticeList } from "../../../api/support";
+import { useNavigate } from "react-router-dom";
 
 const NoticeList = () => {
   const [data, setData] = useState([]);
@@ -29,6 +30,10 @@ const NoticeList = () => {
       setData(data.concat(res.data.items));
     });
   }
+  const navigate = useNavigate();
+  const goDetail = (link) => {
+    navigate(link)
+  }
 
   return (
     <>
@@ -37,11 +42,11 @@ const NoticeList = () => {
       </SearchWrap>
       <Board>
         {data.map((dt) => (
-          <li key={dt.BASE_IDX}>
-            <button>
+          <li key={dt.NOTICE_IDX}>
+            <button onClick={() => goDetail(`/support/noticeDetail?noticeidx=${dt.NOTICE_IDX}`)}>
               <div>
                 <span className={dt.NOTICE_YN && dt.NOTICE_YN === 'Y' ? 'type notice' : 'type'}>
-                  {dt.NOTICE_YN && dt.NOTICE_YN === 'Y' ? '공지' : dt.BASE_IDX}
+                  {dt.NOTICE_YN && dt.NOTICE_YN === 'Y' ? '공지' : dt.NOTICE_IDX}
                 </span>
                 <span className="title">
                   {dt.TITIE}
@@ -50,7 +55,7 @@ const NoticeList = () => {
                   )}
                 </span>
               </div>
-              <span className="date">{dt.REGIST_DTTM}</span>
+              <span className="date">{dt.REGIST_DTTM.split('T')[0]}</span>
             </button>
           </li>
         ))}
