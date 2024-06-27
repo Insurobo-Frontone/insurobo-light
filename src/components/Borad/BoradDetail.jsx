@@ -44,7 +44,7 @@ const BoradDetail = ({ data, recruit, event, notice }) => {
           </BoradDetailWrap>
           <BoradContent dangerouslySetInnerHTML={{ __html: data.CONTENT }} />
           <ButtonWrap className="event">
-            <CommonButton title='목록' className='gray' onClick={() => navigate(`/benefits/eventList`, { state: { ...data }})} />
+            <CommonButton title='목록' className='gray' onClick={() => navigate(`/benefits/eventList`)} />
           </ButtonWrap>
         </>
       ) : notice ? (
@@ -52,11 +52,11 @@ const BoradDetail = ({ data, recruit, event, notice }) => {
           <BoradDetailWrap>
             <BoradTop className="center">
               <h2>{data.TITIE}</h2>
-              <p>{data.REGIST_DTTM.split('T')[0]}</p>
+              <p>{data.REGIST_DTTM}</p>
             </BoradTop>
             <BoradContent dangerouslySetInnerHTML={{ __html: data.CONTENT }} />
             <ButtonWrap className="center">
-              <CommonButton title='목록' className='gray' onClick={() => navigate(`/support/noticeList`, { state: { ...data }})} />
+              <CommonButton title='목록' className='gray' onClick={() => navigate(`/support/noticeList`)} />
             </ButtonWrap>
           </BoradDetailWrap>
         </>
